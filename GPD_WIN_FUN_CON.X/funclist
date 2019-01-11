@@ -1,0 +1,11 @@
+_i2c_byte_read: CODE, 460 0 146
+___ftpack: CODE, 606 0 125
+_i2c_byte_write: CODE, 841 0 67
+_main: CODE, 21 0 439
+___lwtoft: CODE, 993 0 27
+_oscsel: CODE, 952 0 41
+_i2c_Tx: CODE, 1020 0 22
+_InterTimer: CODE, 1042 0 19
+___awtoft: CODE, 908 0 44
+___ftge: CODE, 731 0 110
+Total: 1040

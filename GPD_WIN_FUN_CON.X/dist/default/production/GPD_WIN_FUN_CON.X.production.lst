@@ -1,0 +1,2930 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.82 build 9453 
+                                                                                               Wed Oct 11 01:07:16 2017
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 9453"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F887
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 46 "GPD_WIN_FUN_CON_MAIN.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 46 "GPD_WIN_FUN_CON_MAIN.c"
+    45  2007  E0C4               	dw 0xFCFF & 0xFFFF & 0xEFFF & 0xF7FF & 0xFBFF & 0xFFFF & 0xFFFF & 0xFFDF & 0xFFEF & 0xF
+                                 FFC & 0xFFF7 ;#
+    46                           	FNCALL	_main,_oscsel
+    47                           	FNCALL	_main,_i2c_byte_write
+    48                           	FNCALL	_main,_i2c_byte_read
+    49                           	FNCALL	_main,___lwtoft
+    50                           	FNCALL	_main,___awtoft
+    51                           	FNCALL	_main,___ftge
+    52                           	FNCALL	___lwtoft,___ftpack
+    53                           	FNCALL	___awtoft,___ftpack
+    54                           	FNCALL	_i2c_byte_read,_i2c_Tx
+    55                           	FNCALL	_i2c_byte_write,_i2c_Tx
+    56                           	FNROOT	_main
+    57                           	FNCALL	intlevel1,_InterTimer
+    58                           	global	intlevel1
+    59                           	FNROOT	intlevel1
+    60                           	global	_TMR1ON_Flag
+    61                           	global	_SSPBUF
+    62                           psect	text383,local,class=CODE,delta=2
+    63                           global __ptext383
+    64  0000                     __ptext383:
+    65  0013                     _SSPBUF	set	19
+    66                           	global	_SSPCON
+    67  0014                     _SSPCON	set	20
+    68                           	global	_T1CON
+    69  0010                     _T1CON	set	16
+    70                           	global	_CARRY
+    71  0018                     _CARRY	set	24
+    72                           	global	_GIE
+    73  005F                     _GIE	set	95
+    74                           	global	_PEIE
+    75  005E                     _PEIE	set	94
+    76                           	global	_RA4
+    77  002C                     _RA4	set	44
+    78                           	global	_RA5
+    79  002D                     _RA5	set	45
+    80                           	global	_RC5
+    81  003D                     _RC5	set	61
+    82                           	global	_RC6
+    83  003E                     _RC6	set	62
+    84                           	global	_SSPIF
+    85  0063                     _SSPIF	set	99
+    86                           	global	_TMR1IF
+    87  0060                     _TMR1IF	set	96
+    88                           	global	_TMR1ON
+    89  0080                     _TMR1ON	set	128
+    90                           	global	_OSCCON
+    91  008F                     _OSCCON	set	143
+    92                           	global	_SSPADD
+    93  0093                     _SSPADD	set	147
+    94                           	global	_SSPSTAT
+    95  0094                     _SSPSTAT	set	148
+    96                           	global	_TRISA
+    97  0085                     _TRISA	set	133
+    98                           	global	_TRISB
+    99  0086                     _TRISB	set	134
+   100                           	global	_TRISC
+   101  0087                     _TRISC	set	135
+   102                           	global	_TRISD
+   103  0088                     _TRISD	set	136
+   104                           	global	_ACKDT
+   105  048D                     _ACKDT	set	1165
+   106                           	global	_ACKEN
+   107  048C                     _ACKEN	set	1164
+   108                           	global	_BF
+   109  04A0                     _BF	set	1184
+   110                           	global	_PEN
+   111  048A                     _PEN	set	1162
+   112                           	global	_RCEN
+   113  048B                     _RCEN	set	1163
+   114                           	global	_RSEN
+   115  0489                     _RSEN	set	1161
+   116                           	global	_SEN
+   117  0488                     _SEN	set	1160
+   118                           	global	_TMR1IE
+   119  0460                     _TMR1IE	set	1120
+   120                           	global	_EEADR
+   121  010D                     _EEADR	set	269
+   122                           	global	_EEDATA
+   123  010C                     _EEDATA	set	268
+   124                           	global	_ANSEL
+   125  0188                     _ANSEL	set	392
+   126                           	global	_ANSELH
+   127  0189                     _ANSELH	set	393
+   128                           	global	_EECON1
+   129  018C                     _EECON1	set	396
+   130                           	global	_EECON2
+   131  018D                     _EECON2	set	397
+   132                           	global	_RD
+   133  0C60                     _RD	set	3168
+   134                           	global	_WR
+   135  0C61                     _WR	set	3169
+   136                           	global	_WREN
+   137  0C62                     _WREN	set	3170
+   138                           	file	"C:\Users\MSK319~1\AppData\Local\Temp\sdvk."
+   139                           	line	#
+   140                           psect cinit,class=CODE,delta=2
+   141                           global start_initialization
+   142  0425                     start_initialization:
+   143                           
+   144                           psect	bssCOMMON,class=COMMON,space=1
+   145                           global __pbssCOMMON
+   146  0078                     __pbssCOMMON:
+   147  0078                     _TMR1ON_Flag:
+   148  0078                            ds      2
+   149                           
+   150                           ; Clear objects allocated to COMMON
+   151                           psect cinit,class=CODE,delta=2
+   152  0425  01F8               	clrf	((__pbssCOMMON)+0)&07Fh
+   153  0426  01F9               	clrf	((__pbssCOMMON)+1)&07Fh
+   154                           psect cinit,class=CODE,delta=2
+   155                           global end_of_initialization
+   156                           
+   157                           ;End of C runtime variable initialization code
+   158                           
+   159  0427                     end_of_initialization:
+   160  0427  0183               clrf status
+   161  0428  120A  118A  2815   ljmp _main	;jump to C main() function
+   162                           psect	cstackCOMMON,class=COMMON,space=1
+   163                           global __pcstackCOMMON
+   164  0070                     __pcstackCOMMON:
+   165                           	global	?_InterTimer
+   166  0070                     ?_InterTimer:	; 0 bytes @ 0x0
+   167                           	global	??_InterTimer
+   168  0070                     ??_InterTimer:	; 0 bytes @ 0x0
+   169                           	global	?_i2c_Tx
+   170  0070                     ?_i2c_Tx:	; 2 bytes @ 0x0
+   171                           	global	?_main
+   172  0070                     ?_main:	; 2 bytes @ 0x0
+   173  0070                     	ds	4
+   174                           	global	??___ftpack
+   175  0074                     ??___ftpack:	; 0 bytes @ 0x4
+   176                           	global	??_i2c_Tx
+   177  0074                     ??_i2c_Tx:	; 0 bytes @ 0x4
+   178                           	global	?_oscsel
+   179  0074                     ?_oscsel:	; 2 bytes @ 0x4
+   180                           	global	i2c_Tx@date
+   181  0074                     i2c_Tx@date:	; 1 bytes @ 0x4
+   182                           	global	oscsel@sel1
+   183  0074                     oscsel@sel1:	; 2 bytes @ 0x4
+   184  0074                     	ds	1
+   185                           	global	??_i2c_byte_write
+   186  0075                     ??_i2c_byte_write:	; 0 bytes @ 0x5
+   187                           	global	??_i2c_byte_read
+   188  0075                     ??_i2c_byte_read:	; 0 bytes @ 0x5
+   189  0075                     	ds	1
+   190                           	global	??_oscsel
+   191  0076                     ??_oscsel:	; 0 bytes @ 0x6
+   192  0076                     	ds	1
+   193                           	global	??___lwtoft
+   194  0077                     ??___lwtoft:	; 0 bytes @ 0x7
+   195                           	global	___awtoft@sign
+   196  0077                     ___awtoft@sign:	; 1 bytes @ 0x7
+   197  0077                     	ds	1
+   198                           psect	cstackBANK0,class=BANK0,space=1
+   199                           global __pcstackBANK0
+   200  0020                     __pcstackBANK0:
+   201                           	global	?_i2c_byte_write
+   202  0020                     ?_i2c_byte_write:	; 2 bytes @ 0x0
+   203                           	global	?_i2c_byte_read
+   204  0020                     ?_i2c_byte_read:	; 2 bytes @ 0x0
+   205                           	global	?___ftpack
+   206  0020                     ?___ftpack:	; 3 bytes @ 0x0
+   207                           	global	i2c_byte_write@sel
+   208  0020                     i2c_byte_write@sel:	; 2 bytes @ 0x0
+   209                           	global	i2c_byte_read@sel
+   210  0020                     i2c_byte_read@sel:	; 2 bytes @ 0x0
+   211                           	global	___ftpack@arg
+   212  0020                     ___ftpack@arg:	; 3 bytes @ 0x0
+   213  0020                     	ds	2
+   214                           	global	i2c_byte_write@add
+   215  0022                     i2c_byte_write@add:	; 1 bytes @ 0x2
+   216                           	global	i2c_byte_read@add
+   217  0022                     i2c_byte_read@add:	; 1 bytes @ 0x2
+   218  0022                     	ds	1
+   219                           	global	i2c_byte_write@cmd
+   220  0023                     i2c_byte_write@cmd:	; 1 bytes @ 0x3
+   221                           	global	i2c_byte_read@regadd
+   222  0023                     i2c_byte_read@regadd:	; 1 bytes @ 0x3
+   223                           	global	___ftpack@exp
+   224  0023                     ___ftpack@exp:	; 1 bytes @ 0x3
+   225  0023                     	ds	1
+   226                           	global	i2c_byte_write@date1
+   227  0024                     i2c_byte_write@date1:	; 1 bytes @ 0x4
+   228                           	global	___ftpack@sign
+   229  0024                     ___ftpack@sign:	; 1 bytes @ 0x4
+   230                           	global	i2c_byte_read@read_data
+   231  0024                     i2c_byte_read@read_data:	; 2 bytes @ 0x4
+   232  0024                     	ds	1
+   233                           	global	?___ftge
+   234  0025                     ?___ftge:	; 1 bit 
+   235                           	global	?___lwtoft
+   236  0025                     ?___lwtoft:	; 3 bytes @ 0x5
+   237                           	global	i2c_byte_write@date2
+   238  0025                     i2c_byte_write@date2:	; 1 bytes @ 0x5
+   239                           	global	___lwtoft@c
+   240  0025                     ___lwtoft@c:	; 2 bytes @ 0x5
+   241                           	global	___ftge@ff1
+   242  0025                     ___ftge@ff1:	; 3 bytes @ 0x5
+   243  0025                     	ds	3
+   244                           	global	___ftge@ff2
+   245  0028                     ___ftge@ff2:	; 3 bytes @ 0x8
+   246  0028                     	ds	3
+   247                           	global	??___ftge
+   248  002B                     ??___ftge:	; 0 bytes @ 0xB
+   249  002B                     	ds	6
+   250                           	global	?___awtoft
+   251  0031                     ?___awtoft:	; 3 bytes @ 0x11
+   252                           	global	___awtoft@c
+   253  0031                     ___awtoft@c:	; 2 bytes @ 0x11
+   254  0031                     	ds	3
+   255                           	global	??___awtoft
+   256  0034                     ??___awtoft:	; 0 bytes @ 0x14
+   257  0034                     	ds	2
+   258                           	global	??_main
+   259  0036                     ??_main:	; 0 bytes @ 0x16
+   260  0036                     	ds	3
+   261                           	global	main@tmp
+   262  0039                     main@tmp:	; 3 bytes @ 0x19
+   263  0039                     	ds	3
+   264                           	global	main@faltemp
+   265  003C                     main@faltemp:	; 2 bytes @ 0x1C
+   266  003C                     	ds	2
+   267                           	global	main@val
+   268  003E                     main@val:	; 2 bytes @ 0x1E
+   269  003E                     	ds	2
+   270 ;;Data sizes: Strings 0, constant 0, data 0, bss 2, persistent 0 stack 0
+   271 ;;Auto spaces:   Size  Autos    Used
+   272 ;; COMMON          14      8      10
+   273 ;; BANK0           80     32      32
+   274 ;; BANK1           80      0       0
+   275 ;; BANK3           96      0       0
+   276 ;; BANK2           96      0       0
+   277                           
+   278 ;;
+   279 ;; Pointer list with targets:
+   280                           
+   281 ;; ?___ftpack	float  size(1) Largest target is 0
+   282 ;;
+   283 ;; ?___awtoft	float  size(1) Largest target is 0
+   284 ;;
+   285 ;; ?___lwtoft	float  size(1) Largest target is 0
+   286 ;;
+   287 ;; ?_i2c_byte_read	int  size(1) Largest target is 0
+   288 ;;
+   289                           
+   290                           
+   291 ;;
+   292 ;; Critical Paths under _main in COMMON
+   293 ;;
+   294 ;;   _main->___lwtoft
+   295 ;;   _main->___awtoft
+   296 ;;   ___lwtoft->___ftpack
+   297 ;;   ___awtoft->___ftpack
+   298 ;;   _i2c_byte_read->_i2c_Tx
+   299 ;;   _i2c_byte_write->_i2c_Tx
+   300 ;;   ___ftge->___ftpack
+   301 ;;
+   302 ;; Critical Paths under _InterTimer in COMMON
+   303 ;;
+   304 ;;   None.
+   305 ;;
+   306 ;; Critical Paths under _main in BANK0
+   307 ;;
+   308 ;;   _main->___awtoft
+   309 ;;   ___lwtoft->___ftpack
+   310 ;;   ___awtoft->___ftge
+   311 ;;   ___ftge->___ftpack
+   312 ;;
+   313 ;; Critical Paths under _InterTimer in BANK0
+   314 ;;
+   315 ;;   None.
+   316 ;;
+   317 ;; Critical Paths under _main in BANK1
+   318 ;;
+   319 ;;   None.
+   320 ;;
+   321 ;; Critical Paths under _InterTimer in BANK1
+   322 ;;
+   323 ;;   None.
+   324 ;;
+   325 ;; Critical Paths under _main in BANK3
+   326 ;;
+   327 ;;   None.
+   328 ;;
+   329 ;; Critical Paths under _InterTimer in BANK3
+   330 ;;
+   331 ;;   None.
+   332 ;;
+   333 ;; Critical Paths under _main in BANK2
+   334 ;;
+   335 ;;   None.
+   336 ;;
+   337 ;; Critical Paths under _InterTimer in BANK2
+   338 ;;
+   339 ;;   None.
+   340                           
+   341 ;;
+   342 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   343 ;;
+   344                           
+   345 ;;
+   346 ;;Call Graph Tables:
+   347 ;;
+   348 ;; ---------------------------------------------------------------------------------
+   349 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   350 ;; ---------------------------------------------------------------------------------
+   351 ;; (0) _main                                                10    10      0    1756
+   352 ;;                                             22 BANK0     10    10      0
+   353 ;;                             _oscsel
+   354 ;;                     _i2c_byte_write
+   355 ;;                      _i2c_byte_read
+   356 ;;                           ___lwtoft
+   357 ;;                           ___awtoft
+   358 ;;                             ___ftge
+   359 ;; ---------------------------------------------------------------------------------
+   360 ;; (1) ___lwtoft                                             4     1      3     343
+   361 ;;                                              7 COMMON     1     1      0
+   362 ;;                                              5 BANK0      3     0      3
+   363 ;;                           ___ftpack
+   364 ;; ---------------------------------------------------------------------------------
+   365 ;; (1) ___awtoft                                             6     3      3     445
+   366 ;;                                              7 COMMON     1     1      0
+   367 ;;                                             17 BANK0      5     2      3
+   368 ;;                           ___ftpack
+   369 ;;                             ___ftge (ARG)
+   370 ;; ---------------------------------------------------------------------------------
+   371 ;; (1) _i2c_byte_read                                        8     4      4     254
+   372 ;;                                              5 COMMON     2     2      0
+   373 ;;                                              0 BANK0      6     2      4
+   374 ;;                             _i2c_Tx
+   375 ;; ---------------------------------------------------------------------------------
+   376 ;; (1) _i2c_byte_write                                       7     1      6     132
+   377 ;;                                              5 COMMON     1     1      0
+   378 ;;                                              0 BANK0      6     0      6
+   379 ;;                             _i2c_Tx
+   380 ;; ---------------------------------------------------------------------------------
+   381 ;; (1) ___ftge                                              12     6      6     136
+   382 ;;                                              5 BANK0     12     6      6
+   383 ;;                           ___ftpack (ARG)
+   384 ;; ---------------------------------------------------------------------------------
+   385 ;; (2) ___ftpack                                             8     3      5     312
+   386 ;;                                              4 COMMON     3     3      0
+   387 ;;                                              0 BANK0      5     0      5
+   388 ;; ---------------------------------------------------------------------------------
+   389 ;; (2) _i2c_Tx                                               1     1      0      22
+   390 ;;                                              4 COMMON     1     1      0
+   391 ;; ---------------------------------------------------------------------------------
+   392 ;; (1) _oscsel                                               2     0      2      22
+   393 ;;                                              4 COMMON     2     0      2
+   394 ;; ---------------------------------------------------------------------------------
+   395 ;; Estimated maximum stack depth 2
+   396 ;; ---------------------------------------------------------------------------------
+   397 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   398 ;; ---------------------------------------------------------------------------------
+   399 ;; (3) _InterTimer                                           4     4      0       0
+   400 ;;                                              0 COMMON     4     4      0
+   401 ;; ---------------------------------------------------------------------------------
+   402 ;; Estimated maximum stack depth 3
+   403 ;; ---------------------------------------------------------------------------------
+   404                           
+   405 ;; Call Graph Graphs:
+   406                           
+   407 ;; _main (ROOT)
+   408 ;;   _oscsel
+   409 ;;   _i2c_byte_write
+   410 ;;     _i2c_Tx
+   411 ;;   _i2c_byte_read
+   412 ;;     _i2c_Tx
+   413 ;;   ___lwtoft
+   414 ;;     ___ftpack
+   415 ;;   ___awtoft
+   416 ;;     ___ftpack
+   417 ;;     ___ftge (ARG)
+   418 ;;       ___ftpack (ARG)
+   419 ;;   ___ftge
+   420 ;;     ___ftpack (ARG)
+   421 ;;
+   422 ;; _InterTimer (ROOT)
+   423 ;;
+   424                           
+   425 ;; Address spaces:
+   426                           
+   427 ;;Name               Size   Autos  Total    Cost      Usage
+   428 ;;BITCOMMON            E      0       0       0        0.0%
+   429 ;;EEDATA             100      0       0       0        0.0%
+   430 ;;NULL                 0      0       0       0        0.0%
+   431 ;;CODE                 0      0       0       0        0.0%
+   432 ;;COMMON               E      8       A       1       71.4%
+   433 ;;BITSFR0              0      0       0       1        0.0%
+   434 ;;SFR0                 0      0       0       1        0.0%
+   435 ;;BITSFR1              0      0       0       2        0.0%
+   436 ;;SFR1                 0      0       0       2        0.0%
+   437 ;;STACK                0      0       2       2        0.0%
+   438 ;;ABS                  0      0      2A       3        0.0%
+   439 ;;BITBANK0            50      0       0       4        0.0%
+   440 ;;BITSFR3              0      0       0       4        0.0%
+   441 ;;SFR3                 0      0       0       4        0.0%
+   442 ;;BANK0               50     20      20       5       40.0%
+   443 ;;BITSFR2              0      0       0       5        0.0%
+   444 ;;SFR2                 0      0       0       5        0.0%
+   445 ;;BITBANK1            50      0       0       6        0.0%
+   446 ;;BANK1               50      0       0       7        0.0%
+   447 ;;BITBANK3            60      0       0       8        0.0%
+   448 ;;BANK3               60      0       0       9        0.0%
+   449 ;;BITBANK2            60      0       0      10        0.0%
+   450 ;;BANK2               60      0       0      11        0.0%
+   451 ;;DATA                 0      0      2C      12        0.0%
+   452                           
+   453                           	global	_main
+   454                           psect	maintext,global,class=CODE,delta=2
+   455                           global __pmaintext
+   456  0015                     __pmaintext:
+   457                           
+   458 ;; *************** function _main *****************
+   459 ;; Defined at:
+   460 ;;		line 139 in file "GPD_WIN_FUN_CON_MAIN.c"
+   461 ;; Parameters:    Size  Location     Type
+   462 ;;		None
+   463 ;; Auto vars:     Size  Location     Type
+   464 ;;  tmp             3   25[BANK0 ] float 
+   465 ;;  val             2   30[BANK0 ] unsigned int 
+   466 ;;  faltemp         2   28[BANK0 ] int 
+   467 ;; Return value:  Size  Location     Type
+   468 ;;                  2  1090[COMMON] int 
+   469 ;; Registers used:
+   470 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   471 ;; Tracked objects:
+   472 ;;		On entry : 17F/0
+   473 ;;		On exit  : 0/0
+   474 ;;		Unchanged: 0/0
+   475 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   476 ;;      Params:         0       0       0       0       0
+   477 ;;      Locals:         0       7       0       0       0
+   478 ;;      Temps:          0       3       0       0       0
+   479 ;;      Totals:         0      10       0       0       0
+   480 ;;Total ram usage:       10 bytes
+   481 ;; Hardware stack levels required when called:    3
+   482 ;; This function calls:
+   483 ;;		_oscsel
+   484 ;;		_i2c_byte_write
+   485 ;;		_i2c_byte_read
+   486 ;;		___lwtoft
+   487 ;;		___awtoft
+   488 ;;		___ftge
+   489 ;; This function is called by:
+   490 ;;		Startup code after reset
+   491 ;; This function uses a non-reentrant model
+   492 ;;
+   493                           psect	maintext
+   494                           	file	"GPD_WIN_FUN_CON_MAIN.c"
+   495                           	line	139
+   496                           	global	__size_of_main
+   497  01B7                     	__size_of_main	equ	__end_of_main-_main
+   498                           	
+   499  0015                     _main:	
+   500                           	opt	stack 5
+   501                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   502                           	line	140
+   503                           	
+   504  0015                     l4435:	
+   505                           ;GPD_WIN_FUN_CON_MAIN.c: 140: unsigned int val=0x0000;
+   506  0015  1283               	bcf	status, 5	;RP0=0, select bank0
+   507  0016  1303               	bcf	status, 6	;RP1=0, select bank0
+   508  0017  01BE               	clrf	(main@val)
+   509  0018  01BF               	clrf	(main@val+1)
+   510                           	line	142
+   511                           	
+   512  0019                     l4437:	
+   513                           ;GPD_WIN_FUN_CON_MAIN.c: 141: float tmp;
+   514                           ;GPD_WIN_FUN_CON_MAIN.c: 142: int faltemp = 38;
+   515  0019  3026               	movlw	low(026h)
+   516  001A  00BC               	movwf	(main@faltemp)
+   517  001B  3000               	movlw	high(026h)
+   518  001C  00BD               	movwf	((main@faltemp))+1
+   519                           	line	143
+   520                           	
+   521  001D                     l4439:	
+   522                           ;GPD_WIN_FUN_CON_MAIN.c: 143: oscsel(0);
+   523  001D  3000               	movlw	low(0)
+   524  001E  00F4               	movwf	(?_oscsel)
+   525  001F  3000               	movlw	high(0)
+   526  0020  00F5               	movwf	((?_oscsel))+1
+   527  0021  120A  118A  23B8   	fcall	_oscsel
+              120A  118A         
+   528                           	line	144
+   529                           	
+   530  0026                     l4441:	
+   531                           ;GPD_WIN_FUN_CON_MAIN.c: 144: ANSEL = 0x00;
+   532  0026  1683               	bsf	status, 5	;RP0=1, select bank3
+   533  0027  1703               	bsf	status, 6	;RP1=1, select bank3
+   534  0028  0188               	clrf	(392)^0180h	;volatile
+   535                           	line	145
+   536                           	
+   537  0029                     l4443:	
+   538                           ;GPD_WIN_FUN_CON_MAIN.c: 145: ANSELH = 0x00;
+   539  0029  0189               	clrf	(393)^0180h	;volatile
+   540                           	line	146
+   541                           	
+   542  002A                     l4445:	
+   543                           ;GPD_WIN_FUN_CON_MAIN.c: 146: TRISA = 0b11001111;
+   544  002A  30CF               	movlw	(0CFh)
+   545  002B  1683               	bsf	status, 5	;RP0=1, select bank1
+   546  002C  1303               	bcf	status, 6	;RP1=0, select bank1
+   547  002D  0085               	movwf	(133)^080h	;volatile
+   548                           	line	147
+   549                           	
+   550  002E                     l4447:	
+   551                           ;GPD_WIN_FUN_CON_MAIN.c: 147: TRISB = 0b11111111;
+   552  002E  30FF               	movlw	(0FFh)
+   553  002F  0086               	movwf	(134)^080h	;volatile
+   554                           	line	148
+   555                           	
+   556  0030                     l4449:	
+   557                           ;GPD_WIN_FUN_CON_MAIN.c: 148: TRISC = 0b00011011;
+   558  0030  301B               	movlw	(01Bh)
+   559  0031  0087               	movwf	(135)^080h	;volatile
+   560                           	line	149
+   561                           	
+   562  0032                     l4451:	
+   563                           ;GPD_WIN_FUN_CON_MAIN.c: 149: TRISD = 0x00;
+   564  0032  0188               	clrf	(136)^080h	;volatile
+   565                           	line	150
+   566                           	
+   567  0033                     l4453:	
+   568                           ;GPD_WIN_FUN_CON_MAIN.c: 150: SSPCON = 0b00101000;
+   569  0033  3028               	movlw	(028h)
+   570  0034  1283               	bcf	status, 5	;RP0=0, select bank0
+   571  0035  1303               	bcf	status, 6	;RP1=0, select bank0
+   572  0036  0094               	movwf	(20)	;volatile
+   573                           	line	151
+   574                           	
+   575  0037                     l4455:	
+   576                           ;GPD_WIN_FUN_CON_MAIN.c: 151: SSPSTAT = 0b10000000;
+   577  0037  3080               	movlw	(080h)
+   578  0038  1683               	bsf	status, 5	;RP0=1, select bank1
+   579  0039  1303               	bcf	status, 6	;RP1=0, select bank1
+   580  003A  0094               	movwf	(148)^080h	;volatile
+   581                           	line	152
+   582                           	
+   583  003B                     l4457:	
+   584                           ;GPD_WIN_FUN_CON_MAIN.c: 152: SSPADD = 0x09;
+   585  003B  3009               	movlw	(09h)
+   586  003C  0093               	movwf	(147)^080h	;volatile
+   587                           	line	153
+   588                           	
+   589  003D                     l4459:	
+   590                           ;GPD_WIN_FUN_CON_MAIN.c: 153: T1CON = 0b01110000;
+   591  003D  3070               	movlw	(070h)
+   592  003E  1283               	bcf	status, 5	;RP0=0, select bank0
+   593  003F  1303               	bcf	status, 6	;RP1=0, select bank0
+   594  0040  0090               	movwf	(16)	;volatile
+   595                           	line	154
+   596                           	
+   597  0041                     l4461:	
+   598                           ;GPD_WIN_FUN_CON_MAIN.c: 154: TMR1IF = 0;
+   599  0041  100C               	bcf	(96/8),(96)&7
+   600                           	line	155
+   601                           	
+   602  0042                     l4463:	
+   603                           ;GPD_WIN_FUN_CON_MAIN.c: 155: TMR1IE = 1;
+   604  0042  1683               	bsf	status, 5	;RP0=1, select bank1
+   605  0043  1303               	bcf	status, 6	;RP1=0, select bank1
+   606  0044  140C               	bsf	(1120/8)^080h,(1120)&7
+   607                           	line	156
+   608                           	
+   609  0045                     l4465:	
+   610                           ;GPD_WIN_FUN_CON_MAIN.c: 156: TMR1ON = 0;
+   611  0045  1283               	bcf	status, 5	;RP0=0, select bank0
+   612  0046  1303               	bcf	status, 6	;RP1=0, select bank0
+   613  0047  1010               	bcf	(128/8),(128)&7
+   614                           	line	157
+   615                           	
+   616  0048                     l4467:	
+   617                           ;GPD_WIN_FUN_CON_MAIN.c: 157: PEIE = 1;
+   618  0048  170B               	bsf	(94/8),(94)&7
+   619                           	line	158
+   620                           	
+   621  0049                     l4469:	
+   622                           ;GPD_WIN_FUN_CON_MAIN.c: 158: GIE = 1;
+   623  0049  178B               	bsf	(95/8),(95)&7
+   624                           	line	159
+   625                           	
+   626  004A                     l4471:	
+   627                           ;GPD_WIN_FUN_CON_MAIN.c: 159: i2c_byte_write(0, 0x48, 0x03, 0x40, 0x00);
+   628  004A  3000               	movlw	low(0)
+   629  004B  00A0               	movwf	(?_i2c_byte_write)
+   630  004C  3000               	movlw	high(0)
+   631  004D  00A1               	movwf	((?_i2c_byte_write))+1
+   632  004E  3048               	movlw	(048h)
+   633  004F  00B6               	movwf	(??_main+0)+0
+   634  0050  0836               	movf	(??_main+0)+0,w
+   635  0051  00A2               	movwf	0+(?_i2c_byte_write)+02h
+   636  0052  3003               	movlw	(03h)
+   637  0053  00B7               	movwf	(??_main+1)+0
+   638  0054  0837               	movf	(??_main+1)+0,w
+   639  0055  00A3               	movwf	0+(?_i2c_byte_write)+03h
+   640  0056  3040               	movlw	(040h)
+   641  0057  00B8               	movwf	(??_main+2)+0
+   642  0058  0838               	movf	(??_main+2)+0,w
+   643  0059  00A4               	movwf	0+(?_i2c_byte_write)+04h
+   644  005A  01A5               	clrf	0+(?_i2c_byte_write)+05h
+   645  005B  120A  118A  2349   	fcall	_i2c_byte_write
+              120A  118A         
+   646                           	line	160
+   647                           	
+   648  0060                     l4473:	
+   649                           ;GPD_WIN_FUN_CON_MAIN.c: 160: oscsel(1);
+   650  0060  3001               	movlw	low(01h)
+   651  0061  00F4               	movwf	(?_oscsel)
+   652  0062  3000               	movlw	high(01h)
+   653  0063  00F5               	movwf	((?_oscsel))+1
+   654  0064  120A  118A  23B8   	fcall	_oscsel
+              120A  118A         
+   655                           	line	161
+   656                           	
+   657  0069                     l4475:	
+   658                           ;GPD_WIN_FUN_CON_MAIN.c: 161: RA4 = 0;
+   659  0069  1283               	bcf	status, 5	;RP0=0, select bank0
+   660  006A  1303               	bcf	status, 6	;RP1=0, select bank0
+   661  006B  1205               	bcf	(44/8),(44)&7
+   662                           	line	162
+   663                           	
+   664  006C                     l4477:	
+   665                           ;GPD_WIN_FUN_CON_MAIN.c: 162: RA5 = 1;
+   666  006C  1685               	bsf	(45/8),(45)&7
+   667                           	line	163
+   668                           	
+   669  006D                     l4479:	
+   670                           ;GPD_WIN_FUN_CON_MAIN.c: 163: RC6 = 0;
+   671  006D  1307               	bcf	(62/8),(62)&7
+   672                           	line	164
+   673                           	
+   674  006E                     l4481:	
+   675                           ;GPD_WIN_FUN_CON_MAIN.c: 164: RC5 = 1;
+   676  006E  1687               	bsf	(61/8),(61)&7
+   677                           	line	165
+   678                           	
+   679  006F                     l4483:	
+   680                           ;GPD_WIN_FUN_CON_MAIN.c: 165: _delay((unsigned long)((3000)*(32000/4000.0)));
+   681                           	opt asmopt_off
+   682  006F  3020               movlw	32
+   683  0070  00B7               movwf	((??_main+0)+0+1),f
+   684  0071  3029               	movlw	41
+   685  0072  00B6               movwf	((??_main+0)+0),f
+   686  0073                     u4177:
+   687  0073  0BB6               	decfsz	((??_main+0)+0),f
+   688  0074  2873               	goto	u4177
+   689  0075  0BB7               	decfsz	((??_main+0)+0+1),f
+   690  0076  2873               	goto	u4177
+   691  0077  2878               	nop2
+   692                           opt asmopt_on
+   693                           
+   694                           	line	167
+   695                           	
+   696  0078                     l4485:	
+   697                           ;GPD_WIN_FUN_CON_MAIN.c: 167: RA4 = 0;
+   698  0078  1283               	bcf	status, 5	;RP0=0, select bank0
+   699  0079  1303               	bcf	status, 6	;RP1=0, select bank0
+   700  007A  1205               	bcf	(44/8),(44)&7
+   701                           	line	168
+   702                           	
+   703  007B                     l4487:	
+   704                           ;GPD_WIN_FUN_CON_MAIN.c: 168: RA5 = 0;
+   705  007B  1285               	bcf	(45/8),(45)&7
+   706  007C  287D               	goto	l4489
+   707                           	line	170
+   708                           ;GPD_WIN_FUN_CON_MAIN.c: 170: for(;;){
+   709                           	
+   710  007D                     l1091:	
+   711                           	line	171
+   712                           	
+   713  007D                     l4489:	
+   714                           ;GPD_WIN_FUN_CON_MAIN.c: 171: oscsel(0);
+   715  007D  3000               	movlw	low(0)
+   716  007E  00F4               	movwf	(?_oscsel)
+   717  007F  3000               	movlw	high(0)
+   718  0080  00F5               	movwf	((?_oscsel))+1
+   719  0081  120A  118A  23B8   	fcall	_oscsel
+              120A  118A         
+   720                           	line	172
+   721                           	
+   722  0086                     l4491:	
+   723                           ;GPD_WIN_FUN_CON_MAIN.c: 172: RA4 = 1;
+   724  0086  1283               	bcf	status, 5	;RP0=0, select bank0
+   725  0087  1303               	bcf	status, 6	;RP1=0, select bank0
+   726  0088  1605               	bsf	(44/8),(44)&7
+   727                           	line	173
+   728                           	
+   729  0089                     l4493:	
+   730                           ;GPD_WIN_FUN_CON_MAIN.c: 173: val = i2c_byte_read(0, 0x48, 0x02);
+   731  0089  3000               	movlw	low(0)
+   732  008A  00A0               	movwf	(?_i2c_byte_read)
+   733  008B  3000               	movlw	high(0)
+   734  008C  00A1               	movwf	((?_i2c_byte_read))+1
+   735  008D  3048               	movlw	(048h)
+   736  008E  00B6               	movwf	(??_main+0)+0
+   737  008F  0836               	movf	(??_main+0)+0,w
+   738  0090  00A2               	movwf	0+(?_i2c_byte_read)+02h
+   739  0091  3002               	movlw	(02h)
+   740  0092  00B7               	movwf	(??_main+1)+0
+   741  0093  0837               	movf	(??_main+1)+0,w
+   742  0094  00A3               	movwf	0+(?_i2c_byte_read)+03h
+   743  0095  120A  118A  21CC   	fcall	_i2c_byte_read
+              120A  118A         
+   744  009A  1283               	bcf	status, 5	;RP0=0, select bank0
+   745  009B  1303               	bcf	status, 6	;RP1=0, select bank0
+   746  009C  0821               	movf	(1+(?_i2c_byte_read)),w
+   747  009D  01BF               	clrf	(main@val+1)
+   748  009E  07BF               	addwf	(main@val+1)
+   749  009F  0820               	movf	(0+(?_i2c_byte_read)),w
+   750  00A0  01BE               	clrf	(main@val)
+   751  00A1  07BE               	addwf	(main@val)
+   752                           
+   753                           	line	174
+   754                           	
+   755  00A2                     l4495:	
+   756                           ;GPD_WIN_FUN_CON_MAIN.c: 174: RA4 = 0;
+   757  00A2  1205               	bcf	(44/8),(44)&7
+   758                           	line	175
+   759                           	
+   760  00A3                     l4497:	
+   761                           ;GPD_WIN_FUN_CON_MAIN.c: 175: if(val >= 0b10000000){
+   762  00A3  3000               	movlw	high(080h)
+   763  00A4  023F               	subwf	(main@val+1),w
+   764  00A5  3080               	movlw	low(080h)
+   765  00A6  1903               	skipnz
+   766  00A7  023E               	subwf	(main@val),w
+   767  00A8  1C03               	skipc
+   768  00A9  28AB               	goto	u4101
+   769  00AA  28AC               	goto	u4100
+   770  00AB                     u4101:
+   771  00AB  28C6               	goto	l4503
+   772  00AC                     u4100:
+   773                           	line	176
+   774                           	
+   775  00AC                     l4499:	
+   776                           ;GPD_WIN_FUN_CON_MAIN.c: 176: i2c_byte_write(0, 0x48, 0x03, 0x40, 0x00);
+   777  00AC  3000               	movlw	low(0)
+   778  00AD  00A0               	movwf	(?_i2c_byte_write)
+   779  00AE  3000               	movlw	high(0)
+   780  00AF  00A1               	movwf	((?_i2c_byte_write))+1
+   781  00B0  3048               	movlw	(048h)
+   782  00B1  00B6               	movwf	(??_main+0)+0
+   783  00B2  0836               	movf	(??_main+0)+0,w
+   784  00B3  00A2               	movwf	0+(?_i2c_byte_write)+02h
+   785  00B4  3003               	movlw	(03h)
+   786  00B5  00B7               	movwf	(??_main+1)+0
+   787  00B6  0837               	movf	(??_main+1)+0,w
+   788  00B7  00A3               	movwf	0+(?_i2c_byte_write)+03h
+   789  00B8  3040               	movlw	(040h)
+   790  00B9  00B8               	movwf	(??_main+2)+0
+   791  00BA  0838               	movf	(??_main+2)+0,w
+   792  00BB  00A4               	movwf	0+(?_i2c_byte_write)+04h
+   793  00BC  01A5               	clrf	0+(?_i2c_byte_write)+05h
+   794  00BD  120A  118A  2349   	fcall	_i2c_byte_write
+              120A  118A         
+   795                           	line	177
+   796                           	
+   797  00C2                     l4501:	
+   798                           ;GPD_WIN_FUN_CON_MAIN.c: 177: RA5 = 1;
+   799  00C2  1283               	bcf	status, 5	;RP0=0, select bank0
+   800  00C3  1303               	bcf	status, 6	;RP1=0, select bank0
+   801  00C4  1685               	bsf	(45/8),(45)&7
+   802  00C5  28C6               	goto	l4503
+   803                           	line	178
+   804                           	
+   805  00C6                     l1092:	
+   806                           	line	179
+   807                           	
+   808  00C6                     l4503:	
+   809                           ;GPD_WIN_FUN_CON_MAIN.c: 178: }
+   810                           ;GPD_WIN_FUN_CON_MAIN.c: 179: if(val <= 0b01111111){
+   811  00C6  3000               	movlw	high(080h)
+   812  00C7  023F               	subwf	(main@val+1),w
+   813  00C8  3080               	movlw	low(080h)
+   814  00C9  1903               	skipnz
+   815  00CA  023E               	subwf	(main@val),w
+   816  00CB  1803               	skipnc
+   817  00CC  28CE               	goto	u4111
+   818  00CD  28CF               	goto	u4110
+   819  00CE                     u4111:
+   820  00CE  287D               	goto	l4489
+   821  00CF                     u4110:
+   822                           	line	180
+   823                           	
+   824  00CF                     l4505:	
+   825                           ;GPD_WIN_FUN_CON_MAIN.c: 180: RA5 = 0;
+   826  00CF  1285               	bcf	(45/8),(45)&7
+   827                           	line	181
+   828                           	
+   829  00D0                     l4507:	
+   830                           ;GPD_WIN_FUN_CON_MAIN.c: 181: val = i2c_byte_read(0, 0x48, 0x00);
+   831  00D0  3000               	movlw	low(0)
+   832  00D1  00A0               	movwf	(?_i2c_byte_read)
+   833  00D2  3000               	movlw	high(0)
+   834  00D3  00A1               	movwf	((?_i2c_byte_read))+1
+   835  00D4  3048               	movlw	(048h)
+   836  00D5  00B6               	movwf	(??_main+0)+0
+   837  00D6  0836               	movf	(??_main+0)+0,w
+   838  00D7  00A2               	movwf	0+(?_i2c_byte_read)+02h
+   839  00D8  01A3               	clrf	0+(?_i2c_byte_read)+03h
+   840  00D9  120A  118A  21CC   	fcall	_i2c_byte_read
+              120A  118A         
+   841  00DE  1283               	bcf	status, 5	;RP0=0, select bank0
+   842  00DF  1303               	bcf	status, 6	;RP1=0, select bank0
+   843  00E0  0821               	movf	(1+(?_i2c_byte_read)),w
+   844  00E1  01BF               	clrf	(main@val+1)
+   845  00E2  07BF               	addwf	(main@val+1)
+   846  00E3  0820               	movf	(0+(?_i2c_byte_read)),w
+   847  00E4  01BE               	clrf	(main@val)
+   848  00E5  07BE               	addwf	(main@val)
+   849                           
+   850                           	line	182
+   851                           	
+   852  00E6                     l4509:	
+   853                           ;GPD_WIN_FUN_CON_MAIN.c: 182: val = val << 8;
+   854  00E6  083E               	movf	(main@val),w
+   855  00E7  00B7               	movwf	(??_main+0)+0+1
+   856  00E8  01B6               	clrf	(??_main+0)+0
+   857  00E9  0836               	movf	0+(??_main+0)+0,w
+   858  00EA  00BE               	movwf	(main@val)
+   859  00EB  0837               	movf	1+(??_main+0)+0,w
+   860  00EC  00BF               	movwf	(main@val+1)
+   861                           	line	183
+   862                           	
+   863  00ED                     l4511:	
+   864                           ;GPD_WIN_FUN_CON_MAIN.c: 183: val = val + i2c_byte_read(1, 0x48, 0x00);
+   865  00ED  3001               	movlw	low(01h)
+   866  00EE  00A0               	movwf	(?_i2c_byte_read)
+   867  00EF  3000               	movlw	high(01h)
+   868  00F0  00A1               	movwf	((?_i2c_byte_read))+1
+   869  00F1  3048               	movlw	(048h)
+   870  00F2  00B6               	movwf	(??_main+0)+0
+   871  00F3  0836               	movf	(??_main+0)+0,w
+   872  00F4  00A2               	movwf	0+(?_i2c_byte_read)+02h
+   873  00F5  01A3               	clrf	0+(?_i2c_byte_read)+03h
+   874  00F6  120A  118A  21CC   	fcall	_i2c_byte_read
+              120A  118A         
+   875  00FB  1283               	bcf	status, 5	;RP0=0, select bank0
+   876  00FC  1303               	bcf	status, 6	;RP1=0, select bank0
+   877  00FD  083E               	movf	(main@val),w
+   878  00FE  0720               	addwf	(0+(?_i2c_byte_read)),w
+   879  00FF  00BE               	movwf	(main@val)
+   880  0100  083F               	movf	(main@val+1),w
+   881  0101  1803               	skipnc
+   882  0102  0A3F               	incf	(main@val+1),w
+   883  0103  0721               	addwf	(1+(?_i2c_byte_read)),w
+   884  0104  00BF               	movwf	1+(main@val)
+   885                           	line	184
+   886                           	
+   887  0105                     l4513:	
+   888                           ;GPD_WIN_FUN_CON_MAIN.c: 184: tmp = val / 128;
+   889  0105  083F               	movf	(main@val+1),w
+   890  0106  00B7               	movwf	(??_main+0)+0+1
+   891  0107  083E               	movf	(main@val),w
+   892  0108  00B6               	movwf	(??_main+0)+0
+   893  0109  3007               	movlw	07h
+   894  010A                     u4125:
+   895  010A  1003               	clrc
+   896  010B  0CB7               	rrf	(??_main+0)+1,f
+   897  010C  0CB6               	rrf	(??_main+0)+0,f
+   898  010D  3EFF               	addlw	-1
+   899  010E  1D03               	skipz
+   900  010F  290A               	goto	u4125
+   901  0110  0836               	movf	0+(??_main+0)+0,w
+   902  0111  00A5               	movwf	(?___lwtoft)
+   903  0112  0837               	movf	1+(??_main+0)+0,w
+   904  0113  00A6               	movwf	(?___lwtoft+1)
+   905  0114  120A  118A  23E1   	fcall	___lwtoft
+              120A  118A         
+   906  0119  1283               	bcf	status, 5	;RP0=0, select bank0
+   907  011A  1303               	bcf	status, 6	;RP1=0, select bank0
+   908  011B  0825               	movf	(0+(?___lwtoft)),w
+   909  011C  00B9               	movwf	(main@tmp)
+   910  011D  0826               	movf	(1+(?___lwtoft)),w
+   911  011E  00BA               	movwf	(main@tmp+1)
+   912  011F  0827               	movf	(2+(?___lwtoft)),w
+   913  0120  00BB               	movwf	(main@tmp+2)
+   914                           	line	186
+   915                           	
+   916  0121                     l4515:	
+   917                           ;GPD_WIN_FUN_CON_MAIN.c: 186: if(tmp >= faltemp && tmp <= (faltemp+6)){
+   918  0121  0839               	movf	(main@tmp),w
+   919  0122  00A5               	movwf	(?___ftge)
+   920  0123  083A               	movf	(main@tmp+1),w
+   921  0124  00A6               	movwf	(?___ftge+1)
+   922  0125  083B               	movf	(main@tmp+2),w
+   923  0126  00A7               	movwf	(?___ftge+2)
+   924  0127  083D               	movf	(main@faltemp+1),w
+   925  0128  01B2               	clrf	(?___awtoft+1)
+   926  0129  07B2               	addwf	(?___awtoft+1)
+   927  012A  083C               	movf	(main@faltemp),w
+   928  012B  01B1               	clrf	(?___awtoft)
+   929  012C  07B1               	addwf	(?___awtoft)
+   930                           
+   931  012D  120A  118A  238C   	fcall	___awtoft
+              120A  118A         
+   932  0132  1283               	bcf	status, 5	;RP0=0, select bank0
+   933  0133  1303               	bcf	status, 6	;RP1=0, select bank0
+   934  0134  0831               	movf	(0+(?___awtoft)),w
+   935  0135  00A8               	movwf	0+(?___ftge)+03h
+   936  0136  0832               	movf	(1+(?___awtoft)),w
+   937  0137  00A9               	movwf	1+(?___ftge)+03h
+   938  0138  0833               	movf	(2+(?___awtoft)),w
+   939  0139  00AA               	movwf	2+(?___ftge)+03h
+   940  013A  120A  118A  22DB   	fcall	___ftge
+              120A  118A         
+   941  013F  1C03               	btfss	status,0
+   942  0140  2942               	goto	u4131
+   943  0141  2943               	goto	u4130
+   944  0142                     u4131:
+   945  0142  296F               	goto	l4521
+   946  0143                     u4130:
+   947                           	
+   948  0143                     l4517:	
+   949  0143  1283               	bcf	status, 5	;RP0=0, select bank0
+   950  0144  1303               	bcf	status, 6	;RP1=0, select bank0
+   951  0145  083C               	movf	(main@faltemp),w
+   952  0146  3E06               	addlw	low(06h)
+   953  0147  00B1               	movwf	(?___awtoft)
+   954  0148  083D               	movf	(main@faltemp+1),w
+   955  0149  1803               	skipnc
+   956  014A  3E01               	addlw	1
+   957  014B  3E00               	addlw	high(06h)
+   958  014C  00B2               	movwf	1+(?___awtoft)
+   959  014D  120A  118A  238C   	fcall	___awtoft
+              120A  118A         
+   960  0152  1283               	bcf	status, 5	;RP0=0, select bank0
+   961  0153  1303               	bcf	status, 6	;RP1=0, select bank0
+   962  0154  0831               	movf	(0+(?___awtoft)),w
+   963  0155  00A5               	movwf	(?___ftge)
+   964  0156  0832               	movf	(1+(?___awtoft)),w
+   965  0157  00A6               	movwf	(?___ftge+1)
+   966  0158  0833               	movf	(2+(?___awtoft)),w
+   967  0159  00A7               	movwf	(?___ftge+2)
+   968  015A  0839               	movf	(main@tmp),w
+   969  015B  00A8               	movwf	0+(?___ftge)+03h
+   970  015C  083A               	movf	(main@tmp+1),w
+   971  015D  00A9               	movwf	1+(?___ftge)+03h
+   972  015E  083B               	movf	(main@tmp+2),w
+   973  015F  00AA               	movwf	2+(?___ftge)+03h
+   974  0160  120A  118A  22DB   	fcall	___ftge
+              120A  118A         
+   975  0165  1C03               	btfss	status,0
+   976  0166  2968               	goto	u4141
+   977  0167  2969               	goto	u4140
+   978  0168                     u4141:
+   979  0168  296F               	goto	l4521
+   980  0169                     u4140:
+   981                           	line	187
+   982                           	
+   983  0169                     l4519:	
+   984                           ;GPD_WIN_FUN_CON_MAIN.c: 187: RC6 = 0;
+   985  0169  1283               	bcf	status, 5	;RP0=0, select bank0
+   986  016A  1303               	bcf	status, 6	;RP1=0, select bank0
+   987  016B  1307               	bcf	(62/8),(62)&7
+   988                           	line	188
+   989                           ;GPD_WIN_FUN_CON_MAIN.c: 188: RC5 = 1;
+   990  016C  1687               	bsf	(61/8),(61)&7
+   991                           	line	189
+   992                           ;GPD_WIN_FUN_CON_MAIN.c: 189: RA4 = 0;
+   993  016D  1205               	bcf	(44/8),(44)&7
+   994                           	line	190
+   995                           ;GPD_WIN_FUN_CON_MAIN.c: 190: }
+   996  016E  287D               	goto	l4489
+   997                           	line	191
+   998                           	
+   999  016F                     l1094:	
+  1000                           	
+  1001  016F                     l4521:	
+  1002                           ;GPD_WIN_FUN_CON_MAIN.c: 191: else if(tmp < faltemp){
+  1003  016F  1283               	bcf	status, 5	;RP0=0, select bank0
+  1004  0170  1303               	bcf	status, 6	;RP1=0, select bank0
+  1005  0171  0839               	movf	(main@tmp),w
+  1006  0172  00A5               	movwf	(?___ftge)
+  1007  0173  083A               	movf	(main@tmp+1),w
+  1008  0174  00A6               	movwf	(?___ftge+1)
+  1009  0175  083B               	movf	(main@tmp+2),w
+  1010  0176  00A7               	movwf	(?___ftge+2)
+  1011  0177  083D               	movf	(main@faltemp+1),w
+  1012  0178  01B2               	clrf	(?___awtoft+1)
+  1013  0179  07B2               	addwf	(?___awtoft+1)
+  1014  017A  083C               	movf	(main@faltemp),w
+  1015  017B  01B1               	clrf	(?___awtoft)
+  1016  017C  07B1               	addwf	(?___awtoft)
+  1017                           
+  1018  017D  120A  118A  238C   	fcall	___awtoft
+              120A  118A         
+  1019  0182  1283               	bcf	status, 5	;RP0=0, select bank0
+  1020  0183  1303               	bcf	status, 6	;RP1=0, select bank0
+  1021  0184  0831               	movf	(0+(?___awtoft)),w
+  1022  0185  00A8               	movwf	0+(?___ftge)+03h
+  1023  0186  0832               	movf	(1+(?___awtoft)),w
+  1024  0187  00A9               	movwf	1+(?___ftge)+03h
+  1025  0188  0833               	movf	(2+(?___awtoft)),w
+  1026  0189  00AA               	movwf	2+(?___ftge)+03h
+  1027  018A  120A  118A  22DB   	fcall	___ftge
+              120A  118A         
+  1028  018F  1803               	btfsc	status,0
+  1029  0190  2992               	goto	u4151
+  1030  0191  2993               	goto	u4150
+  1031  0192                     u4151:
+  1032  0192  2999               	goto	l4525
+  1033  0193                     u4150:
+  1034                           	line	192
+  1035                           	
+  1036  0193                     l4523:	
+  1037                           ;GPD_WIN_FUN_CON_MAIN.c: 192: RC6 = 0;
+  1038  0193  1283               	bcf	status, 5	;RP0=0, select bank0
+  1039  0194  1303               	bcf	status, 6	;RP1=0, select bank0
+  1040  0195  1307               	bcf	(62/8),(62)&7
+  1041                           	line	193
+  1042                           ;GPD_WIN_FUN_CON_MAIN.c: 193: RC5 = 0;
+  1043  0196  1287               	bcf	(61/8),(61)&7
+  1044                           	line	194
+  1045                           ;GPD_WIN_FUN_CON_MAIN.c: 194: RA4 = 0;
+  1046  0197  1205               	bcf	(44/8),(44)&7
+  1047                           	line	195
+  1048                           ;GPD_WIN_FUN_CON_MAIN.c: 195: }
+  1049  0198  287D               	goto	l4489
+  1050                           	line	196
+  1051                           	
+  1052  0199                     l1096:	
+  1053                           	
+  1054  0199                     l4525:	
+  1055                           ;GPD_WIN_FUN_CON_MAIN.c: 196: else if(tmp >(faltemp+6)){
+  1056  0199  1283               	bcf	status, 5	;RP0=0, select bank0
+  1057  019A  1303               	bcf	status, 6	;RP1=0, select bank0
+  1058  019B  083C               	movf	(main@faltemp),w
+  1059  019C  3E06               	addlw	low(06h)
+  1060  019D  00B1               	movwf	(?___awtoft)
+  1061  019E  083D               	movf	(main@faltemp+1),w
+  1062  019F  1803               	skipnc
+  1063  01A0  3E01               	addlw	1
+  1064  01A1  3E00               	addlw	high(06h)
+  1065  01A2  00B2               	movwf	1+(?___awtoft)
+  1066  01A3  120A  118A  238C   	fcall	___awtoft
+              120A  118A         
+  1067  01A8  1283               	bcf	status, 5	;RP0=0, select bank0
+  1068  01A9  1303               	bcf	status, 6	;RP1=0, select bank0
+  1069  01AA  0831               	movf	(0+(?___awtoft)),w
+  1070  01AB  00A5               	movwf	(?___ftge)
+  1071  01AC  0832               	movf	(1+(?___awtoft)),w
+  1072  01AD  00A6               	movwf	(?___ftge+1)
+  1073  01AE  0833               	movf	(2+(?___awtoft)),w
+  1074  01AF  00A7               	movwf	(?___ftge+2)
+  1075  01B0  0839               	movf	(main@tmp),w
+  1076  01B1  00A8               	movwf	0+(?___ftge)+03h
+  1077  01B2  083A               	movf	(main@tmp+1),w
+  1078  01B3  00A9               	movwf	1+(?___ftge)+03h
+  1079  01B4  083B               	movf	(main@tmp+2),w
+  1080  01B5  00AA               	movwf	2+(?___ftge)+03h
+  1081  01B6  120A  118A  22DB   	fcall	___ftge
+              120A  118A         
+  1082  01BB  1803               	btfsc	status,0
+  1083  01BC  29BE               	goto	u4161
+  1084  01BD  29BF               	goto	u4160
+  1085  01BE                     u4161:
+  1086  01BE  287D               	goto	l4489
+  1087  01BF                     u4160:
+  1088                           	line	197
+  1089                           	
+  1090  01BF                     l4527:	
+  1091                           ;GPD_WIN_FUN_CON_MAIN.c: 197: RC6 = 1;
+  1092  01BF  1283               	bcf	status, 5	;RP0=0, select bank0
+  1093  01C0  1303               	bcf	status, 6	;RP1=0, select bank0
+  1094  01C1  1707               	bsf	(62/8),(62)&7
+  1095                           	line	198
+  1096                           ;GPD_WIN_FUN_CON_MAIN.c: 198: RC5 = 0;
+  1097  01C2  1287               	bcf	(61/8),(61)&7
+  1098                           	line	199
+  1099                           ;GPD_WIN_FUN_CON_MAIN.c: 199: RA4 = 1;
+  1100  01C3  1605               	bsf	(44/8),(44)&7
+  1101  01C4  287D               	goto	l4489
+  1102                           	line	200
+  1103                           	
+  1104  01C5                     l1098:	
+  1105  01C5  287D               	goto	l4489
+  1106                           	line	201
+  1107                           	
+  1108  01C6                     l1097:	
+  1109  01C6  287D               	goto	l4489
+  1110                           	
+  1111  01C7                     l1095:	
+  1112  01C7  287D               	goto	l4489
+  1113                           	
+  1114  01C8                     l1093:	
+  1115                           	line	202
+  1116                           ;GPD_WIN_FUN_CON_MAIN.c: 200: }
+  1117                           ;GPD_WIN_FUN_CON_MAIN.c: 201: }
+  1118                           ;GPD_WIN_FUN_CON_MAIN.c: 202: }
+  1119  01C8  287D               	goto	l4489
+  1120                           	
+  1121  01C9                     l1099:	
+  1122                           	line	203
+  1123                           	
+  1124  01C9                     l1100:	
+  1125                           	global	start
+  1126  01C9  120A  118A  2812   	ljmp	start
+  1127                           	opt stack 0
+  1128                           GLOBAL	__end_of_main
+  1129  01CC                     	__end_of_main:
+  1130 ;; =============== function _main ends ============
+  1131                           
+  1132                           	signat	_main,90
+  1133                           	global	___lwtoft
+  1134                           psect	text384,local,class=CODE,delta=2
+  1135                           global __ptext384
+  1136  03E1                     __ptext384:
+  1137                           
+  1138 ;; *************** function ___lwtoft *****************
+  1139 ;; Defined at:
+  1140 ;;		line 29 in file "D:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\lwtoft.c"
+  1141 ;; Parameters:    Size  Location     Type
+  1142 ;;  c               2    5[BANK0 ] unsigned int 
+  1143 ;; Auto vars:     Size  Location     Type
+  1144 ;;		None
+  1145 ;; Return value:  Size  Location     Type
+  1146 ;;                  3    5[BANK0 ] float 
+  1147 ;; Registers used:
+  1148 ;;		wreg, status,2, status,0, pclath, cstack
+  1149 ;; Tracked objects:
+  1150 ;;		On entry : 0/0
+  1151 ;;		On exit  : 0/0
+  1152 ;;		Unchanged: 0/0
+  1153 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1154 ;;      Params:         0       3       0       0       0
+  1155 ;;      Locals:         0       0       0       0       0
+  1156 ;;      Temps:          1       0       0       0       0
+  1157 ;;      Totals:         1       3       0       0       0
+  1158 ;;Total ram usage:        4 bytes
+  1159 ;; Hardware stack levels used:    1
+  1160 ;; Hardware stack levels required when called:    2
+  1161 ;; This function calls:
+  1162 ;;		___ftpack
+  1163 ;; This function is called by:
+  1164 ;;		_main
+  1165 ;; This function uses a non-reentrant model
+  1166 ;;
+  1167                           psect	text384
+  1168                           	file	"D:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\lwtoft.c"
+  1169                           	line	29
+  1170                           	global	__size_of___lwtoft
+  1171  001B                     	__size_of___lwtoft	equ	__end_of___lwtoft-___lwtoft
+  1172                           	
+  1173  03E1                     ___lwtoft:	
+  1174                           	opt	stack 5
+  1175                           ; Regs used in ___lwtoft: [wreg+status,2+status,0+pclath+cstack]
+  1176                           	line	30
+  1177                           	
+  1178  03E1                     l4431:	
+  1179  03E1  1283               	bcf	status, 5	;RP0=0, select bank0
+  1180  03E2  1303               	bcf	status, 6	;RP1=0, select bank0
+  1181  03E3  0825               	movf	(___lwtoft@c),w
+  1182  03E4  00A0               	movwf	(?___ftpack)
+  1183  03E5  0826               	movf	(___lwtoft@c+1),w
+  1184  03E6  00A1               	movwf	(?___ftpack+1)
+  1185  03E7  01A2               	clrf	(?___ftpack+2)
+  1186  03E8  308E               	movlw	(08Eh)
+  1187  03E9  00F7               	movwf	(??___lwtoft+0)+0
+  1188  03EA  0877               	movf	(??___lwtoft+0)+0,w
+  1189  03EB  00A3               	movwf	0+(?___ftpack)+03h
+  1190  03EC  01A4               	clrf	0+(?___ftpack)+04h
+  1191  03ED  120A  118A  225E   	fcall	___ftpack
+              120A  118A         
+  1192  03F2  1283               	bcf	status, 5	;RP0=0, select bank0
+  1193  03F3  1303               	bcf	status, 6	;RP1=0, select bank0
+  1194  03F4  0820               	movf	(0+(?___ftpack)),w
+  1195  03F5  00A5               	movwf	(?___lwtoft)
+  1196  03F6  0821               	movf	(1+(?___ftpack)),w
+  1197  03F7  00A6               	movwf	(?___lwtoft+1)
+  1198  03F8  0822               	movf	(2+(?___ftpack)),w
+  1199  03F9  00A7               	movwf	(?___lwtoft+2)
+  1200  03FA  2BFB               	goto	l2312
+  1201                           	
+  1202  03FB                     l4433:	
+  1203                           	line	31
+  1204                           	
+  1205  03FB                     l2312:	
+  1206  03FB  0008               	return
+  1207                           	opt stack 0
+  1208                           GLOBAL	__end_of___lwtoft
+  1209  03FC                     	__end_of___lwtoft:
+  1210 ;; =============== function ___lwtoft ends ============
+  1211                           
+  1212                           	signat	___lwtoft,4219
+  1213                           	global	___awtoft
+  1214                           psect	text385,local,class=CODE,delta=2
+  1215                           global __ptext385
+  1216  038C                     __ptext385:
+  1217                           
+  1218 ;; *************** function ___awtoft *****************
+  1219 ;; Defined at:
+  1220 ;;		line 33 in file "D:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\awtoft.c"
+  1221 ;; Parameters:    Size  Location     Type
+  1222 ;;  c               2   17[BANK0 ] int 
+  1223 ;; Auto vars:     Size  Location     Type
+  1224 ;;  sign            1    7[COMMON] unsigned char 
+  1225 ;; Return value:  Size  Location     Type
+  1226 ;;                  3   17[BANK0 ] float 
+  1227 ;; Registers used:
+  1228 ;;		wreg, status,2, status,0, pclath, cstack
+  1229 ;; Tracked objects:
+  1230 ;;		On entry : 0/0
+  1231 ;;		On exit  : 0/0
+  1232 ;;		Unchanged: 0/0
+  1233 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1234 ;;      Params:         0       3       0       0       0
+  1235 ;;      Locals:         1       0       0       0       0
+  1236 ;;      Temps:          0       2       0       0       0
+  1237 ;;      Totals:         1       5       0       0       0
+  1238 ;;Total ram usage:        6 bytes
+  1239 ;; Hardware stack levels used:    1
+  1240 ;; Hardware stack levels required when called:    2
+  1241 ;; This function calls:
+  1242 ;;		___ftpack
+  1243 ;; This function is called by:
+  1244 ;;		_main
+  1245 ;; This function uses a non-reentrant model
+  1246 ;;
+  1247                           psect	text385
+  1248                           	file	"D:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\awtoft.c"
+  1249                           	line	33
+  1250                           	global	__size_of___awtoft
+  1251  002C                     	__size_of___awtoft	equ	__end_of___awtoft-___awtoft
+  1252                           	
+  1253  038C                     ___awtoft:	
+  1254                           	opt	stack 5
+  1255                           ; Regs used in ___awtoft: [wreg+status,2+status,0+pclath+cstack]
+  1256                           	line	36
+  1257                           	
+  1258  038C                     l4423:	
+  1259  038C  01F7               	clrf	(___awtoft@sign)
+  1260                           	line	37
+  1261  038D  1283               	bcf	status, 5	;RP0=0, select bank0
+  1262  038E  1303               	bcf	status, 6	;RP1=0, select bank0
+  1263  038F  1FB2               	btfss	(___awtoft@c+1),7
+  1264  0390  2B92               	goto	u4091
+  1265  0391  2B93               	goto	u4090
+  1266  0392                     u4091:
+  1267  0392  2B9C               	goto	l4427
+  1268  0393                     u4090:
+  1269                           	line	38
+  1270                           	
+  1271  0393                     l4425:	
+  1272  0393  09B1               	comf	(___awtoft@c),f
+  1273  0394  09B2               	comf	(___awtoft@c+1),f
+  1274  0395  0AB1               	incf	(___awtoft@c),f
+  1275  0396  1903               	skipnz
+  1276  0397  0AB2               	incf	(___awtoft@c+1),f
+  1277                           	line	39
+  1278  0398  01F7               	clrf	(___awtoft@sign)
+  1279  0399  1403               	bsf	status,0
+  1280  039A  0DF7               	rlf	(___awtoft@sign),f
+  1281  039B  2B9C               	goto	l4427
+  1282                           	line	40
+  1283                           	
+  1284  039C                     l2225:	
+  1285                           	line	41
+  1286                           	
+  1287  039C                     l4427:	
+  1288  039C  0831               	movf	(___awtoft@c),w
+  1289  039D  00A0               	movwf	(?___ftpack)
+  1290  039E  0832               	movf	(___awtoft@c+1),w
+  1291  039F  00A1               	movwf	(?___ftpack+1)
+  1292  03A0  01A2               	clrf	(?___ftpack+2)
+  1293  03A1  308E               	movlw	(08Eh)
+  1294  03A2  00B4               	movwf	(??___awtoft+0)+0
+  1295  03A3  0834               	movf	(??___awtoft+0)+0,w
+  1296  03A4  00A3               	movwf	0+(?___ftpack)+03h
+  1297  03A5  0877               	movf	(___awtoft@sign),w
+  1298  03A6  00B5               	movwf	(??___awtoft+1)+0
+  1299  03A7  0835               	movf	(??___awtoft+1)+0,w
+  1300  03A8  00A4               	movwf	0+(?___ftpack)+04h
+  1301  03A9  120A  118A  225E   	fcall	___ftpack
+              120A  118A         
+  1302  03AE  1283               	bcf	status, 5	;RP0=0, select bank0
+  1303  03AF  1303               	bcf	status, 6	;RP1=0, select bank0
+  1304  03B0  0820               	movf	(0+(?___ftpack)),w
+  1305  03B1  00B1               	movwf	(?___awtoft)
+  1306  03B2  0821               	movf	(1+(?___ftpack)),w
+  1307  03B3  00B2               	movwf	(?___awtoft+1)
+  1308  03B4  0822               	movf	(2+(?___ftpack)),w
+  1309  03B5  00B3               	movwf	(?___awtoft+2)
+  1310  03B6  2BB7               	goto	l2226
+  1311                           	
+  1312  03B7                     l4429:	
+  1313                           	line	42
+  1314                           	
+  1315  03B7                     l2226:	
+  1316  03B7  0008               	return
+  1317                           	opt stack 0
+  1318                           GLOBAL	__end_of___awtoft
+  1319  03B8                     	__end_of___awtoft:
+  1320 ;; =============== function ___awtoft ends ============
+  1321                           
+  1322                           	signat	___awtoft,4219
+  1323                           	global	_i2c_byte_read
+  1324                           psect	text386,local,class=CODE,delta=2
+  1325                           global __ptext386
+  1326  01CC                     __ptext386:
+  1327                           
+  1328 ;; *************** function _i2c_byte_read *****************
+  1329 ;; Defined at:
+  1330 ;;		line 104 in file "GPD_WIN_FUN_CON_MAIN.c"
+  1331 ;; Parameters:    Size  Location     Type
+  1332 ;;  sel             2    0[BANK0 ] unsigned int 
+  1333 ;;  add             1    2[BANK0 ] unsigned char 
+  1334 ;;  regadd          1    3[BANK0 ] unsigned char 
+  1335 ;; Auto vars:     Size  Location     Type
+  1336 ;;  read_data       2    4[BANK0 ] unsigned char [2]
+  1337 ;; Return value:  Size  Location     Type
+  1338 ;;                  2    0[BANK0 ] int 
+  1339 ;; Registers used:
+  1340 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1341 ;; Tracked objects:
+  1342 ;;		On entry : 0/0
+  1343 ;;		On exit  : 0/0
+  1344 ;;		Unchanged: 0/0
+  1345 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1346 ;;      Params:         0       4       0       0       0
+  1347 ;;      Locals:         0       2       0       0       0
+  1348 ;;      Temps:          2       0       0       0       0
+  1349 ;;      Totals:         2       6       0       0       0
+  1350 ;;Total ram usage:        8 bytes
+  1351 ;; Hardware stack levels used:    1
+  1352 ;; Hardware stack levels required when called:    2
+  1353 ;; This function calls:
+  1354 ;;		_i2c_Tx
+  1355 ;; This function is called by:
+  1356 ;;		_main
+  1357 ;; This function uses a non-reentrant model
+  1358 ;;
+  1359                           psect	text386
+  1360                           	file	"GPD_WIN_FUN_CON_MAIN.c"
+  1361                           	line	104
+  1362                           	global	__size_of_i2c_byte_read
+  1363  0092                     	__size_of_i2c_byte_read	equ	__end_of_i2c_byte_read-_i2c_byte_read
+  1364                           	
+  1365  01CC                     _i2c_byte_read:	
+  1366                           	opt	stack 5
+  1367                           ; Regs used in _i2c_byte_read: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1368                           	line	106
+  1369                           	
+  1370  01CC                     l4389:	
+  1371                           ;GPD_WIN_FUN_CON_MAIN.c: 105: char read_data[2];
+  1372                           ;GPD_WIN_FUN_CON_MAIN.c: 106: SSPADD = 0x09;
+  1373  01CC  3009               	movlw	(09h)
+  1374  01CD  1683               	bsf	status, 5	;RP0=1, select bank1
+  1375  01CE  1303               	bcf	status, 6	;RP1=0, select bank1
+  1376  01CF  0093               	movwf	(147)^080h	;volatile
+  1377                           	line	107
+  1378                           	
+  1379  01D0                     l4391:	
+  1380                           ;GPD_WIN_FUN_CON_MAIN.c: 107: SEN = 1;
+  1381  01D0  1411               	bsf	(1160/8)^080h,(1160)&7
+  1382                           	line	108
+  1383                           ;GPD_WIN_FUN_CON_MAIN.c: 108: while (SEN);
+  1384  01D1  29D2               	goto	l1061
+  1385                           	
+  1386  01D2                     l1062:	
+  1387                           	
+  1388  01D2                     l1061:	
+  1389  01D2  1811               	btfsc	(1160/8)^080h,(1160)&7
+  1390  01D3  29D5               	goto	u4001
+  1391  01D4  29D6               	goto	u4000
+  1392  01D5                     u4001:
+  1393  01D5  29D2               	goto	l1061
+  1394  01D6                     u4000:
+  1395  01D6  29D7               	goto	l4393
+  1396                           	
+  1397  01D7                     l1063:	
+  1398                           	line	109
+  1399                           	
+  1400  01D7                     l4393:	
+  1401                           ;GPD_WIN_FUN_CON_MAIN.c: 109: i2c_Tx(add);
+  1402  01D7  1283               	bcf	status, 5	;RP0=0, select bank0
+  1403  01D8  1303               	bcf	status, 6	;RP1=0, select bank0
+  1404  01D9  0822               	movf	(i2c_byte_read@add),w
+  1405  01DA  120A  118A  23FC   	fcall	_i2c_Tx
+              120A  118A         
+  1406                           	line	110
+  1407                           ;GPD_WIN_FUN_CON_MAIN.c: 110: i2c_Tx(regadd);
+  1408  01DF  1283               	bcf	status, 5	;RP0=0, select bank0
+  1409  01E0  1303               	bcf	status, 6	;RP1=0, select bank0
+  1410  01E1  0823               	movf	(i2c_byte_read@regadd),w
+  1411  01E2  120A  118A  23FC   	fcall	_i2c_Tx
+              120A  118A         
+  1412                           	line	111
+  1413                           	
+  1414  01E7                     l4395:	
+  1415                           ;GPD_WIN_FUN_CON_MAIN.c: 111: RSEN = 1;
+  1416  01E7  1683               	bsf	status, 5	;RP0=1, select bank1
+  1417  01E8  1303               	bcf	status, 6	;RP1=0, select bank1
+  1418  01E9  1491               	bsf	(1161/8)^080h,(1161)&7
+  1419                           	line	112
+  1420                           ;GPD_WIN_FUN_CON_MAIN.c: 112: while (RSEN);
+  1421  01EA  29EB               	goto	l1064
+  1422                           	
+  1423  01EB                     l1065:	
+  1424                           	
+  1425  01EB                     l1064:	
+  1426  01EB  1891               	btfsc	(1161/8)^080h,(1161)&7
+  1427  01EC  29EE               	goto	u4011
+  1428  01ED  29EF               	goto	u4010
+  1429  01EE                     u4011:
+  1430  01EE  29EB               	goto	l1064
+  1431  01EF                     u4010:
+  1432  01EF  29F0               	goto	l4397
+  1433                           	
+  1434  01F0                     l1066:	
+  1435                           	line	113
+  1436                           	
+  1437  01F0                     l4397:	
+  1438                           ;GPD_WIN_FUN_CON_MAIN.c: 113: add = add << 1;
+  1439  01F0  1283               	bcf	status, 5	;RP0=0, select bank0
+  1440  01F1  1303               	bcf	status, 6	;RP1=0, select bank0
+  1441  01F2  0822               	movf	(i2c_byte_read@add),w
+  1442  01F3  00F5               	movwf	(??_i2c_byte_read+0)+0
+  1443  01F4  0775               	addwf	(??_i2c_byte_read+0)+0,w
+  1444  01F5  00F6               	movwf	(??_i2c_byte_read+1)+0
+  1445  01F6  0876               	movf	(??_i2c_byte_read+1)+0,w
+  1446  01F7  00A2               	movwf	(i2c_byte_read@add)
+  1447                           	line	114
+  1448                           	
+  1449  01F8                     l4399:	
+  1450                           ;GPD_WIN_FUN_CON_MAIN.c: 114: i2c_Tx(add + 0x01);
+  1451  01F8  0822               	movf	(i2c_byte_read@add),w
+  1452  01F9  3E01               	addlw	01h
+  1453  01FA  120A  118A  23FC   	fcall	_i2c_Tx
+              120A  118A         
+  1454                           	line	115
+  1455                           	
+  1456  01FF                     l4401:	
+  1457                           ;GPD_WIN_FUN_CON_MAIN.c: 115: SSPIF = 0;
+  1458  01FF  1283               	bcf	status, 5	;RP0=0, select bank0
+  1459  0200  1303               	bcf	status, 6	;RP1=0, select bank0
+  1460  0201  118C               	bcf	(99/8),(99)&7
+  1461                           	line	116
+  1462                           	
+  1463  0202                     l4403:	
+  1464                           ;GPD_WIN_FUN_CON_MAIN.c: 116: RCEN = 1;
+  1465  0202  1683               	bsf	status, 5	;RP0=1, select bank1
+  1466  0203  1303               	bcf	status, 6	;RP1=0, select bank1
+  1467  0204  1591               	bsf	(1163/8)^080h,(1163)&7
+  1468                           	line	117
+  1469                           ;GPD_WIN_FUN_CON_MAIN.c: 117: while (RCEN);
+  1470  0205  2A06               	goto	l1067
+  1471                           	
+  1472  0206                     l1068:	
+  1473                           	
+  1474  0206                     l1067:	
+  1475  0206  1991               	btfsc	(1163/8)^080h,(1163)&7
+  1476  0207  2A09               	goto	u4021
+  1477  0208  2A0A               	goto	u4020
+  1478  0209                     u4021:
+  1479  0209  2A06               	goto	l1067
+  1480  020A                     u4020:
+  1481  020A  2A0C               	goto	l1070
+  1482                           	
+  1483  020B                     l1069:	
+  1484                           	line	118
+  1485                           ;GPD_WIN_FUN_CON_MAIN.c: 118: while (!BF);
+  1486  020B  2A0C               	goto	l1070
+  1487                           	
+  1488  020C                     l1071:	
+  1489                           	
+  1490  020C                     l1070:	
+  1491  020C  1C14               	btfss	(1184/8)^080h,(1184)&7
+  1492  020D  2A0F               	goto	u4031
+  1493  020E  2A10               	goto	u4030
+  1494  020F                     u4031:
+  1495  020F  2A0C               	goto	l1070
+  1496  0210                     u4030:
+  1497  0210  2A11               	goto	l4405
+  1498                           	
+  1499  0211                     l1072:	
+  1500                           	line	119
+  1501                           	
+  1502  0211                     l4405:	
+  1503                           ;GPD_WIN_FUN_CON_MAIN.c: 119: read_data[0] = SSPBUF;
+  1504  0211  1283               	bcf	status, 5	;RP0=0, select bank0
+  1505  0212  1303               	bcf	status, 6	;RP1=0, select bank0
+  1506  0213  0813               	movf	(19),w	;volatile
+  1507  0214  00F5               	movwf	(??_i2c_byte_read+0)+0
+  1508  0215  0875               	movf	(??_i2c_byte_read+0)+0,w
+  1509  0216  00A4               	movwf	(i2c_byte_read@read_data)
+  1510                           	line	120
+  1511                           	
+  1512  0217                     l4407:	
+  1513                           ;GPD_WIN_FUN_CON_MAIN.c: 120: ACKDT = 0;
+  1514  0217  1683               	bsf	status, 5	;RP0=1, select bank1
+  1515  0218  1303               	bcf	status, 6	;RP1=0, select bank1
+  1516  0219  1291               	bcf	(1165/8)^080h,(1165)&7
+  1517                           	line	121
+  1518                           	
+  1519  021A                     l4409:	
+  1520                           ;GPD_WIN_FUN_CON_MAIN.c: 121: ACKEN = 1;
+  1521  021A  1611               	bsf	(1164/8)^080h,(1164)&7
+  1522                           	line	122
+  1523                           ;GPD_WIN_FUN_CON_MAIN.c: 122: while (ACKEN);
+  1524  021B  2A1C               	goto	l1073
+  1525                           	
+  1526  021C                     l1074:	
+  1527                           	
+  1528  021C                     l1073:	
+  1529  021C  1A11               	btfsc	(1164/8)^080h,(1164)&7
+  1530  021D  2A1F               	goto	u4041
+  1531  021E  2A20               	goto	u4040
+  1532  021F                     u4041:
+  1533  021F  2A1C               	goto	l1073
+  1534  0220                     u4040:
+  1535                           	
+  1536  0220                     l1075:	
+  1537                           	line	123
+  1538                           ;GPD_WIN_FUN_CON_MAIN.c: 123: SSPIF = 0;
+  1539  0220  1283               	bcf	status, 5	;RP0=0, select bank0
+  1540  0221  1303               	bcf	status, 6	;RP1=0, select bank0
+  1541  0222  118C               	bcf	(99/8),(99)&7
+  1542                           	line	124
+  1543                           ;GPD_WIN_FUN_CON_MAIN.c: 124: RCEN = 1;
+  1544  0223  1683               	bsf	status, 5	;RP0=1, select bank1
+  1545  0224  1303               	bcf	status, 6	;RP1=0, select bank1
+  1546  0225  1591               	bsf	(1163/8)^080h,(1163)&7
+  1547                           	line	125
+  1548                           ;GPD_WIN_FUN_CON_MAIN.c: 125: while (RCEN);
+  1549  0226  2A27               	goto	l1076
+  1550                           	
+  1551  0227                     l1077:	
+  1552                           	
+  1553  0227                     l1076:	
+  1554  0227  1991               	btfsc	(1163/8)^080h,(1163)&7
+  1555  0228  2A2A               	goto	u4051
+  1556  0229  2A2B               	goto	u4050
+  1557  022A                     u4051:
+  1558  022A  2A27               	goto	l1076
+  1559  022B                     u4050:
+  1560  022B  2A2D               	goto	l1079
+  1561                           	
+  1562  022C                     l1078:	
+  1563                           	line	126
+  1564                           ;GPD_WIN_FUN_CON_MAIN.c: 126: while (!BF);
+  1565  022C  2A2D               	goto	l1079
+  1566                           	
+  1567  022D                     l1080:	
+  1568                           	
+  1569  022D                     l1079:	
+  1570  022D  1C14               	btfss	(1184/8)^080h,(1184)&7
+  1571  022E  2A30               	goto	u4061
+  1572  022F  2A31               	goto	u4060
+  1573  0230                     u4061:
+  1574  0230  2A2D               	goto	l1079
+  1575  0231                     u4060:
+  1576  0231  2A32               	goto	l4411
+  1577                           	
+  1578  0232                     l1081:	
+  1579                           	line	127
+  1580                           	
+  1581  0232                     l4411:	
+  1582                           ;GPD_WIN_FUN_CON_MAIN.c: 127: read_data[1] = SSPBUF;
+  1583  0232  1283               	bcf	status, 5	;RP0=0, select bank0
+  1584  0233  1303               	bcf	status, 6	;RP1=0, select bank0
+  1585  0234  0813               	movf	(19),w	;volatile
+  1586  0235  00F5               	movwf	(??_i2c_byte_read+0)+0
+  1587  0236  0875               	movf	(??_i2c_byte_read+0)+0,w
+  1588  0237  00A5               	movwf	0+(i2c_byte_read@read_data)+01h
+  1589                           	line	128
+  1590                           	
+  1591  0238                     l4413:	
+  1592                           ;GPD_WIN_FUN_CON_MAIN.c: 128: ACKDT = 1;
+  1593  0238  1683               	bsf	status, 5	;RP0=1, select bank1
+  1594  0239  1303               	bcf	status, 6	;RP1=0, select bank1
+  1595  023A  1691               	bsf	(1165/8)^080h,(1165)&7
+  1596                           	line	129
+  1597                           	
+  1598  023B                     l4415:	
+  1599                           ;GPD_WIN_FUN_CON_MAIN.c: 129: ACKEN = 1;
+  1600  023B  1611               	bsf	(1164/8)^080h,(1164)&7
+  1601                           	line	130
+  1602                           ;GPD_WIN_FUN_CON_MAIN.c: 130: while (ACKEN);
+  1603  023C  2A3D               	goto	l1082
+  1604                           	
+  1605  023D                     l1083:	
+  1606                           	
+  1607  023D                     l1082:	
+  1608  023D  1A11               	btfsc	(1164/8)^080h,(1164)&7
+  1609  023E  2A40               	goto	u4071
+  1610  023F  2A41               	goto	u4070
+  1611  0240                     u4071:
+  1612  0240  2A3D               	goto	l1082
+  1613  0241                     u4070:
+  1614                           	
+  1615  0241                     l1084:	
+  1616                           	line	131
+  1617                           ;GPD_WIN_FUN_CON_MAIN.c: 131: SSPIF = 0;
+  1618  0241  1283               	bcf	status, 5	;RP0=0, select bank0
+  1619  0242  1303               	bcf	status, 6	;RP1=0, select bank0
+  1620  0243  118C               	bcf	(99/8),(99)&7
+  1621                           	line	132
+  1622                           ;GPD_WIN_FUN_CON_MAIN.c: 132: PEN = 1;
+  1623  0244  1683               	bsf	status, 5	;RP0=1, select bank1
+  1624  0245  1303               	bcf	status, 6	;RP1=0, select bank1
+  1625  0246  1511               	bsf	(1162/8)^080h,(1162)&7
+  1626                           	line	133
+  1627                           ;GPD_WIN_FUN_CON_MAIN.c: 133: while (PEN);
+  1628  0247  2A48               	goto	l1085
+  1629                           	
+  1630  0248                     l1086:	
+  1631                           	
+  1632  0248                     l1085:	
+  1633  0248  1911               	btfsc	(1162/8)^080h,(1162)&7
+  1634  0249  2A4B               	goto	u4081
+  1635  024A  2A4C               	goto	u4080
+  1636  024B                     u4081:
+  1637  024B  2A48               	goto	l1085
+  1638  024C                     u4080:
+  1639  024C  2A4D               	goto	l4417
+  1640                           	
+  1641  024D                     l1087:	
+  1642                           	line	134
+  1643                           	
+  1644  024D                     l4417:	
+  1645                           ;GPD_WIN_FUN_CON_MAIN.c: 134: SSPADD = 0x09;
+  1646  024D  3009               	movlw	(09h)
+  1647  024E  0093               	movwf	(147)^080h	;volatile
+  1648                           	line	135
+  1649                           	
+  1650  024F                     l4419:	
+  1651                           ;GPD_WIN_FUN_CON_MAIN.c: 135: return (read_data[sel]);
+  1652  024F  1283               	bcf	status, 5	;RP0=0, select bank0
+  1653  0250  1303               	bcf	status, 6	;RP1=0, select bank0
+  1654  0251  0820               	movf	(i2c_byte_read@sel),w
+  1655  0252  3E24               	addlw	i2c_byte_read@read_data&0ffh
+  1656  0253  0084               	movwf	fsr0
+  1657  0254  1383               	bcf	status, 7	;select IRP bank0
+  1658  0255  0800               	movf	indf,w
+  1659  0256  00F5               	movwf	(??_i2c_byte_read+0)+0
+  1660  0257  01F6               	clrf	(??_i2c_byte_read+0)+0+1
+  1661  0258  0875               	movf	0+(??_i2c_byte_read+0)+0,w
+  1662  0259  00A0               	movwf	(?_i2c_byte_read)
+  1663  025A  0876               	movf	1+(??_i2c_byte_read+0)+0,w
+  1664  025B  00A1               	movwf	(?_i2c_byte_read+1)
+  1665  025C  2A5D               	goto	l1088
+  1666                           	
+  1667  025D                     l4421:	
+  1668                           	line	136
+  1669                           	
+  1670  025D                     l1088:	
+  1671  025D  0008               	return
+  1672                           	opt stack 0
+  1673                           GLOBAL	__end_of_i2c_byte_read
+  1674  025E                     	__end_of_i2c_byte_read:
+  1675 ;; =============== function _i2c_byte_read ends ============
+  1676                           
+  1677                           	signat	_i2c_byte_read,12410
+  1678                           	global	_i2c_byte_write
+  1679                           psect	text387,local,class=CODE,delta=2
+  1680                           global __ptext387
+  1681  0349                     __ptext387:
+  1682                           
+  1683 ;; *************** function _i2c_byte_write *****************
+  1684 ;; Defined at:
+  1685 ;;		line 91 in file "GPD_WIN_FUN_CON_MAIN.c"
+  1686 ;; Parameters:    Size  Location     Type
+  1687 ;;  sel             2    0[BANK0 ] int 
+  1688 ;;  add             1    2[BANK0 ] unsigned char 
+  1689 ;;  cmd             1    3[BANK0 ] unsigned char 
+  1690 ;;  date1           1    4[BANK0 ] unsigned char 
+  1691 ;;  date2           1    5[BANK0 ] unsigned char 
+  1692 ;; Auto vars:     Size  Location     Type
+  1693 ;;		None
+  1694 ;; Return value:  Size  Location     Type
+  1695 ;;                  2    0[BANK0 ] int 
+  1696 ;; Registers used:
+  1697 ;;		wreg, status,2, status,0, pclath, cstack
+  1698 ;; Tracked objects:
+  1699 ;;		On entry : 0/0
+  1700 ;;		On exit  : 0/0
+  1701 ;;		Unchanged: 0/0
+  1702 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1703 ;;      Params:         0       6       0       0       0
+  1704 ;;      Locals:         0       0       0       0       0
+  1705 ;;      Temps:          1       0       0       0       0
+  1706 ;;      Totals:         1       6       0       0       0
+  1707 ;;Total ram usage:        7 bytes
+  1708 ;; Hardware stack levels used:    1
+  1709 ;; Hardware stack levels required when called:    2
+  1710 ;; This function calls:
+  1711 ;;		_i2c_Tx
+  1712 ;; This function is called by:
+  1713 ;;		_main
+  1714 ;; This function uses a non-reentrant model
+  1715 ;;
+  1716                           psect	text387
+  1717                           	file	"GPD_WIN_FUN_CON_MAIN.c"
+  1718                           	line	91
+  1719                           	global	__size_of_i2c_byte_write
+  1720  0043                     	__size_of_i2c_byte_write	equ	__end_of_i2c_byte_write-_i2c_byte_write
+  1721                           	
+  1722  0349                     _i2c_byte_write:	
+  1723                           	opt	stack 5
+  1724                           ; Regs used in _i2c_byte_write: [wreg+status,2+status,0+pclath+cstack]
+  1725                           	line	92
+  1726                           	
+  1727  0349                     l3953:	
+  1728                           ;GPD_WIN_FUN_CON_MAIN.c: 92: SEN = 1;
+  1729  0349  1683               	bsf	status, 5	;RP0=1, select bank1
+  1730  034A  1303               	bcf	status, 6	;RP1=0, select bank1
+  1731  034B  1411               	bsf	(1160/8)^080h,(1160)&7
+  1732                           	line	93
+  1733                           ;GPD_WIN_FUN_CON_MAIN.c: 93: while (SEN);
+  1734  034C  2B4D               	goto	l1051
+  1735                           	
+  1736  034D                     l1052:	
+  1737                           	
+  1738  034D                     l1051:	
+  1739  034D  1811               	btfsc	(1160/8)^080h,(1160)&7
+  1740  034E  2B50               	goto	u3161
+  1741  034F  2B51               	goto	u3160
+  1742  0350                     u3161:
+  1743  0350  2B4D               	goto	l1051
+  1744  0351                     u3160:
+  1745  0351  2B52               	goto	l3955
+  1746                           	
+  1747  0352                     l1053:	
+  1748                           	line	94
+  1749                           	
+  1750  0352                     l3955:	
+  1751                           ;GPD_WIN_FUN_CON_MAIN.c: 94: i2c_Tx(add);
+  1752  0352  1283               	bcf	status, 5	;RP0=0, select bank0
+  1753  0353  1303               	bcf	status, 6	;RP1=0, select bank0
+  1754  0354  0822               	movf	(i2c_byte_write@add),w
+  1755  0355  120A  118A  23FC   	fcall	_i2c_Tx
+              120A  118A         
+  1756                           	line	95
+  1757                           ;GPD_WIN_FUN_CON_MAIN.c: 95: i2c_Tx(cmd);
+  1758  035A  1283               	bcf	status, 5	;RP0=0, select bank0
+  1759  035B  1303               	bcf	status, 6	;RP1=0, select bank0
+  1760  035C  0823               	movf	(i2c_byte_write@cmd),w
+  1761  035D  120A  118A  23FC   	fcall	_i2c_Tx
+              120A  118A         
+  1762                           	line	96
+  1763                           ;GPD_WIN_FUN_CON_MAIN.c: 96: i2c_Tx(date1);
+  1764  0362  1283               	bcf	status, 5	;RP0=0, select bank0
+  1765  0363  1303               	bcf	status, 6	;RP1=0, select bank0
+  1766  0364  0824               	movf	(i2c_byte_write@date1),w
+  1767  0365  120A  118A  23FC   	fcall	_i2c_Tx
+              120A  118A         
+  1768                           	line	97
+  1769                           	
+  1770  036A                     l3957:	
+  1771                           ;GPD_WIN_FUN_CON_MAIN.c: 97: if (sel == 1)i2c_Tx(date2);
+  1772  036A  3001               	movlw	01h
+  1773  036B  1283               	bcf	status, 5	;RP0=0, select bank0
+  1774  036C  1303               	bcf	status, 6	;RP1=0, select bank0
+  1775  036D  0620               	xorwf	(i2c_byte_write@sel),w
+  1776  036E  0421               	iorwf	(i2c_byte_write@sel+1),w
+  1777  036F  1D03               	skipz
+  1778  0370  2B72               	goto	u3171
+  1779  0371  2B73               	goto	u3170
+  1780  0372                     u3171:
+  1781  0372  2B7A               	goto	l3961
+  1782  0373                     u3170:
+  1783                           	
+  1784  0373                     l3959:	
+  1785  0373  0825               	movf	(i2c_byte_write@date2),w
+  1786  0374  120A  118A  23FC   	fcall	_i2c_Tx
+              120A  118A         
+  1787  0379  2B7A               	goto	l3961
+  1788                           	
+  1789  037A                     l1054:	
+  1790                           	line	98
+  1791                           	
+  1792  037A                     l3961:	
+  1793                           ;GPD_WIN_FUN_CON_MAIN.c: 98: SSPIF = 0;
+  1794  037A  1283               	bcf	status, 5	;RP0=0, select bank0
+  1795  037B  1303               	bcf	status, 6	;RP1=0, select bank0
+  1796  037C  118C               	bcf	(99/8),(99)&7
+  1797                           	line	99
+  1798                           	
+  1799  037D                     l3963:	
+  1800                           ;GPD_WIN_FUN_CON_MAIN.c: 99: PEN = 1;
+  1801  037D  1683               	bsf	status, 5	;RP0=1, select bank1
+  1802  037E  1303               	bcf	status, 6	;RP1=0, select bank1
+  1803  037F  1511               	bsf	(1162/8)^080h,(1162)&7
+  1804                           	line	100
+  1805                           ;GPD_WIN_FUN_CON_MAIN.c: 100: while (PEN);
+  1806  0380  2B81               	goto	l1055
+  1807                           	
+  1808  0381                     l1056:	
+  1809                           	
+  1810  0381                     l1055:	
+  1811  0381  1911               	btfsc	(1162/8)^080h,(1162)&7
+  1812  0382  2B84               	goto	u3181
+  1813  0383  2B85               	goto	u3180
+  1814  0384                     u3181:
+  1815  0384  2B81               	goto	l1055
+  1816  0385                     u3180:
+  1817  0385  2B86               	goto	l3965
+  1818                           	
+  1819  0386                     l1057:	
+  1820                           	line	101
+  1821                           	
+  1822  0386                     l3965:	
+  1823                           ;GPD_WIN_FUN_CON_MAIN.c: 101: _delay((unsigned long)((27)*(4000000/4000000.0)));
+  1824                           	opt asmopt_off
+  1825  0386  3008               movlw	8
+  1826  0387  00F5               movwf	(??_i2c_byte_write+0)+0,f
+  1827  0388                     u4187:
+  1828  0388  0BF5               decfsz	(??_i2c_byte_write+0)+0,f
+  1829  0389  2B88               	goto	u4187
+  1830  038A  2B8B               	nop2	;nop
+  1831                           opt asmopt_on
+  1832                           
+  1833                           	line	102
+  1834                           	
+  1835  038B                     l1058:	
+  1836  038B  0008               	return
+  1837                           	opt stack 0
+  1838                           GLOBAL	__end_of_i2c_byte_write
+  1839  038C                     	__end_of_i2c_byte_write:
+  1840 ;; =============== function _i2c_byte_write ends ============
+  1841                           
+  1842                           	signat	_i2c_byte_write,20602
+  1843                           	global	___ftge
+  1844                           psect	text388,local,class=CODE,delta=2
+  1845                           global __ptext388
+  1846  02DB                     __ptext388:
+  1847                           
+  1848 ;; *************** function ___ftge *****************
+  1849 ;; Defined at:
+  1850 ;;		line 5 in file "D:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\ftge.c"
+  1851 ;; Parameters:    Size  Location     Type
+  1852 ;;  ff1             3    5[BANK0 ] float 
+  1853 ;;  ff2             3    8[BANK0 ] float 
+  1854 ;; Auto vars:     Size  Location     Type
+  1855 ;;		None
+  1856 ;; Return value:  Size  Location     Type
+  1857 ;;		None               void
+  1858 ;; Registers used:
+  1859 ;;		wreg, status,2, status,0
+  1860 ;; Tracked objects:
+  1861 ;;		On entry : 0/0
+  1862 ;;		On exit  : 0/0
+  1863 ;;		Unchanged: 0/0
+  1864 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1865 ;;      Params:         0       6       0       0       0
+  1866 ;;      Locals:         0       0       0       0       0
+  1867 ;;      Temps:          0       6       0       0       0
+  1868 ;;      Totals:         0      12       0       0       0
+  1869 ;;Total ram usage:       12 bytes
+  1870 ;; Hardware stack levels used:    1
+  1871 ;; Hardware stack levels required when called:    1
+  1872 ;; This function calls:
+  1873 ;;		Nothing
+  1874 ;; This function is called by:
+  1875 ;;		_main
+  1876 ;; This function uses a non-reentrant model
+  1877 ;;
+  1878                           psect	text388
+  1879                           	file	"D:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\ftge.c"
+  1880                           	line	5
+  1881                           	global	__size_of___ftge
+  1882  006E                     	__size_of___ftge	equ	__end_of___ftge-___ftge
+  1883                           	
+  1884  02DB                     ___ftge:	
+  1885                           	opt	stack 6
+  1886                           ; Regs used in ___ftge: [wreg+status,2+status,0]
+  1887                           	line	6
+  1888                           	
+  1889  02DB                     l3891:	
+  1890  02DB  1283               	bcf	status, 5	;RP0=0, select bank0
+  1891  02DC  1303               	bcf	status, 6	;RP1=0, select bank0
+  1892  02DD  1FA7               	btfss	(___ftge@ff1+2),(23)&7
+  1893  02DE  2AE0               	goto	u3051
+  1894  02DF  2AE1               	goto	u3050
+  1895  02E0                     u3051:
+  1896  02E0  2B07               	goto	l3895
+  1897  02E1                     u3050:
+  1898                           	line	7
+  1899                           	
+  1900  02E1                     l3893:	
+  1901  02E1  3000               	movlw	0
+  1902  02E2  00AB               	movwf	((??___ftge+0)+0)
+  1903  02E3  3000               	movlw	0
+  1904  02E4  00AC               	movwf	((??___ftge+0)+0+1)
+  1905  02E5  3080               	movlw	080h
+  1906  02E6  00AD               	movwf	((??___ftge+0)+0+2)
+  1907  02E7  0925               	comf	(___ftge@ff1),w
+  1908  02E8  00AE               	movwf	(??___ftge+3)+0
+  1909  02E9  0926               	comf	(___ftge@ff1+1),w
+  1910  02EA  00AF               	movwf	((??___ftge+3)+0+1)
+  1911  02EB  0927               	comf	(___ftge@ff1+2),w
+  1912  02EC  00B0               	movwf	((??___ftge+3)+0+2)
+  1913  02ED  0AAE               	incf	(??___ftge+3)+0,f
+  1914  02EE  1903               	skipnz
+  1915  02EF  0AAF               	incf	((??___ftge+3)+0+1),f
+  1916  02F0  1903               	skipnz
+  1917  02F1  0AB0               	incf	((??___ftge+3)+0+2),f
+  1918  02F2  082E               	movf	0+(??___ftge+3)+0,w
+  1919  02F3  07AB               	addwf	(??___ftge+0)+0,f
+  1920  02F4  082F               	movf	1+(??___ftge+3)+0,w
+  1921  02F5  1803               	skipnc
+  1922  02F6  0F2F               	incfsz	1+(??___ftge+3)+0,w
+  1923  02F7  2AF9               	goto	u3061
+  1924  02F8  2AFA               	goto	u3062
+  1925  02F9                     u3061:
+  1926  02F9  07AC               	addwf	(??___ftge+0)+1,f
+  1927                           	
+  1928  02FA                     u3062:
+  1929  02FA  0830               	movf	2+(??___ftge+3)+0,w
+  1930  02FB  1803               	skipnc
+  1931  02FC  0F30               	incfsz	2+(??___ftge+3)+0,w
+  1932  02FD  2AFF               	goto	u3063
+  1933  02FE  2B00               	goto	u3064
+  1934  02FF                     u3063:
+  1935  02FF  07AD               	addwf	(??___ftge+0)+2,f
+  1936                           	
+  1937  0300                     u3064:
+  1938  0300  082B               	movf	0+(??___ftge+0)+0,w
+  1939  0301  00A5               	movwf	(___ftge@ff1)
+  1940  0302  082C               	movf	1+(??___ftge+0)+0,w
+  1941  0303  00A6               	movwf	(___ftge@ff1+1)
+  1942  0304  082D               	movf	2+(??___ftge+0)+0,w
+  1943  0305  00A7               	movwf	(___ftge@ff1+2)
+  1944  0306  2B07               	goto	l3895
+  1945                           	
+  1946  0307                     l2256:	
+  1947                           	line	8
+  1948                           	
+  1949  0307                     l3895:	
+  1950  0307  1FAA               	btfss	(___ftge@ff2+2),(23)&7
+  1951  0308  2B0A               	goto	u3071
+  1952  0309  2B0B               	goto	u3070
+  1953  030A                     u3071:
+  1954  030A  2B31               	goto	l3899
+  1955  030B                     u3070:
+  1956                           	line	9
+  1957                           	
+  1958  030B                     l3897:	
+  1959  030B  3000               	movlw	0
+  1960  030C  00AB               	movwf	((??___ftge+0)+0)
+  1961  030D  3000               	movlw	0
+  1962  030E  00AC               	movwf	((??___ftge+0)+0+1)
+  1963  030F  3080               	movlw	080h
+  1964  0310  00AD               	movwf	((??___ftge+0)+0+2)
+  1965  0311  0928               	comf	(___ftge@ff2),w
+  1966  0312  00AE               	movwf	(??___ftge+3)+0
+  1967  0313  0929               	comf	(___ftge@ff2+1),w
+  1968  0314  00AF               	movwf	((??___ftge+3)+0+1)
+  1969  0315  092A               	comf	(___ftge@ff2+2),w
+  1970  0316  00B0               	movwf	((??___ftge+3)+0+2)
+  1971  0317  0AAE               	incf	(??___ftge+3)+0,f
+  1972  0318  1903               	skipnz
+  1973  0319  0AAF               	incf	((??___ftge+3)+0+1),f
+  1974  031A  1903               	skipnz
+  1975  031B  0AB0               	incf	((??___ftge+3)+0+2),f
+  1976  031C  082E               	movf	0+(??___ftge+3)+0,w
+  1977  031D  07AB               	addwf	(??___ftge+0)+0,f
+  1978  031E  082F               	movf	1+(??___ftge+3)+0,w
+  1979  031F  1803               	skipnc
+  1980  0320  0F2F               	incfsz	1+(??___ftge+3)+0,w
+  1981  0321  2B23               	goto	u3081
+  1982  0322  2B24               	goto	u3082
+  1983  0323                     u3081:
+  1984  0323  07AC               	addwf	(??___ftge+0)+1,f
+  1985                           	
+  1986  0324                     u3082:
+  1987  0324  0830               	movf	2+(??___ftge+3)+0,w
+  1988  0325  1803               	skipnc
+  1989  0326  0F30               	incfsz	2+(??___ftge+3)+0,w
+  1990  0327  2B29               	goto	u3083
+  1991  0328  2B2A               	goto	u3084
+  1992  0329                     u3083:
+  1993  0329  07AD               	addwf	(??___ftge+0)+2,f
+  1994                           	
+  1995  032A                     u3084:
+  1996  032A  082B               	movf	0+(??___ftge+0)+0,w
+  1997  032B  00A8               	movwf	(___ftge@ff2)
+  1998  032C  082C               	movf	1+(??___ftge+0)+0,w
+  1999  032D  00A9               	movwf	(___ftge@ff2+1)
+  2000  032E  082D               	movf	2+(??___ftge+0)+0,w
+  2001  032F  00AA               	movwf	(___ftge@ff2+2)
+  2002  0330  2B31               	goto	l3899
+  2003                           	
+  2004  0331                     l2257:	
+  2005                           	line	10
+  2006                           	
+  2007  0331                     l3899:	
+  2008  0331  3080               	movlw	080h
+  2009  0332  06A7               	xorwf	(___ftge@ff1+2),f
+  2010                           	line	11
+  2011                           	
+  2012  0333                     l3901:	
+  2013  0333  3080               	movlw	080h
+  2014  0334  06AA               	xorwf	(___ftge@ff2+2),f
+  2015                           	line	12
+  2016                           	
+  2017  0335                     l3903:	
+  2018  0335  082A               	movf	(___ftge@ff2+2),w
+  2019  0336  0227               	subwf	(___ftge@ff1+2),w
+  2020  0337  1D03               	skipz
+  2021  0338  2B3F               	goto	u3095
+  2022  0339  0829               	movf	(___ftge@ff2+1),w
+  2023  033A  0226               	subwf	(___ftge@ff1+1),w
+  2024  033B  1D03               	skipz
+  2025  033C  2B3F               	goto	u3095
+  2026  033D  0828               	movf	(___ftge@ff2),w
+  2027  033E  0225               	subwf	(___ftge@ff1),w
+  2028  033F                     u3095:
+  2029  033F  1803               	skipnc
+  2030  0340  2B42               	goto	u3091
+  2031  0341  2B43               	goto	u3090
+  2032  0342                     u3091:
+  2033  0342  2B45               	goto	l3907
+  2034  0343                     u3090:
+  2035                           	
+  2036  0343                     l3905:	
+  2037  0343  1003               	clrc
+  2038                           	
+  2039  0344  2B48               	goto	l2258
+  2040                           	
+  2041  0345                     l3663:	
+  2042                           	
+  2043  0345                     l3907:	
+  2044  0345  1403               	setc
+  2045                           	
+  2046  0346  2B48               	goto	l2258
+  2047                           	
+  2048  0347                     l3665:	
+  2049  0347  2B48               	goto	l2258
+  2050                           	
+  2051  0348                     l3909:	
+  2052                           	line	13
+  2053                           	
+  2054  0348                     l2258:	
+  2055  0348  0008               	return
+  2056                           	opt stack 0
+  2057                           GLOBAL	__end_of___ftge
+  2058  0349                     	__end_of___ftge:
+  2059 ;; =============== function ___ftge ends ============
+  2060                           
+  2061                           	signat	___ftge,8312
+  2062                           	global	___ftpack
+  2063                           psect	text389,local,class=CODE,delta=2
+  2064                           global __ptext389
+  2065  025E                     __ptext389:
+  2066                           
+  2067 ;; *************** function ___ftpack *****************
+  2068 ;; Defined at:
+  2069 ;;		line 63 in file "D:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\float.c"
+  2070 ;; Parameters:    Size  Location     Type
+  2071 ;;  arg             3    0[BANK0 ] unsigned um
+  2072 ;;  exp             1    3[BANK0 ] unsigned char 
+  2073 ;;  sign            1    4[BANK0 ] unsigned char 
+  2074 ;; Auto vars:     Size  Location     Type
+  2075 ;;		None
+  2076 ;; Return value:  Size  Location     Type
+  2077 ;;                  3    0[BANK0 ] float 
+  2078 ;; Registers used:
+  2079 ;;		wreg, status,2, status,0
+  2080 ;; Tracked objects:
+  2081 ;;		On entry : 0/0
+  2082 ;;		On exit  : 0/0
+  2083 ;;		Unchanged: 0/0
+  2084 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2085 ;;      Params:         0       5       0       0       0
+  2086 ;;      Locals:         0       0       0       0       0
+  2087 ;;      Temps:          3       0       0       0       0
+  2088 ;;      Totals:         3       5       0       0       0
+  2089 ;;Total ram usage:        8 bytes
+  2090 ;; Hardware stack levels used:    1
+  2091 ;; Hardware stack levels required when called:    1
+  2092 ;; This function calls:
+  2093 ;;		Nothing
+  2094 ;; This function is called by:
+  2095 ;;		___awtoft
+  2096 ;;		___lwtoft
+  2097 ;;		___ftadd
+  2098 ;;		___ftdiv
+  2099 ;;		___ftmul
+  2100 ;;		___lbtoft
+  2101 ;;		___abtoft
+  2102 ;;		___altoft
+  2103 ;;		___lltoft
+  2104 ;;		___attoft
+  2105 ;;		___lttoft
+  2106 ;; This function uses a non-reentrant model
+  2107 ;;
+  2108                           psect	text389
+  2109                           	file	"D:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\float.c"
+  2110                           	line	63
+  2111                           	global	__size_of___ftpack
+  2112  007D                     	__size_of___ftpack	equ	__end_of___ftpack-___ftpack
+  2113                           	
+  2114  025E                     ___ftpack:	
+  2115                           	opt	stack 5
+  2116                           ; Regs used in ___ftpack: [wreg+status,2+status,0]
+  2117                           	line	64
+  2118                           	
+  2119  025E                     l4215:	
+  2120  025E  1283               	bcf	status, 5	;RP0=0, select bank0
+  2121  025F  1303               	bcf	status, 6	;RP1=0, select bank0
+  2122  0260  0823               	movf	(___ftpack@exp),w
+  2123  0261  1D03               	skipz
+  2124  0262  2A64               	goto	u3600
+  2125  0263  2A6C               	goto	l4219
+  2126  0264                     u3600:
+  2127                           	
+  2128  0264                     l4217:	
+  2129  0264  0822               	movf	(___ftpack@arg+2),w
+  2130  0265  0421               	iorwf	(___ftpack@arg+1),w
+  2131  0266  0420               	iorwf	(___ftpack@arg),w
+  2132  0267  1D03               	skipz
+  2133  0268  2A6A               	goto	u3611
+  2134  0269  2A6B               	goto	u3610
+  2135  026A                     u3611:
+  2136  026A  2A82               	goto	l4225
+  2137  026B                     u3610:
+  2138  026B  2A6C               	goto	l4219
+  2139                           	
+  2140  026C                     l2423:	
+  2141                           	line	65
+  2142                           	
+  2143  026C                     l4219:	
+  2144  026C  3000               	movlw	0x0
+  2145  026D  00A0               	movwf	(?___ftpack)
+  2146  026E  3000               	movlw	0x0
+  2147  026F  00A1               	movwf	(?___ftpack+1)
+  2148  0270  3000               	movlw	0x0
+  2149  0271  00A2               	movwf	(?___ftpack+2)
+  2150  0272  2ADA               	goto	l2424
+  2151                           	
+  2152  0273                     l4221:	
+  2153  0273  2ADA               	goto	l2424
+  2154                           	
+  2155  0274                     l2421:	
+  2156                           	line	66
+  2157  0274  2A82               	goto	l4225
+  2158                           	
+  2159  0275                     l2426:	
+  2160                           	line	67
+  2161                           	
+  2162  0275                     l4223:	
+  2163  0275  3001               	movlw	(01h)
+  2164  0276  00F4               	movwf	(??___ftpack+0)+0
+  2165  0277  0874               	movf	(??___ftpack+0)+0,w
+  2166  0278  07A3               	addwf	(___ftpack@exp),f
+  2167                           	line	68
+  2168  0279  3001               	movlw	01h
+  2169  027A                     u3625:
+  2170  027A  1003               	clrc
+  2171  027B  0CA2               	rrf	(___ftpack@arg+2),f
+  2172  027C  0CA1               	rrf	(___ftpack@arg+1),f
+  2173  027D  0CA0               	rrf	(___ftpack@arg),f
+  2174  027E  3EFF               	addlw	-1
+  2175  027F  1D03               	skipz
+  2176  0280  2A7A               	goto	u3625
+  2177                           
+  2178  0281  2A82               	goto	l4225
+  2179                           	line	69
+  2180                           	
+  2181  0282                     l2425:	
+  2182                           	line	66
+  2183                           	
+  2184  0282                     l4225:	
+  2185  0282  30FE               	movlw	low highword(0FE0000h)
+  2186  0283  0522               	andwf	(___ftpack@arg+2),w
+  2187  0284  1D03               	btfss	status,2
+  2188  0285  2A87               	goto	u3631
+  2189  0286  2A88               	goto	u3630
+  2190  0287                     u3631:
+  2191  0287  2A75               	goto	l4223
+  2192  0288                     u3630:
+  2193  0288  2AA0               	goto	l2428
+  2194                           	
+  2195  0289                     l2427:	
+  2196                           	line	70
+  2197  0289  2AA0               	goto	l2428
+  2198                           	
+  2199  028A                     l2429:	
+  2200                           	line	71
+  2201                           	
+  2202  028A                     l4227:	
+  2203  028A  3001               	movlw	(01h)
+  2204  028B  00F4               	movwf	(??___ftpack+0)+0
+  2205  028C  0874               	movf	(??___ftpack+0)+0,w
+  2206  028D  07A3               	addwf	(___ftpack@exp),f
+  2207                           	line	72
+  2208                           	
+  2209  028E                     l4229:	
+  2210  028E  3001               	movlw	01h
+  2211  028F  07A0               	addwf	(___ftpack@arg),f
+  2212  0290  3000               	movlw	0
+  2213  0291  1803               	skipnc
+  2214  0292  3001               movlw 1
+  2215  0293  07A1               	addwf	(___ftpack@arg+1),f
+  2216  0294  3000               	movlw	0
+  2217  0295  1803               	skipnc
+  2218  0296  3001               movlw 1
+  2219  0297  07A2               	addwf	(___ftpack@arg+2),f
+  2220                           	line	73
+  2221                           	
+  2222  0298                     l4231:	
+  2223  0298  3001               	movlw	01h
+  2224  0299                     u3645:
+  2225  0299  1003               	clrc
+  2226  029A  0CA2               	rrf	(___ftpack@arg+2),f
+  2227  029B  0CA1               	rrf	(___ftpack@arg+1),f
+  2228  029C  0CA0               	rrf	(___ftpack@arg),f
+  2229  029D  3EFF               	addlw	-1
+  2230  029E  1D03               	skipz
+  2231  029F  2A99               	goto	u3645
+  2232                           
+  2233                           	line	74
+  2234                           	
+  2235  02A0                     l2428:	
+  2236                           	line	70
+  2237  02A0  30FF               	movlw	low highword(0FF0000h)
+  2238  02A1  0522               	andwf	(___ftpack@arg+2),w
+  2239  02A2  1D03               	btfss	status,2
+  2240  02A3  2AA5               	goto	u3651
+  2241  02A4  2AA6               	goto	u3650
+  2242  02A5                     u3651:
+  2243  02A5  2A8A               	goto	l4227
+  2244  02A6                     u3650:
+  2245  02A6  2AB3               	goto	l4235
+  2246                           	
+  2247  02A7                     l2430:	
+  2248                           	line	75
+  2249  02A7  2AB3               	goto	l4235
+  2250                           	
+  2251  02A8                     l2432:	
+  2252                           	line	76
+  2253                           	
+  2254  02A8                     l4233:	
+  2255  02A8  3001               	movlw	low(01h)
+  2256  02A9  02A3               	subwf	(___ftpack@exp),f
+  2257                           	line	77
+  2258  02AA  3001               	movlw	01h
+  2259  02AB                     u3665:
+  2260  02AB  1003               	clrc
+  2261  02AC  0DA0               	rlf	(___ftpack@arg),f
+  2262  02AD  0DA1               	rlf	(___ftpack@arg+1),f
+  2263  02AE  0DA2               	rlf	(___ftpack@arg+2),f
+  2264  02AF  3EFF               	addlw	-1
+  2265  02B0  1D03               	skipz
+  2266  02B1  2AAB               	goto	u3665
+  2267  02B2  2AB3               	goto	l4235
+  2268                           	line	78
+  2269                           	
+  2270  02B3                     l2431:	
+  2271                           	line	75
+  2272                           	
+  2273  02B3                     l4235:	
+  2274  02B3  1FA1               	btfss	(___ftpack@arg+1),(15)&7
+  2275  02B4  2AB6               	goto	u3671
+  2276  02B5  2AB7               	goto	u3670
+  2277  02B6                     u3671:
+  2278  02B6  2AA8               	goto	l4233
+  2279  02B7                     u3670:
+  2280                           	
+  2281  02B7                     l2433:	
+  2282                           	line	79
+  2283  02B7  1823               	btfsc	(___ftpack@exp),(0)&7
+  2284  02B8  2ABA               	goto	u3681
+  2285  02B9  2ABB               	goto	u3680
+  2286  02BA                     u3681:
+  2287  02BA  2AC1               	goto	l2434
+  2288  02BB                     u3680:
+  2289                           	line	80
+  2290                           	
+  2291  02BB                     l4237:	
+  2292  02BB  30FF               	movlw	0FFh
+  2293  02BC  05A0               	andwf	(___ftpack@arg),f
+  2294  02BD  307F               	movlw	07Fh
+  2295  02BE  05A1               	andwf	(___ftpack@arg+1),f
+  2296  02BF  30FF               	movlw	0FFh
+  2297  02C0  05A2               	andwf	(___ftpack@arg+2),f
+  2298                           	
+  2299  02C1                     l2434:	
+  2300                           	line	81
+  2301  02C1  1003               	clrc
+  2302  02C2  0CA3               	rrf	(___ftpack@exp),f
+  2303                           
+  2304                           	line	82
+  2305                           	
+  2306  02C3                     l4239:	
+  2307  02C3  0823               	movf	(___ftpack@exp),w
+  2308  02C4  00F4               	movwf	((??___ftpack+0)+0)
+  2309  02C5  01F5               	clrf	((??___ftpack+0)+0+1)
+  2310  02C6  01F6               	clrf	((??___ftpack+0)+0+2)
+  2311  02C7  3010               	movlw	010h
+  2312  02C8                     u3695:
+  2313  02C8  1003               	clrc
+  2314  02C9  0DF4               	rlf	(??___ftpack+0)+0,f
+  2315  02CA  0DF5               	rlf	(??___ftpack+0)+1,f
+  2316  02CB  0DF6               	rlf	(??___ftpack+0)+2,f
+  2317  02CC                     u3690:
+  2318  02CC  3EFF               	addlw	-1
+  2319  02CD  1D03               	skipz
+  2320  02CE  2AC8               	goto	u3695
+  2321  02CF  0874               	movf	0+(??___ftpack+0)+0,w
+  2322  02D0  04A0               	iorwf	(___ftpack@arg),f
+  2323  02D1  0875               	movf	1+(??___ftpack+0)+0,w
+  2324  02D2  04A1               	iorwf	(___ftpack@arg+1),f
+  2325  02D3  0876               	movf	2+(??___ftpack+0)+0,w
+  2326  02D4  04A2               	iorwf	(___ftpack@arg+2),f
+  2327                           	line	83
+  2328                           	
+  2329  02D5                     l4241:	
+  2330  02D5  0824               	movf	(___ftpack@sign),w
+  2331  02D6  1D03               	skipz
+  2332  02D7  2AD9               	goto	u3700
+  2333  02D8  2ADA               	goto	l2435
+  2334  02D9                     u3700:
+  2335                           	line	84
+  2336                           	
+  2337  02D9                     l4243:	
+  2338  02D9  17A2               	bsf	(___ftpack@arg)+(23/8),(23)&7
+  2339                           	
+  2340  02DA                     l2435:	
+  2341                           	line	85
+  2342                           	line	86
+  2343                           	
+  2344  02DA                     l2424:	
+  2345  02DA  0008               	return
+  2346                           	opt stack 0
+  2347                           GLOBAL	__end_of___ftpack
+  2348  02DB                     	__end_of___ftpack:
+  2349 ;; =============== function ___ftpack ends ============
+  2350                           
+  2351                           	signat	___ftpack,12411
+  2352                           	global	_i2c_Tx
+  2353                           psect	text390,local,class=CODE,delta=2
+  2354                           global __ptext390
+  2355  03FC                     __ptext390:
+  2356                           
+  2357 ;; *************** function _i2c_Tx *****************
+  2358 ;; Defined at:
+  2359 ;;		line 84 in file "GPD_WIN_FUN_CON_MAIN.c"
+  2360 ;; Parameters:    Size  Location     Type
+  2361 ;;  date            1    wreg     unsigned char 
+  2362 ;; Auto vars:     Size  Location     Type
+  2363 ;;  date            1    4[COMMON] unsigned char 
+  2364 ;; Return value:  Size  Location     Type
+  2365 ;;                  2  1041[COMMON] int 
+  2366 ;; Registers used:
+  2367 ;;		wreg
+  2368 ;; Tracked objects:
+  2369 ;;		On entry : 0/0
+  2370 ;;		On exit  : 0/0
+  2371 ;;		Unchanged: 0/0
+  2372 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2373 ;;      Params:         0       0       0       0       0
+  2374 ;;      Locals:         1       0       0       0       0
+  2375 ;;      Temps:          0       0       0       0       0
+  2376 ;;      Totals:         1       0       0       0       0
+  2377 ;;Total ram usage:        1 bytes
+  2378 ;; Hardware stack levels used:    1
+  2379 ;; Hardware stack levels required when called:    1
+  2380 ;; This function calls:
+  2381 ;;		Nothing
+  2382 ;; This function is called by:
+  2383 ;;		_i2c_byte_write
+  2384 ;;		_i2c_byte_read
+  2385 ;; This function uses a non-reentrant model
+  2386 ;;
+  2387                           psect	text390
+  2388                           	file	"GPD_WIN_FUN_CON_MAIN.c"
+  2389                           	line	84
+  2390                           	global	__size_of_i2c_Tx
+  2391  0016                     	__size_of_i2c_Tx	equ	__end_of_i2c_Tx-_i2c_Tx
+  2392                           	
+  2393  03FC                     _i2c_Tx:	
+  2394                           	opt	stack 5
+  2395                           ; Regs used in _i2c_Tx: [wreg]
+  2396                           ;i2c_Tx@date stored from wreg
+  2397  03FC  00F4               	movwf	(i2c_Tx@date)
+  2398                           	line	85
+  2399                           	
+  2400  03FD                     l3685:	
+  2401                           ;GPD_WIN_FUN_CON_MAIN.c: 85: SSPIF = 0;
+  2402  03FD  1283               	bcf	status, 5	;RP0=0, select bank0
+  2403  03FE  1303               	bcf	status, 6	;RP1=0, select bank0
+  2404  03FF  118C               	bcf	(99/8),(99)&7
+  2405                           	line	86
+  2406                           	
+  2407  0400                     l3687:	
+  2408                           ;GPD_WIN_FUN_CON_MAIN.c: 86: SSPBUF = date;
+  2409  0400  0874               	movf	(i2c_Tx@date),w
+  2410  0401  0093               	movwf	(19)	;volatile
+  2411                           	line	87
+  2412                           ;GPD_WIN_FUN_CON_MAIN.c: 87: while (BF);
+  2413  0402  2C03               	goto	l1042
+  2414                           	
+  2415  0403                     l1043:	
+  2416                           	
+  2417  0403                     l1042:	
+  2418  0403  1683               	bsf	status, 5	;RP0=1, select bank1
+  2419  0404  1303               	bcf	status, 6	;RP1=0, select bank1
+  2420  0405  1814               	btfsc	(1184/8)^080h,(1184)&7
+  2421  0406  2C08               	goto	u2451
+  2422  0407  2C09               	goto	u2450
+  2423  0408                     u2451:
+  2424  0408  2C03               	goto	l1042
+  2425  0409                     u2450:
+  2426  0409  2C0B               	goto	l1045
+  2427                           	
+  2428  040A                     l1044:	
+  2429                           	line	88
+  2430                           ;GPD_WIN_FUN_CON_MAIN.c: 88: while (!SSPIF);
+  2431  040A  2C0B               	goto	l1045
+  2432                           	
+  2433  040B                     l1046:	
+  2434                           	
+  2435  040B                     l1045:	
+  2436  040B  1283               	bcf	status, 5	;RP0=0, select bank0
+  2437  040C  1D8C               	btfss	(99/8),(99)&7
+  2438  040D  2C0F               	goto	u2461
+  2439  040E  2C10               	goto	u2460
+  2440  040F                     u2461:
+  2441  040F  2C0B               	goto	l1045
+  2442  0410                     u2460:
+  2443  0410  2C11               	goto	l1048
+  2444                           	
+  2445  0411                     l1047:	
+  2446                           	line	89
+  2447                           	
+  2448  0411                     l1048:	
+  2449  0411  0008               	return
+  2450                           	opt stack 0
+  2451                           GLOBAL	__end_of_i2c_Tx
+  2452  0412                     	__end_of_i2c_Tx:
+  2453 ;; =============== function _i2c_Tx ends ============
+  2454                           
+  2455                           	signat	_i2c_Tx,4218
+  2456                           	global	_oscsel
+  2457                           psect	text391,local,class=CODE,delta=2
+  2458                           global __ptext391
+  2459  03B8                     __ptext391:
+  2460                           
+  2461 ;; *************** function _oscsel *****************
+  2462 ;; Defined at:
+  2463 ;;		line 67 in file "GPD_WIN_FUN_CON_MAIN.c"
+  2464 ;; Parameters:    Size  Location     Type
+  2465 ;;  sel1            2    4[COMMON] int 
+  2466 ;; Auto vars:     Size  Location     Type
+  2467 ;;		None
+  2468 ;; Return value:  Size  Location     Type
+  2469 ;;                  2    4[COMMON] int 
+  2470 ;; Registers used:
+  2471 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  2472 ;; Tracked objects:
+  2473 ;;		On entry : 0/0
+  2474 ;;		On exit  : 0/0
+  2475 ;;		Unchanged: 0/0
+  2476 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2477 ;;      Params:         2       0       0       0       0
+  2478 ;;      Locals:         0       0       0       0       0
+  2479 ;;      Temps:          0       0       0       0       0
+  2480 ;;      Totals:         2       0       0       0       0
+  2481 ;;Total ram usage:        2 bytes
+  2482 ;; Hardware stack levels used:    1
+  2483 ;; Hardware stack levels required when called:    1
+  2484 ;; This function calls:
+  2485 ;;		Nothing
+  2486 ;; This function is called by:
+  2487 ;;		_main
+  2488 ;; This function uses a non-reentrant model
+  2489 ;;
+  2490                           psect	text391
+  2491                           	file	"GPD_WIN_FUN_CON_MAIN.c"
+  2492                           	line	67
+  2493                           	global	__size_of_oscsel
+  2494  0029                     	__size_of_oscsel	equ	__end_of_oscsel-_oscsel
+  2495                           	
+  2496  03B8                     _oscsel:	
+  2497                           	opt	stack 6
+  2498                           ; Regs used in _oscsel: [wreg-fsr0h+status,2+status,0]
+  2499                           	line	68
+  2500                           	
+  2501  03B8                     l3667:	
+  2502                           ;GPD_WIN_FUN_CON_MAIN.c: 68: switch (sel1) {
+  2503  03B8  2BCD               	goto	l3679
+  2504                           	line	69
+  2505                           ;GPD_WIN_FUN_CON_MAIN.c: 69: case 0:
+  2506                           	
+  2507  03B9                     l1034:	
+  2508                           	line	70
+  2509                           	
+  2510  03B9                     l3669:	
+  2511                           ;GPD_WIN_FUN_CON_MAIN.c: 70: OSCCON = 0b01100000;
+  2512  03B9  3060               	movlw	(060h)
+  2513  03BA  1683               	bsf	status, 5	;RP0=1, select bank1
+  2514  03BB  1303               	bcf	status, 6	;RP1=0, select bank1
+  2515  03BC  008F               	movwf	(143)^080h	;volatile
+  2516                           	line	71
+  2517                           ;GPD_WIN_FUN_CON_MAIN.c: 71: break;
+  2518  03BD  2BE0               	goto	l1039
+  2519                           	line	72
+  2520                           ;GPD_WIN_FUN_CON_MAIN.c: 72: case 1:
+  2521                           	
+  2522  03BE                     l1036:	
+  2523                           	line	73
+  2524                           	
+  2525  03BE                     l3671:	
+  2526                           ;GPD_WIN_FUN_CON_MAIN.c: 73: OSCCON = 0b00000000;
+  2527  03BE  1683               	bsf	status, 5	;RP0=1, select bank1
+  2528  03BF  1303               	bcf	status, 6	;RP1=0, select bank1
+  2529  03C0  018F               	clrf	(143)^080h	;volatile
+  2530                           	line	74
+  2531                           ;GPD_WIN_FUN_CON_MAIN.c: 74: break;
+  2532  03C1  2BE0               	goto	l1039
+  2533                           	line	75
+  2534                           ;GPD_WIN_FUN_CON_MAIN.c: 75: case 2:
+  2535                           	
+  2536  03C2                     l1037:	
+  2537                           	line	76
+  2538                           	
+  2539  03C2                     l3673:	
+  2540                           ;GPD_WIN_FUN_CON_MAIN.c: 76: OSCCON = 0b01000000;
+  2541  03C2  3040               	movlw	(040h)
+  2542  03C3  1683               	bsf	status, 5	;RP0=1, select bank1
+  2543  03C4  1303               	bcf	status, 6	;RP1=0, select bank1
+  2544  03C5  008F               	movwf	(143)^080h	;volatile
+  2545                           	line	77
+  2546                           ;GPD_WIN_FUN_CON_MAIN.c: 77: break;
+  2547  03C6  2BE0               	goto	l1039
+  2548                           	line	78
+  2549                           ;GPD_WIN_FUN_CON_MAIN.c: 78: case 3:
+  2550                           	
+  2551  03C7                     l1038:	
+  2552                           	line	79
+  2553                           	
+  2554  03C7                     l3675:	
+  2555                           ;GPD_WIN_FUN_CON_MAIN.c: 79: OSCCON = 0b00110000;
+  2556  03C7  3030               	movlw	(030h)
+  2557  03C8  1683               	bsf	status, 5	;RP0=1, select bank1
+  2558  03C9  1303               	bcf	status, 6	;RP1=0, select bank1
+  2559  03CA  008F               	movwf	(143)^080h	;volatile
+  2560                           	line	80
+  2561                           ;GPD_WIN_FUN_CON_MAIN.c: 80: break;
+  2562  03CB  2BE0               	goto	l1039
+  2563                           	line	81
+  2564                           	
+  2565  03CC                     l3677:	
+  2566                           ;GPD_WIN_FUN_CON_MAIN.c: 81: }
+  2567  03CC  2BE0               	goto	l1039
+  2568                           	line	68
+  2569                           	
+  2570  03CD                     l1033:	
+  2571                           	
+  2572  03CD                     l3679:	
+  2573                           	; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-s
+                                 witches
+  2574                           ; Switch size 1, requested type "space"
+  2575                           ; Number of cases is 1, Range of values is 0 to 0
+  2576                           ; switch strategies available:
+  2577                           ; Name         Instructions Cycles
+  2578                           ; simple_byte            4     3 (average)
+  2579                           ; direct_byte           11     8 (fixed)
+  2580                           ; jumptable            260     6 (fixed)
+  2581                           ; rangetable             5     6 (fixed)
+  2582                           ; spacedrange            8     9 (fixed)
+  2583                           ; locatedrange           1     3 (fixed)
+  2584                           ;	Chosen strategy is simple_byte
+  2585                           
+  2586  03CD  0875               	movf (oscsel@sel1+1),w
+  2587                           	opt asmopt_off
+  2588  03CE  3A00               	xorlw	0^0	; case 0
+  2589  03CF  1903               	skipnz
+  2590  03D0  2BD2               	goto	l4549
+  2591  03D1  2BE0               	goto	l1039
+  2592                           	opt asmopt_on
+  2593                           	
+  2594  03D2                     l4549:	
+  2595                           ; Switch size 1, requested type "space"
+  2596                           ; Number of cases is 4, Range of values is 0 to 3
+  2597                           ; switch strategies available:
+  2598                           ; Name         Instructions Cycles
+  2599                           ; simple_byte           13     7 (average)
+  2600                           ; direct_byte           20     8 (fixed)
+  2601                           ; jumptable            260     6 (fixed)
+  2602                           ; rangetable             8     6 (fixed)
+  2603                           ; spacedrange           14     9 (fixed)
+  2604                           ; locatedrange           4     3 (fixed)
+  2605                           ;	Chosen strategy is simple_byte
+  2606                           
+  2607  03D2  0874               	movf (oscsel@sel1),w
+  2608                           	opt asmopt_off
+  2609  03D3  3A00               	xorlw	0^0	; case 0
+  2610  03D4  1903               	skipnz
+  2611  03D5  2BB9               	goto	l3669
+  2612  03D6  3A01               	xorlw	1^0	; case 1
+  2613  03D7  1903               	skipnz
+  2614  03D8  2BBE               	goto	l3671
+  2615  03D9  3A03               	xorlw	2^1	; case 2
+  2616  03DA  1903               	skipnz
+  2617  03DB  2BC2               	goto	l3673
+  2618  03DC  3A01               	xorlw	3^2	; case 3
+  2619  03DD  1903               	skipnz
+  2620  03DE  2BC7               	goto	l3675
+  2621  03DF  2BE0               	goto	l1039
+  2622                           	opt asmopt_on
+  2623                           
+  2624                           	line	81
+  2625                           	
+  2626  03E0                     l1035:	
+  2627                           	line	82
+  2628                           	
+  2629  03E0                     l1039:	
+  2630  03E0  0008               	return
+  2631                           	opt stack 0
+  2632                           GLOBAL	__end_of_oscsel
+  2633  03E1                     	__end_of_oscsel:
+  2634 ;; =============== function _oscsel ends ============
+  2635                           
+  2636                           	signat	_oscsel,4218
+  2637                           	global	_InterTimer
+  2638                           psect	text392,local,class=CODE,delta=2
+  2639                           global __ptext392
+  2640  0412                     __ptext392:
+  2641                           
+  2642 ;; *************** function _InterTimer *****************
+  2643 ;; Defined at:
+  2644 ;;		line 60 in file "GPD_WIN_FUN_CON_MAIN.c"
+  2645 ;; Parameters:    Size  Location     Type
+  2646 ;;		None
+  2647 ;; Auto vars:     Size  Location     Type
+  2648 ;;		None
+  2649 ;; Return value:  Size  Location     Type
+  2650 ;;		None               void
+  2651 ;; Registers used:
+  2652 ;;		status,2
+  2653 ;; Tracked objects:
+  2654 ;;		On entry : 0/0
+  2655 ;;		On exit  : 0/0
+  2656 ;;		Unchanged: 0/0
+  2657 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2658 ;;      Params:         0       0       0       0       0
+  2659 ;;      Locals:         0       0       0       0       0
+  2660 ;;      Temps:          4       0       0       0       0
+  2661 ;;      Totals:         4       0       0       0       0
+  2662 ;;Total ram usage:        4 bytes
+  2663 ;; Hardware stack levels used:    1
+  2664 ;; This function calls:
+  2665 ;;		Nothing
+  2666 ;; This function is called by:
+  2667 ;;		Interrupt level 1
+  2668 ;; This function uses a non-reentrant model
+  2669 ;;
+  2670                           psect	text392
+  2671                           	file	"GPD_WIN_FUN_CON_MAIN.c"
+  2672                           	line	60
+  2673                           	global	__size_of_InterTimer
+  2674  0013                     	__size_of_InterTimer	equ	__end_of_InterTimer-_InterTimer
+  2675                           	
+  2676  0412                     _InterTimer:	
+  2677                           	opt	stack 5
+  2678                           ; Regs used in _InterTimer: [status,2]
+  2679                           psect	intentry,class=CODE,delta=2
+  2680                           global __pintentry
+  2681  0004                     __pintentry:
+  2682                           global interrupt_function
+  2683  0004                     interrupt_function:
+  2684                           	global saved_w
+  2685  007E                     	saved_w	set	btemp+0
+  2686  0004  00FE               	movwf	saved_w
+  2687  0005  0E03               	swapf	status,w
+  2688  0006  00F0               	movwf	(??_InterTimer+0)
+  2689  0007  0804               	movf	fsr0,w
+  2690  0008  00F1               	movwf	(??_InterTimer+1)
+  2691  0009  080A               	movf	pclath,w
+  2692  000A  00F2               	movwf	(??_InterTimer+2)
+  2693  000B  1283               	bcf	status, 5	;RP0=0, select bank0
+  2694  000C  1303               	bcf	status, 6	;RP1=0, select bank0
+  2695  000D  087F               	movf	btemp+1,w
+  2696  000E  00F3               	movwf	(??_InterTimer+3)
+  2697  000F  120A  118A  2C12   	ljmp	_InterTimer
+  2698                           psect	text392
+  2699                           	line	61
+  2700                           	
+  2701  0412                     i1l2591:	
+  2702                           ;GPD_WIN_FUN_CON_MAIN.c: 61: if (TMR1IF == 1) {
+  2703  0412  1C0C               	btfss	(96/8),(96)&7
+  2704  0413  2C15               	goto	u1_21
+  2705  0414  2C16               	goto	u1_20
+  2706  0415                     u1_21:
+  2707  0415  2C1A               	goto	i1l1030
+  2708  0416                     u1_20:
+  2709                           	line	62
+  2710                           	
+  2711  0416                     i1l2593:	
+  2712                           ;GPD_WIN_FUN_CON_MAIN.c: 62: TMR1ON_Flag = 0 ;
+  2713  0416  01F8               	clrf	(_TMR1ON_Flag)
+  2714  0417  01F9               	clrf	(_TMR1ON_Flag+1)
+  2715                           	line	63
+  2716                           	
+  2717  0418                     i1l2595:	
+  2718                           ;GPD_WIN_FUN_CON_MAIN.c: 63: TMR1IF = 0 ;
+  2719  0418  100C               	bcf	(96/8),(96)&7
+  2720  0419  2C1A               	goto	i1l1030
+  2721                           	line	64
+  2722                           	
+  2723  041A                     i1l1029:	
+  2724                           	line	65
+  2725                           	
+  2726  041A                     i1l1030:	
+  2727  041A  0873               	movf	(??_InterTimer+3),w
+  2728  041B  00FF               	movwf	btemp+1
+  2729  041C  0872               	movf	(??_InterTimer+2),w
+  2730  041D  008A               	movwf	pclath
+  2731  041E  0871               	movf	(??_InterTimer+1),w
+  2732  041F  0084               	movwf	fsr0
+  2733  0420  0E70               	swapf	(??_InterTimer+0)^0FFFFFF80h,w
+  2734  0421  0083               	movwf	status
+  2735  0422  0EFE               	swapf	saved_w,f
+  2736  0423  0E7E               	swapf	saved_w,w
+  2737  0424  0009               	retfie
+  2738                           	opt stack 0
+  2739                           GLOBAL	__end_of_InterTimer
+  2740  0425                     	__end_of_InterTimer:
+  2741 ;; =============== function _InterTimer ends ============
+  2742                           
+  2743                           	signat	_InterTimer,88
+  2744                           psect	text393,local,class=CODE,delta=2
+  2745                           global __ptext393
+  2746  0000                     __ptext393:
+  2747                           	global	btemp
+  2748  007E                     	btemp set 07Eh
+  2749                           
+  2750                           	DABS	1,126,2	;btemp
+  2751                           	global	wtemp0
+  2752  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.82 build 9453 
+Symbol Table                                                                                   Wed Oct 11 01:07:16 2017
+
+                     _BF 04A0                       _RD 0C60                       _WR 0C61  
+             i2c_Tx@date 0074                      _GIE 005F                      _RA4 002C  
+                    _RA5 002D                      _RC5 003D                      _RC6 003E  
+                    _PEN 048A                      _SEN 0488                      fsr0 0004  
+                    indf 0000              main@faltemp 003C                     l1100 01C9  
+                   l1033 03CD                     l1034 03B9                     l1042 0403  
+                   l1035 03E0                     l1043 0403                     l1051 034D  
+                   l1036 03BE                     l1044 040A                     l1052 034D  
+                   l1037 03C2                     l1045 040B                     l1053 0352  
+                   l1061 01D2                     l1038 03C7                     l1046 040B  
+                   l1054 037A                     l1070 020C                     l1062 01D2  
+                   l1039 03E0                     l1047 0411                     l1055 0381  
+                   l1071 020C                     l1063 01D7                     l1048 0411  
+                   l1056 0381                     l1080 022D                     l1072 0211  
+                   l1064 01EB                     l1057 0386                     l1081 0232  
+                   l1073 021C                     l1065 01EB                     l1058 038B  
+                   l1082 023D                     l1074 021C                     l1066 01F0  
+                   l1083 023D                     l1075 0220                     l1067 0206  
+                   l1091 007D                     l1084 0241                     l1076 0227  
+                   l1068 0206                     l1092 00C6                     l1085 0248  
+                   l1077 0227                     l1069 020B                     l1093 01C8  
+                   l1086 0248                     l1078 022C                     l1094 016F  
+                   l1087 024D                     l1079 022D                     l1095 01C7  
+                   l1088 025D                     l2312 03FB                     l1096 0199  
+                   l2225 039C                     l1097 01C6                     l2226 03B7  
+                   l1098 01C5                     l1099 01C9                     l2421 0274  
+                   l2430 02A7                     l2431 02B3                     l2423 026C  
+                   l2432 02A8                     l2424 02DA                     l2256 0307  
+                   l2433 02B7                     l2425 0282                     l2257 0331  
+                   l2434 02C1                     l2426 0275                     l2258 0348  
+                   l2435 02DA                     l2427 0289                     l2428 02A0  
+                   l2429 028A                     l4221 0273                     l4231 0298  
+                   l4223 0275                     l4215 025E                     l4241 02D5  
+                   l4233 02A8                     l4225 0282                     l4217 0264  
+                   l4401 01FF                     l4243 02D9                     l4235 02B3  
+                   l4227 028A                     l4219 026C                     l4411 0232  
+                   l4403 0202                     l4237 02BB                     l4229 028E  
+                   l4421 025D                     l4413 0238                     l4405 0211  
+                   l4501 00C2                     l4239 02C3                     l4415 023B  
+                   l4407 0217                     l4423 038C                     l4431 03E1  
+                   l4511 00ED                     l4503 00C6                     l4417 024D  
+                   l4409 021A                     l4425 0393                     l4433 03FB  
+                   l4521 016F                     l4513 0105                     l4505 00CF  
+                   l4441 0026                     l4419 024F                     l4427 039C  
+                   l4523 0193                     l4515 0121                     l4507 00D0  
+                   l4451 0032                     l4443 0029                     l4435 0015  
+                   l3901 0333                     l4429 03B7                     l4525 0199  
+                   l4517 0143                     l4509 00E6                     l4461 0041  
+                   l4453 0033                     l4445 002A                     l4437 0019  
+                   l3671 03BE                     l3663 0345                     l3903 0335  
+                   l4391 01D0                     l4527 01BF                     l4519 0169  
+                   l4471 004A                     l4463 0042                     l4455 0037  
+                   l4447 002E                     l4439 001D                     l3673 03C2  
+                   l3665 0347                     l3905 0343                     l4393 01D7  
+                   l4481 006E                     l4473 0060                     l4465 0045  
+                   l4457 003B                     l4449 0030                     l3675 03C7  
+                   l3667 03B8                     l3907 0345                     l4395 01E7  
+                   l4491 0086                     l4483 006F                     l4475 0069  
+                   l4467 0048                     l4459 003D                     l4549 03D2  
+                   l3677 03CC                     l3669 03B9                     l3685 03FD  
+                   l3909 0348                     l4397 01F0                     l4389 01CC  
+                   l4493 0089                     l4485 0078                     l4477 006C  
+                   l4469 0049                     l3679 03CD                     l3687 0400  
+                   l4399 01F8                     l4495 00A2                     l4487 007B  
+                   l4479 006D                     l3961 037A                     l3953 0349  
+                   l4497 00A3                     l4489 007D                     l3891 02DB  
+                   l3963 037D                     l3955 0352                     l4499 00AC  
+                   l3893 02E1                     l3965 0386                     l3957 036A  
+                   l3895 0307                     l3959 0373                     l3897 030B  
+                   l3899 0331                     u4000 01D6                     u4001 01D5  
+                   u3050 02E1                     u4010 01EF                     u3051 02E0  
+                   u4011 01EE                     u4020 020A                     u4100 00AC  
+                   u3061 02F9                     u4021 0209                     u4101 00AB  
+                   u3070 030B                     u3062 02FA                     u4030 0210  
+                   u4110 00CF                     u3071 030A                     u3063 02FF  
+                   u4031 020F                     u4111 00CE                     u3064 0300  
+                   u3160 0351                     u4040 0220                     u3081 0323  
+                   u3161 0350                     u4041 021F                     u2450 0409  
+                   u3090 0343                     u3082 0324                     u3170 0373  
+                   u4050 022B                     u4130 0143                     u2451 0408  
+                   u3091 0342                     u3083 0329                     u3171 0372  
+                   u4051 022A                     u4131 0142                     u2460 0410  
+                   u3084 032A                     u3180 0385                     u4060 0231  
+                   u4140 0169                     u2461 040F                     u3181 0384  
+                   u4061 0230                     u4141 0168                     u4125 010A  
+                   u4070 0241                     u4150 0193                     u3095 033F  
+                   u4071 0240                     u4151 0192                     u3600 0264  
+                   u4080 024C                     u4160 01BF                     u4081 024B  
+                   u4161 01BE                     u3610 026B                     u4090 0393  
+                   u3611 026A                     u4091 0392                     u3700 02D9  
+                   u3630 0288                     u3631 0287                     u3625 027A  
+                   u4177 0073                     u3650 02A6                     u3651 02A5  
+                   u4187 0388                     _PEIE 005E                     u3645 0299  
+                   u3670 02B7                     u3671 02B6                     u3680 02BB  
+                   u3681 02BA                     u3665 02AB                     u3690 02CC  
+                   _RCEN 048B                     u3695 02C8                     _RSEN 0489  
+                   _WREN 0C62            _i2c_byte_read 01CC                     u1_20 0416  
+                   u1_21 0415                     _main 0015             ___ftpack@arg 0020  
+           ___ftpack@exp 0023                     btemp 007E                     start 0012  
+                  ?_main 0070                    _ACKEN 048C                    _ACKDT 048D  
+                  _EEADR 010D                    _CARRY 0018                    _ANSEL 0188  
+                  _T1CON 0010                    _TRISA 0085                    _TRISB 0086  
+                  _TRISC 0087                    _TRISD 0088                    _SSPIF 0063  
+         _i2c_byte_write 0349            ___awtoft@sign 0077            ___ftpack@sign 0024  
+         ?_i2c_byte_read 0020                    pclath 000A                    status 0003  
+                  wtemp0 007E             __end_of_main 01CC                   ??_main 0036  
+             _InterTimer 0412   __end_of_i2c_byte_write 038C                   _EEDATA 010C  
+                 _EECON1 018C                   _EECON2 018D         __end_of___awtoft 03B8  
+       __end_of___ftpack 02DB                   _ANSELH 0189                   i1l1030 041A  
+                 i1l1029 041A                   i1l2591 0412                   i1l2593 0416  
+                 i1l2595 0418         __end_of___lwtoft 03FC                   _OSCCON 008F  
+                 _TMR1IE 0460                   _TMR1IF 0060                   _TMR1ON 0080  
+                 _SSPADD 0093                   _SSPCON 0014                   _SSPBUF 0013  
+                 _i2c_Tx 03FC                   ___ftge 02DB                   _oscsel 03B8  
+        ?_i2c_byte_write 0020                   saved_w 007E          ??_i2c_byte_read 0075  
+             ___ftge@ff1 0025               ___ftge@ff2 0028               ___awtoft@c 0031  
+         __pcstackCOMMON 0070               ___lwtoft@c 0025              ?_InterTimer 0070  
+                ?_i2c_Tx 0070               __pmaintext 0015      i2c_byte_read@regadd 0023  
+                ?___ftge 0025               __pintentry 0004                ?___awtoft 0031  
+              ?___ftpack 0020                  ?_oscsel 0074                ?___lwtoft 0025  
+                _SSPSTAT 0094      __size_of_InterTimer 0013          __size_of_i2c_Tx 0016  
+        __size_of___ftge 006E               ??___awtoft 0034               ??___ftpack 0074  
+        __size_of_oscsel 0029               ??___lwtoft 0077                  main@val 003E  
+                main@tmp 0039     end_of_initialization 0427         ??_i2c_byte_write 0075  
+         __end_of_i2c_Tx 0412           __end_of___ftge 0349             ??_InterTimer 0070  
+         __end_of_oscsel 03E1      start_initialization 0425    __end_of_i2c_byte_read 025E  
+               ??_i2c_Tx 0074       __end_of_InterTimer 0425                 ??___ftge 002B  
+    i2c_byte_write@date1 0024      i2c_byte_write@date2 0025                 ??_oscsel 0076  
+      __size_of___awtoft 002C        __size_of___ftpack 007D              __pbssCOMMON 0078  
+      __size_of___lwtoft 001B            __pcstackBANK0 0020   i2c_byte_read@read_data 0024  
+              __ptext390 03FC                __ptext391 03B8                __ptext383 0000  
+              __ptext392 0412                __ptext384 03E1                __ptext393 0000  
+              __ptext385 038C                __ptext386 01CC                __ptext387 0349  
+              __ptext388 02DB                __ptext389 025E        interrupt_function 0004  
+             oscsel@sel1 0074                 ___awtoft 038C                 ___ftpack 025E  
+               ___lwtoft 03E1            __size_of_main 01B7  __size_of_i2c_byte_write 0043  
+      i2c_byte_write@add 0022        i2c_byte_write@cmd 0023        i2c_byte_write@sel 0020  
+               intlevel1 0000              _TMR1ON_Flag 0078         i2c_byte_read@add 0022  
+       i2c_byte_read@sel 0020   __size_of_i2c_byte_read 0092  
