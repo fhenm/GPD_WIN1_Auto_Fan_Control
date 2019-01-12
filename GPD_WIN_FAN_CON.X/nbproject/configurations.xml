@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="62">
+<configurationDescriptor version="65">
   <logicalFolder name="root" displayName="root" projectFiles="true">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -8,7 +8,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>GPD_WIN_FUN_CON_MAIN.c</itemPath>
+      <itemPath>GPD_WIN_FAN_CON_MAIN.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -29,6 +29,9 @@
         <languageToolchainVersion>9.82</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
+      <packs>
+        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.0.7"/>
+      </packs>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -41,6 +44,8 @@
           <parseOnProdLoad>false</parseOnProdLoad>
           <alternateLoadableFile></alternateLoadableFile>
         </loading>
+        <subordinates>
+        </subordinates>
       </compileType>
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
@@ -126,8 +131,6 @@
         <property key="unused-interrupt-vectors" value="-vec_reset,-vec_func"/>
         <property key="warn-on-stack-overflow" value="true"/>
       </HI-TECH-LINK>
-      <PK3OBPlatformTool>
-      </PK3OBPlatformTool>
     </conf>
   </confs>
 </configurationDescriptor>

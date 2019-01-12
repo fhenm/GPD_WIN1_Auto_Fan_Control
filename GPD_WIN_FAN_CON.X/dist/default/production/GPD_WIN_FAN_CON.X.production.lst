@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC LITE Macro Assembler V9.82 build 9453 
-                                                                                               Wed Oct 11 01:07:16 2017
+                                                                                               Sat Jan 12 11:04:37 2019
 
 HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
      1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 9453"
@@ -45,9 +45,9 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
     39  0001                     c	equ	1
     40  0000                     z	equ	0
     41  000A                     pclath	equ	10
-    42                           # 46 "GPD_WIN_FUN_CON_MAIN.c"
+    42                           # 46 "GPD_WIN_FAN_CON_MAIN.c"
     43                           	psect config,class=CONFIG,delta=2 ;#
-    44                           # 46 "GPD_WIN_FUN_CON_MAIN.c"
+    44                           # 46 "GPD_WIN_FAN_CON_MAIN.c"
     45  2007  E0C4               	dw 0xFCFF & 0xFFFF & 0xEFFF & 0xF7FF & 0xFBFF & 0xFFFF & 0xFFFF & 0xFFDF & 0xFFEF & 0xF
                                  FFC & 0xFFF7 ;#
     46                           	FNCALL	_main,_oscsel
@@ -142,7 +142,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    135  0C61                     _WR	set	3169
    136                           	global	_WREN
    137  0C62                     _WREN	set	3170
-   138                           	file	"C:\Users\MSK319~1\AppData\Local\Temp\sdvk."
+   138                           	file	"C:\Users\MSK319~1\AppData\Local\Temp\sbak."
    139                           	line	#
    140                           psect cinit,class=CODE,delta=2
    141                           global start_initialization
@@ -464,7 +464,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    457                           
    458 ;; *************** function _main *****************
    459 ;; Defined at:
-   460 ;;		line 139 in file "GPD_WIN_FUN_CON_MAIN.c"
+   460 ;;		line 139 in file "GPD_WIN_FAN_CON_MAIN.c"
    461 ;; Parameters:    Size  Location     Type
    462 ;;		None
    463 ;; Auto vars:     Size  Location     Type
@@ -498,7 +498,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    491 ;; This function uses a non-reentrant model
    492 ;;
    493                           psect	maintext
-   494                           	file	"GPD_WIN_FUN_CON_MAIN.c"
+   494                           	file	"GPD_WIN_FAN_CON_MAIN.c"
    495                           	line	139
    496                           	global	__size_of_main
    497  01B7                     	__size_of_main	equ	__end_of_main-_main
@@ -509,7 +509,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    502                           	line	140
    503                           	
    504  0015                     l4435:	
-   505                           ;GPD_WIN_FUN_CON_MAIN.c: 140: unsigned int val=0x0000;
+   505                           ;GPD_WIN_FAN_CON_MAIN.c: 140: unsigned int val=0x0000;
    506  0015  1283               	bcf	status, 5	;RP0=0, select bank0
    507  0016  1303               	bcf	status, 6	;RP1=0, select bank0
    508  0017  01BE               	clrf	(main@val)
@@ -517,8 +517,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    510                           	line	142
    511                           	
    512  0019                     l4437:	
-   513                           ;GPD_WIN_FUN_CON_MAIN.c: 141: float tmp;
-   514                           ;GPD_WIN_FUN_CON_MAIN.c: 142: int faltemp = 38;
+   513                           ;GPD_WIN_FAN_CON_MAIN.c: 141: float tmp;
+   514                           ;GPD_WIN_FAN_CON_MAIN.c: 142: int faltemp = 38;
    515  0019  3026               	movlw	low(026h)
    516  001A  00BC               	movwf	(main@faltemp)
    517  001B  3000               	movlw	high(026h)
@@ -526,7 +526,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    519                           	line	143
    520                           	
    521  001D                     l4439:	
-   522                           ;GPD_WIN_FUN_CON_MAIN.c: 143: oscsel(0);
+   522                           ;GPD_WIN_FAN_CON_MAIN.c: 143: oscsel(0);
    523  001D  3000               	movlw	low(0)
    524  001E  00F4               	movwf	(?_oscsel)
    525  001F  3000               	movlw	high(0)
@@ -536,19 +536,19 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    528                           	line	144
    529                           	
    530  0026                     l4441:	
-   531                           ;GPD_WIN_FUN_CON_MAIN.c: 144: ANSEL = 0x00;
+   531                           ;GPD_WIN_FAN_CON_MAIN.c: 144: ANSEL = 0x00;
    532  0026  1683               	bsf	status, 5	;RP0=1, select bank3
    533  0027  1703               	bsf	status, 6	;RP1=1, select bank3
    534  0028  0188               	clrf	(392)^0180h	;volatile
    535                           	line	145
    536                           	
    537  0029                     l4443:	
-   538                           ;GPD_WIN_FUN_CON_MAIN.c: 145: ANSELH = 0x00;
+   538                           ;GPD_WIN_FAN_CON_MAIN.c: 145: ANSELH = 0x00;
    539  0029  0189               	clrf	(393)^0180h	;volatile
    540                           	line	146
    541                           	
    542  002A                     l4445:	
-   543                           ;GPD_WIN_FUN_CON_MAIN.c: 146: TRISA = 0b11001111;
+   543                           ;GPD_WIN_FAN_CON_MAIN.c: 146: TRISA = 0b11001111;
    544  002A  30CF               	movlw	(0CFh)
    545  002B  1683               	bsf	status, 5	;RP0=1, select bank1
    546  002C  1303               	bcf	status, 6	;RP1=0, select bank1
@@ -556,24 +556,24 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    548                           	line	147
    549                           	
    550  002E                     l4447:	
-   551                           ;GPD_WIN_FUN_CON_MAIN.c: 147: TRISB = 0b11111111;
+   551                           ;GPD_WIN_FAN_CON_MAIN.c: 147: TRISB = 0b11111111;
    552  002E  30FF               	movlw	(0FFh)
    553  002F  0086               	movwf	(134)^080h	;volatile
    554                           	line	148
    555                           	
    556  0030                     l4449:	
-   557                           ;GPD_WIN_FUN_CON_MAIN.c: 148: TRISC = 0b00011011;
+   557                           ;GPD_WIN_FAN_CON_MAIN.c: 148: TRISC = 0b00011011;
    558  0030  301B               	movlw	(01Bh)
    559  0031  0087               	movwf	(135)^080h	;volatile
    560                           	line	149
    561                           	
    562  0032                     l4451:	
-   563                           ;GPD_WIN_FUN_CON_MAIN.c: 149: TRISD = 0x00;
+   563                           ;GPD_WIN_FAN_CON_MAIN.c: 149: TRISD = 0x00;
    564  0032  0188               	clrf	(136)^080h	;volatile
    565                           	line	150
    566                           	
    567  0033                     l4453:	
-   568                           ;GPD_WIN_FUN_CON_MAIN.c: 150: SSPCON = 0b00101000;
+   568                           ;GPD_WIN_FAN_CON_MAIN.c: 150: SSPCON = 0b00101000;
    569  0033  3028               	movlw	(028h)
    570  0034  1283               	bcf	status, 5	;RP0=0, select bank0
    571  0035  1303               	bcf	status, 6	;RP1=0, select bank0
@@ -581,7 +581,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    573                           	line	151
    574                           	
    575  0037                     l4455:	
-   576                           ;GPD_WIN_FUN_CON_MAIN.c: 151: SSPSTAT = 0b10000000;
+   576                           ;GPD_WIN_FAN_CON_MAIN.c: 151: SSPSTAT = 0b10000000;
    577  0037  3080               	movlw	(080h)
    578  0038  1683               	bsf	status, 5	;RP0=1, select bank1
    579  0039  1303               	bcf	status, 6	;RP1=0, select bank1
@@ -589,13 +589,13 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    581                           	line	152
    582                           	
    583  003B                     l4457:	
-   584                           ;GPD_WIN_FUN_CON_MAIN.c: 152: SSPADD = 0x09;
+   584                           ;GPD_WIN_FAN_CON_MAIN.c: 152: SSPADD = 0x09;
    585  003B  3009               	movlw	(09h)
    586  003C  0093               	movwf	(147)^080h	;volatile
    587                           	line	153
    588                           	
    589  003D                     l4459:	
-   590                           ;GPD_WIN_FUN_CON_MAIN.c: 153: T1CON = 0b01110000;
+   590                           ;GPD_WIN_FAN_CON_MAIN.c: 153: T1CON = 0b01110000;
    591  003D  3070               	movlw	(070h)
    592  003E  1283               	bcf	status, 5	;RP0=0, select bank0
    593  003F  1303               	bcf	status, 6	;RP1=0, select bank0
@@ -603,36 +603,36 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    595                           	line	154
    596                           	
    597  0041                     l4461:	
-   598                           ;GPD_WIN_FUN_CON_MAIN.c: 154: TMR1IF = 0;
+   598                           ;GPD_WIN_FAN_CON_MAIN.c: 154: TMR1IF = 0;
    599  0041  100C               	bcf	(96/8),(96)&7
    600                           	line	155
    601                           	
    602  0042                     l4463:	
-   603                           ;GPD_WIN_FUN_CON_MAIN.c: 155: TMR1IE = 1;
+   603                           ;GPD_WIN_FAN_CON_MAIN.c: 155: TMR1IE = 1;
    604  0042  1683               	bsf	status, 5	;RP0=1, select bank1
    605  0043  1303               	bcf	status, 6	;RP1=0, select bank1
    606  0044  140C               	bsf	(1120/8)^080h,(1120)&7
    607                           	line	156
    608                           	
    609  0045                     l4465:	
-   610                           ;GPD_WIN_FUN_CON_MAIN.c: 156: TMR1ON = 0;
+   610                           ;GPD_WIN_FAN_CON_MAIN.c: 156: TMR1ON = 0;
    611  0045  1283               	bcf	status, 5	;RP0=0, select bank0
    612  0046  1303               	bcf	status, 6	;RP1=0, select bank0
    613  0047  1010               	bcf	(128/8),(128)&7
    614                           	line	157
    615                           	
    616  0048                     l4467:	
-   617                           ;GPD_WIN_FUN_CON_MAIN.c: 157: PEIE = 1;
+   617                           ;GPD_WIN_FAN_CON_MAIN.c: 157: PEIE = 1;
    618  0048  170B               	bsf	(94/8),(94)&7
    619                           	line	158
    620                           	
    621  0049                     l4469:	
-   622                           ;GPD_WIN_FUN_CON_MAIN.c: 158: GIE = 1;
+   622                           ;GPD_WIN_FAN_CON_MAIN.c: 158: GIE = 1;
    623  0049  178B               	bsf	(95/8),(95)&7
    624                           	line	159
    625                           	
    626  004A                     l4471:	
-   627                           ;GPD_WIN_FUN_CON_MAIN.c: 159: i2c_byte_write(0, 0x48, 0x03, 0x40, 0x00);
+   627                           ;GPD_WIN_FAN_CON_MAIN.c: 159: i2c_byte_write(0, 0x48, 0x03, 0x40, 0x00);
    628  004A  3000               	movlw	low(0)
    629  004B  00A0               	movwf	(?_i2c_byte_write)
    630  004C  3000               	movlw	high(0)
@@ -655,7 +655,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    646                           	line	160
    647                           	
    648  0060                     l4473:	
-   649                           ;GPD_WIN_FUN_CON_MAIN.c: 160: oscsel(1);
+   649                           ;GPD_WIN_FAN_CON_MAIN.c: 160: oscsel(1);
    650  0060  3001               	movlw	low(01h)
    651  0061  00F4               	movwf	(?_oscsel)
    652  0062  3000               	movlw	high(01h)
@@ -665,29 +665,29 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    655                           	line	161
    656                           	
    657  0069                     l4475:	
-   658                           ;GPD_WIN_FUN_CON_MAIN.c: 161: RA4 = 0;
+   658                           ;GPD_WIN_FAN_CON_MAIN.c: 161: RA4 = 0;
    659  0069  1283               	bcf	status, 5	;RP0=0, select bank0
    660  006A  1303               	bcf	status, 6	;RP1=0, select bank0
    661  006B  1205               	bcf	(44/8),(44)&7
    662                           	line	162
    663                           	
    664  006C                     l4477:	
-   665                           ;GPD_WIN_FUN_CON_MAIN.c: 162: RA5 = 1;
+   665                           ;GPD_WIN_FAN_CON_MAIN.c: 162: RA5 = 1;
    666  006C  1685               	bsf	(45/8),(45)&7
    667                           	line	163
    668                           	
    669  006D                     l4479:	
-   670                           ;GPD_WIN_FUN_CON_MAIN.c: 163: RC6 = 0;
+   670                           ;GPD_WIN_FAN_CON_MAIN.c: 163: RC6 = 0;
    671  006D  1307               	bcf	(62/8),(62)&7
    672                           	line	164
    673                           	
    674  006E                     l4481:	
-   675                           ;GPD_WIN_FUN_CON_MAIN.c: 164: RC5 = 1;
+   675                           ;GPD_WIN_FAN_CON_MAIN.c: 164: RC5 = 1;
    676  006E  1687               	bsf	(61/8),(61)&7
    677                           	line	165
    678                           	
    679  006F                     l4483:	
-   680                           ;GPD_WIN_FUN_CON_MAIN.c: 165: _delay((unsigned long)((3000)*(32000/4000.0)));
+   680                           ;GPD_WIN_FAN_CON_MAIN.c: 165: _delay((unsigned long)((3000)*(32000/4000.0)));
    681                           	opt asmopt_off
    682  006F  3020               movlw	32
    683  0070  00B7               movwf	((??_main+0)+0+1),f
@@ -704,24 +704,24 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    694                           	line	167
    695                           	
    696  0078                     l4485:	
-   697                           ;GPD_WIN_FUN_CON_MAIN.c: 167: RA4 = 0;
+   697                           ;GPD_WIN_FAN_CON_MAIN.c: 167: RA4 = 0;
    698  0078  1283               	bcf	status, 5	;RP0=0, select bank0
    699  0079  1303               	bcf	status, 6	;RP1=0, select bank0
    700  007A  1205               	bcf	(44/8),(44)&7
    701                           	line	168
    702                           	
    703  007B                     l4487:	
-   704                           ;GPD_WIN_FUN_CON_MAIN.c: 168: RA5 = 0;
+   704                           ;GPD_WIN_FAN_CON_MAIN.c: 168: RA5 = 0;
    705  007B  1285               	bcf	(45/8),(45)&7
    706  007C  287D               	goto	l4489
    707                           	line	170
-   708                           ;GPD_WIN_FUN_CON_MAIN.c: 170: for(;;){
+   708                           ;GPD_WIN_FAN_CON_MAIN.c: 170: for(;;){
    709                           	
    710  007D                     l1091:	
    711                           	line	171
    712                           	
    713  007D                     l4489:	
-   714                           ;GPD_WIN_FUN_CON_MAIN.c: 171: oscsel(0);
+   714                           ;GPD_WIN_FAN_CON_MAIN.c: 171: oscsel(0);
    715  007D  3000               	movlw	low(0)
    716  007E  00F4               	movwf	(?_oscsel)
    717  007F  3000               	movlw	high(0)
@@ -731,14 +731,14 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    720                           	line	172
    721                           	
    722  0086                     l4491:	
-   723                           ;GPD_WIN_FUN_CON_MAIN.c: 172: RA4 = 1;
+   723                           ;GPD_WIN_FAN_CON_MAIN.c: 172: RA4 = 1;
    724  0086  1283               	bcf	status, 5	;RP0=0, select bank0
    725  0087  1303               	bcf	status, 6	;RP1=0, select bank0
    726  0088  1605               	bsf	(44/8),(44)&7
    727                           	line	173
    728                           	
    729  0089                     l4493:	
-   730                           ;GPD_WIN_FUN_CON_MAIN.c: 173: val = i2c_byte_read(0, 0x48, 0x02);
+   730                           ;GPD_WIN_FAN_CON_MAIN.c: 173: val = i2c_byte_read(0, 0x48, 0x02);
    731  0089  3000               	movlw	low(0)
    732  008A  00A0               	movwf	(?_i2c_byte_read)
    733  008B  3000               	movlw	high(0)
@@ -765,12 +765,12 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    753                           	line	174
    754                           	
    755  00A2                     l4495:	
-   756                           ;GPD_WIN_FUN_CON_MAIN.c: 174: RA4 = 0;
+   756                           ;GPD_WIN_FAN_CON_MAIN.c: 174: RA4 = 0;
    757  00A2  1205               	bcf	(44/8),(44)&7
    758                           	line	175
    759                           	
    760  00A3                     l4497:	
-   761                           ;GPD_WIN_FUN_CON_MAIN.c: 175: if(val >= 0b10000000){
+   761                           ;GPD_WIN_FAN_CON_MAIN.c: 175: if(val >= 0b10000000){
    762  00A3  3000               	movlw	high(080h)
    763  00A4  023F               	subwf	(main@val+1),w
    764  00A5  3080               	movlw	low(080h)
@@ -785,7 +785,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    773                           	line	176
    774                           	
    775  00AC                     l4499:	
-   776                           ;GPD_WIN_FUN_CON_MAIN.c: 176: i2c_byte_write(0, 0x48, 0x03, 0x40, 0x00);
+   776                           ;GPD_WIN_FAN_CON_MAIN.c: 176: i2c_byte_write(0, 0x48, 0x03, 0x40, 0x00);
    777  00AC  3000               	movlw	low(0)
    778  00AD  00A0               	movwf	(?_i2c_byte_write)
    779  00AE  3000               	movlw	high(0)
@@ -808,7 +808,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    795                           	line	177
    796                           	
    797  00C2                     l4501:	
-   798                           ;GPD_WIN_FUN_CON_MAIN.c: 177: RA5 = 1;
+   798                           ;GPD_WIN_FAN_CON_MAIN.c: 177: RA5 = 1;
    799  00C2  1283               	bcf	status, 5	;RP0=0, select bank0
    800  00C3  1303               	bcf	status, 6	;RP1=0, select bank0
    801  00C4  1685               	bsf	(45/8),(45)&7
@@ -819,8 +819,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    806                           	line	179
    807                           	
    808  00C6                     l4503:	
-   809                           ;GPD_WIN_FUN_CON_MAIN.c: 178: }
-   810                           ;GPD_WIN_FUN_CON_MAIN.c: 179: if(val <= 0b01111111){
+   809                           ;GPD_WIN_FAN_CON_MAIN.c: 178: }
+   810                           ;GPD_WIN_FAN_CON_MAIN.c: 179: if(val <= 0b01111111){
    811  00C6  3000               	movlw	high(080h)
    812  00C7  023F               	subwf	(main@val+1),w
    813  00C8  3080               	movlw	low(080h)
@@ -835,12 +835,12 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    822                           	line	180
    823                           	
    824  00CF                     l4505:	
-   825                           ;GPD_WIN_FUN_CON_MAIN.c: 180: RA5 = 0;
+   825                           ;GPD_WIN_FAN_CON_MAIN.c: 180: RA5 = 0;
    826  00CF  1285               	bcf	(45/8),(45)&7
    827                           	line	181
    828                           	
    829  00D0                     l4507:	
-   830                           ;GPD_WIN_FUN_CON_MAIN.c: 181: val = i2c_byte_read(0, 0x48, 0x00);
+   830                           ;GPD_WIN_FAN_CON_MAIN.c: 181: val = i2c_byte_read(0, 0x48, 0x00);
    831  00D0  3000               	movlw	low(0)
    832  00D1  00A0               	movwf	(?_i2c_byte_read)
    833  00D2  3000               	movlw	high(0)
@@ -864,7 +864,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    850                           	line	182
    851                           	
    852  00E6                     l4509:	
-   853                           ;GPD_WIN_FUN_CON_MAIN.c: 182: val = val << 8;
+   853                           ;GPD_WIN_FAN_CON_MAIN.c: 182: val = val << 8;
    854  00E6  083E               	movf	(main@val),w
    855  00E7  00B7               	movwf	(??_main+0)+0+1
    856  00E8  01B6               	clrf	(??_main+0)+0
@@ -875,7 +875,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    861                           	line	183
    862                           	
    863  00ED                     l4511:	
-   864                           ;GPD_WIN_FUN_CON_MAIN.c: 183: val = val + i2c_byte_read(1, 0x48, 0x00);
+   864                           ;GPD_WIN_FAN_CON_MAIN.c: 183: val = val + i2c_byte_read(1, 0x48, 0x00);
    865  00ED  3001               	movlw	low(01h)
    866  00EE  00A0               	movwf	(?_i2c_byte_read)
    867  00EF  3000               	movlw	high(01h)
@@ -900,7 +900,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    885                           	line	184
    886                           	
    887  0105                     l4513:	
-   888                           ;GPD_WIN_FUN_CON_MAIN.c: 184: tmp = val / 128;
+   888                           ;GPD_WIN_FAN_CON_MAIN.c: 184: tmp = val / 128;
    889  0105  083F               	movf	(main@val+1),w
    890  0106  00B7               	movwf	(??_main+0)+0+1
    891  0107  083E               	movf	(main@val),w
@@ -930,7 +930,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    914                           	line	186
    915                           	
    916  0121                     l4515:	
-   917                           ;GPD_WIN_FUN_CON_MAIN.c: 186: if(tmp >= faltemp && tmp <= (faltemp+6)){
+   917                           ;GPD_WIN_FAN_CON_MAIN.c: 186: if(tmp >= faltemp && tmp <= (faltemp+6)){
    918  0121  0839               	movf	(main@tmp),w
    919  0122  00A5               	movwf	(?___ftge)
    920  0123  083A               	movf	(main@tmp+1),w
@@ -1001,25 +1001,25 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
    981                           	line	187
    982                           	
    983  0169                     l4519:	
-   984                           ;GPD_WIN_FUN_CON_MAIN.c: 187: RC6 = 0;
+   984                           ;GPD_WIN_FAN_CON_MAIN.c: 187: RC6 = 0;
    985  0169  1283               	bcf	status, 5	;RP0=0, select bank0
    986  016A  1303               	bcf	status, 6	;RP1=0, select bank0
    987  016B  1307               	bcf	(62/8),(62)&7
    988                           	line	188
-   989                           ;GPD_WIN_FUN_CON_MAIN.c: 188: RC5 = 1;
+   989                           ;GPD_WIN_FAN_CON_MAIN.c: 188: RC5 = 1;
    990  016C  1687               	bsf	(61/8),(61)&7
    991                           	line	189
-   992                           ;GPD_WIN_FUN_CON_MAIN.c: 189: RA4 = 0;
+   992                           ;GPD_WIN_FAN_CON_MAIN.c: 189: RA4 = 0;
    993  016D  1205               	bcf	(44/8),(44)&7
    994                           	line	190
-   995                           ;GPD_WIN_FUN_CON_MAIN.c: 190: }
+   995                           ;GPD_WIN_FAN_CON_MAIN.c: 190: }
    996  016E  287D               	goto	l4489
    997                           	line	191
    998                           	
    999  016F                     l1094:	
   1000                           	
   1001  016F                     l4521:	
-  1002                           ;GPD_WIN_FUN_CON_MAIN.c: 191: else if(tmp < faltemp){
+  1002                           ;GPD_WIN_FAN_CON_MAIN.c: 191: else if(tmp < faltemp){
   1003  016F  1283               	bcf	status, 5	;RP0=0, select bank0
   1004  0170  1303               	bcf	status, 6	;RP1=0, select bank0
   1005  0171  0839               	movf	(main@tmp),w
@@ -1056,25 +1056,25 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1034                           	line	192
   1035                           	
   1036  0193                     l4523:	
-  1037                           ;GPD_WIN_FUN_CON_MAIN.c: 192: RC6 = 0;
+  1037                           ;GPD_WIN_FAN_CON_MAIN.c: 192: RC6 = 0;
   1038  0193  1283               	bcf	status, 5	;RP0=0, select bank0
   1039  0194  1303               	bcf	status, 6	;RP1=0, select bank0
   1040  0195  1307               	bcf	(62/8),(62)&7
   1041                           	line	193
-  1042                           ;GPD_WIN_FUN_CON_MAIN.c: 193: RC5 = 0;
+  1042                           ;GPD_WIN_FAN_CON_MAIN.c: 193: RC5 = 0;
   1043  0196  1287               	bcf	(61/8),(61)&7
   1044                           	line	194
-  1045                           ;GPD_WIN_FUN_CON_MAIN.c: 194: RA4 = 0;
+  1045                           ;GPD_WIN_FAN_CON_MAIN.c: 194: RA4 = 0;
   1046  0197  1205               	bcf	(44/8),(44)&7
   1047                           	line	195
-  1048                           ;GPD_WIN_FUN_CON_MAIN.c: 195: }
+  1048                           ;GPD_WIN_FAN_CON_MAIN.c: 195: }
   1049  0198  287D               	goto	l4489
   1050                           	line	196
   1051                           	
   1052  0199                     l1096:	
   1053                           	
   1054  0199                     l4525:	
-  1055                           ;GPD_WIN_FUN_CON_MAIN.c: 196: else if(tmp >(faltemp+6)){
+  1055                           ;GPD_WIN_FAN_CON_MAIN.c: 196: else if(tmp >(faltemp+6)){
   1056  0199  1283               	bcf	status, 5	;RP0=0, select bank0
   1057  019A  1303               	bcf	status, 6	;RP1=0, select bank0
   1058  019B  083C               	movf	(main@faltemp),w
@@ -1112,15 +1112,15 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1088                           	line	197
   1089                           	
   1090  01BF                     l4527:	
-  1091                           ;GPD_WIN_FUN_CON_MAIN.c: 197: RC6 = 1;
+  1091                           ;GPD_WIN_FAN_CON_MAIN.c: 197: RC6 = 1;
   1092  01BF  1283               	bcf	status, 5	;RP0=0, select bank0
   1093  01C0  1303               	bcf	status, 6	;RP1=0, select bank0
   1094  01C1  1707               	bsf	(62/8),(62)&7
   1095                           	line	198
-  1096                           ;GPD_WIN_FUN_CON_MAIN.c: 198: RC5 = 0;
+  1096                           ;GPD_WIN_FAN_CON_MAIN.c: 198: RC5 = 0;
   1097  01C2  1287               	bcf	(61/8),(61)&7
   1098                           	line	199
-  1099                           ;GPD_WIN_FUN_CON_MAIN.c: 199: RA4 = 1;
+  1099                           ;GPD_WIN_FAN_CON_MAIN.c: 199: RA4 = 1;
   1100  01C3  1605               	bsf	(44/8),(44)&7
   1101  01C4  287D               	goto	l4489
   1102                           	line	200
@@ -1137,9 +1137,9 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1113                           	
   1114  01C8                     l1093:	
   1115                           	line	202
-  1116                           ;GPD_WIN_FUN_CON_MAIN.c: 200: }
-  1117                           ;GPD_WIN_FUN_CON_MAIN.c: 201: }
-  1118                           ;GPD_WIN_FUN_CON_MAIN.c: 202: }
+  1116                           ;GPD_WIN_FAN_CON_MAIN.c: 200: }
+  1117                           ;GPD_WIN_FAN_CON_MAIN.c: 201: }
+  1118                           ;GPD_WIN_FAN_CON_MAIN.c: 202: }
   1119  01C8  287D               	goto	l4489
   1120                           	
   1121  01C9                     l1099:	
@@ -1353,7 +1353,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1327                           
   1328 ;; *************** function _i2c_byte_read *****************
   1329 ;; Defined at:
-  1330 ;;		line 104 in file "GPD_WIN_FUN_CON_MAIN.c"
+  1330 ;;		line 104 in file "GPD_WIN_FAN_CON_MAIN.c"
   1331 ;; Parameters:    Size  Location     Type
   1332 ;;  sel             2    0[BANK0 ] unsigned int 
   1333 ;;  add             1    2[BANK0 ] unsigned char 
@@ -1383,7 +1383,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1357 ;; This function uses a non-reentrant model
   1358 ;;
   1359                           psect	text386
-  1360                           	file	"GPD_WIN_FUN_CON_MAIN.c"
+  1360                           	file	"GPD_WIN_FAN_CON_MAIN.c"
   1361                           	line	104
   1362                           	global	__size_of_i2c_byte_read
   1363  0092                     	__size_of_i2c_byte_read	equ	__end_of_i2c_byte_read-_i2c_byte_read
@@ -1394,8 +1394,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1368                           	line	106
   1369                           	
   1370  01CC                     l4389:	
-  1371                           ;GPD_WIN_FUN_CON_MAIN.c: 105: char read_data[2];
-  1372                           ;GPD_WIN_FUN_CON_MAIN.c: 106: SSPADD = 0x09;
+  1371                           ;GPD_WIN_FAN_CON_MAIN.c: 105: char read_data[2];
+  1372                           ;GPD_WIN_FAN_CON_MAIN.c: 106: SSPADD = 0x09;
   1373  01CC  3009               	movlw	(09h)
   1374  01CD  1683               	bsf	status, 5	;RP0=1, select bank1
   1375  01CE  1303               	bcf	status, 6	;RP1=0, select bank1
@@ -1403,10 +1403,10 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1377                           	line	107
   1378                           	
   1379  01D0                     l4391:	
-  1380                           ;GPD_WIN_FUN_CON_MAIN.c: 107: SEN = 1;
+  1380                           ;GPD_WIN_FAN_CON_MAIN.c: 107: SEN = 1;
   1381  01D0  1411               	bsf	(1160/8)^080h,(1160)&7
   1382                           	line	108
-  1383                           ;GPD_WIN_FUN_CON_MAIN.c: 108: while (SEN);
+  1383                           ;GPD_WIN_FAN_CON_MAIN.c: 108: while (SEN);
   1384  01D1  29D2               	goto	l1061
   1385                           	
   1386  01D2                     l1062:	
@@ -1424,14 +1424,14 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1398                           	line	109
   1399                           	
   1400  01D7                     l4393:	
-  1401                           ;GPD_WIN_FUN_CON_MAIN.c: 109: i2c_Tx(add);
+  1401                           ;GPD_WIN_FAN_CON_MAIN.c: 109: i2c_Tx(add);
   1402  01D7  1283               	bcf	status, 5	;RP0=0, select bank0
   1403  01D8  1303               	bcf	status, 6	;RP1=0, select bank0
   1404  01D9  0822               	movf	(i2c_byte_read@add),w
   1405  01DA  120A  118A  23FC   	fcall	_i2c_Tx
               120A  118A         
   1406                           	line	110
-  1407                           ;GPD_WIN_FUN_CON_MAIN.c: 110: i2c_Tx(regadd);
+  1407                           ;GPD_WIN_FAN_CON_MAIN.c: 110: i2c_Tx(regadd);
   1408  01DF  1283               	bcf	status, 5	;RP0=0, select bank0
   1409  01E0  1303               	bcf	status, 6	;RP1=0, select bank0
   1410  01E1  0823               	movf	(i2c_byte_read@regadd),w
@@ -1440,12 +1440,12 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1412                           	line	111
   1413                           	
   1414  01E7                     l4395:	
-  1415                           ;GPD_WIN_FUN_CON_MAIN.c: 111: RSEN = 1;
+  1415                           ;GPD_WIN_FAN_CON_MAIN.c: 111: RSEN = 1;
   1416  01E7  1683               	bsf	status, 5	;RP0=1, select bank1
   1417  01E8  1303               	bcf	status, 6	;RP1=0, select bank1
   1418  01E9  1491               	bsf	(1161/8)^080h,(1161)&7
   1419                           	line	112
-  1420                           ;GPD_WIN_FUN_CON_MAIN.c: 112: while (RSEN);
+  1420                           ;GPD_WIN_FAN_CON_MAIN.c: 112: while (RSEN);
   1421  01EA  29EB               	goto	l1064
   1422                           	
   1423  01EB                     l1065:	
@@ -1463,7 +1463,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1435                           	line	113
   1436                           	
   1437  01F0                     l4397:	
-  1438                           ;GPD_WIN_FUN_CON_MAIN.c: 113: add = add << 1;
+  1438                           ;GPD_WIN_FAN_CON_MAIN.c: 113: add = add << 1;
   1439  01F0  1283               	bcf	status, 5	;RP0=0, select bank0
   1440  01F1  1303               	bcf	status, 6	;RP1=0, select bank0
   1441  01F2  0822               	movf	(i2c_byte_read@add),w
@@ -1475,7 +1475,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1447                           	line	114
   1448                           	
   1449  01F8                     l4399:	
-  1450                           ;GPD_WIN_FUN_CON_MAIN.c: 114: i2c_Tx(add + 0x01);
+  1450                           ;GPD_WIN_FAN_CON_MAIN.c: 114: i2c_Tx(add + 0x01);
   1451  01F8  0822               	movf	(i2c_byte_read@add),w
   1452  01F9  3E01               	addlw	01h
   1453  01FA  120A  118A  23FC   	fcall	_i2c_Tx
@@ -1483,19 +1483,19 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1454                           	line	115
   1455                           	
   1456  01FF                     l4401:	
-  1457                           ;GPD_WIN_FUN_CON_MAIN.c: 115: SSPIF = 0;
+  1457                           ;GPD_WIN_FAN_CON_MAIN.c: 115: SSPIF = 0;
   1458  01FF  1283               	bcf	status, 5	;RP0=0, select bank0
   1459  0200  1303               	bcf	status, 6	;RP1=0, select bank0
   1460  0201  118C               	bcf	(99/8),(99)&7
   1461                           	line	116
   1462                           	
   1463  0202                     l4403:	
-  1464                           ;GPD_WIN_FUN_CON_MAIN.c: 116: RCEN = 1;
+  1464                           ;GPD_WIN_FAN_CON_MAIN.c: 116: RCEN = 1;
   1465  0202  1683               	bsf	status, 5	;RP0=1, select bank1
   1466  0203  1303               	bcf	status, 6	;RP1=0, select bank1
   1467  0204  1591               	bsf	(1163/8)^080h,(1163)&7
   1468                           	line	117
-  1469                           ;GPD_WIN_FUN_CON_MAIN.c: 117: while (RCEN);
+  1469                           ;GPD_WIN_FAN_CON_MAIN.c: 117: while (RCEN);
   1470  0205  2A06               	goto	l1067
   1471                           	
   1472  0206                     l1068:	
@@ -1511,7 +1511,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1482                           	
   1483  020B                     l1069:	
   1484                           	line	118
-  1485                           ;GPD_WIN_FUN_CON_MAIN.c: 118: while (!BF);
+  1485                           ;GPD_WIN_FAN_CON_MAIN.c: 118: while (!BF);
   1486  020B  2A0C               	goto	l1070
   1487                           	
   1488  020C                     l1071:	
@@ -1529,7 +1529,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1500                           	line	119
   1501                           	
   1502  0211                     l4405:	
-  1503                           ;GPD_WIN_FUN_CON_MAIN.c: 119: read_data[0] = SSPBUF;
+  1503                           ;GPD_WIN_FAN_CON_MAIN.c: 119: read_data[0] = SSPBUF;
   1504  0211  1283               	bcf	status, 5	;RP0=0, select bank0
   1505  0212  1303               	bcf	status, 6	;RP1=0, select bank0
   1506  0213  0813               	movf	(19),w	;volatile
@@ -1539,17 +1539,17 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1510                           	line	120
   1511                           	
   1512  0217                     l4407:	
-  1513                           ;GPD_WIN_FUN_CON_MAIN.c: 120: ACKDT = 0;
+  1513                           ;GPD_WIN_FAN_CON_MAIN.c: 120: ACKDT = 0;
   1514  0217  1683               	bsf	status, 5	;RP0=1, select bank1
   1515  0218  1303               	bcf	status, 6	;RP1=0, select bank1
   1516  0219  1291               	bcf	(1165/8)^080h,(1165)&7
   1517                           	line	121
   1518                           	
   1519  021A                     l4409:	
-  1520                           ;GPD_WIN_FUN_CON_MAIN.c: 121: ACKEN = 1;
+  1520                           ;GPD_WIN_FAN_CON_MAIN.c: 121: ACKEN = 1;
   1521  021A  1611               	bsf	(1164/8)^080h,(1164)&7
   1522                           	line	122
-  1523                           ;GPD_WIN_FUN_CON_MAIN.c: 122: while (ACKEN);
+  1523                           ;GPD_WIN_FAN_CON_MAIN.c: 122: while (ACKEN);
   1524  021B  2A1C               	goto	l1073
   1525                           	
   1526  021C                     l1074:	
@@ -1564,17 +1564,17 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1535                           	
   1536  0220                     l1075:	
   1537                           	line	123
-  1538                           ;GPD_WIN_FUN_CON_MAIN.c: 123: SSPIF = 0;
+  1538                           ;GPD_WIN_FAN_CON_MAIN.c: 123: SSPIF = 0;
   1539  0220  1283               	bcf	status, 5	;RP0=0, select bank0
   1540  0221  1303               	bcf	status, 6	;RP1=0, select bank0
   1541  0222  118C               	bcf	(99/8),(99)&7
   1542                           	line	124
-  1543                           ;GPD_WIN_FUN_CON_MAIN.c: 124: RCEN = 1;
+  1543                           ;GPD_WIN_FAN_CON_MAIN.c: 124: RCEN = 1;
   1544  0223  1683               	bsf	status, 5	;RP0=1, select bank1
   1545  0224  1303               	bcf	status, 6	;RP1=0, select bank1
   1546  0225  1591               	bsf	(1163/8)^080h,(1163)&7
   1547                           	line	125
-  1548                           ;GPD_WIN_FUN_CON_MAIN.c: 125: while (RCEN);
+  1548                           ;GPD_WIN_FAN_CON_MAIN.c: 125: while (RCEN);
   1549  0226  2A27               	goto	l1076
   1550                           	
   1551  0227                     l1077:	
@@ -1590,7 +1590,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1561                           	
   1562  022C                     l1078:	
   1563                           	line	126
-  1564                           ;GPD_WIN_FUN_CON_MAIN.c: 126: while (!BF);
+  1564                           ;GPD_WIN_FAN_CON_MAIN.c: 126: while (!BF);
   1565  022C  2A2D               	goto	l1079
   1566                           	
   1567  022D                     l1080:	
@@ -1608,7 +1608,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1579                           	line	127
   1580                           	
   1581  0232                     l4411:	
-  1582                           ;GPD_WIN_FUN_CON_MAIN.c: 127: read_data[1] = SSPBUF;
+  1582                           ;GPD_WIN_FAN_CON_MAIN.c: 127: read_data[1] = SSPBUF;
   1583  0232  1283               	bcf	status, 5	;RP0=0, select bank0
   1584  0233  1303               	bcf	status, 6	;RP1=0, select bank0
   1585  0234  0813               	movf	(19),w	;volatile
@@ -1618,17 +1618,17 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1589                           	line	128
   1590                           	
   1591  0238                     l4413:	
-  1592                           ;GPD_WIN_FUN_CON_MAIN.c: 128: ACKDT = 1;
+  1592                           ;GPD_WIN_FAN_CON_MAIN.c: 128: ACKDT = 1;
   1593  0238  1683               	bsf	status, 5	;RP0=1, select bank1
   1594  0239  1303               	bcf	status, 6	;RP1=0, select bank1
   1595  023A  1691               	bsf	(1165/8)^080h,(1165)&7
   1596                           	line	129
   1597                           	
   1598  023B                     l4415:	
-  1599                           ;GPD_WIN_FUN_CON_MAIN.c: 129: ACKEN = 1;
+  1599                           ;GPD_WIN_FAN_CON_MAIN.c: 129: ACKEN = 1;
   1600  023B  1611               	bsf	(1164/8)^080h,(1164)&7
   1601                           	line	130
-  1602                           ;GPD_WIN_FUN_CON_MAIN.c: 130: while (ACKEN);
+  1602                           ;GPD_WIN_FAN_CON_MAIN.c: 130: while (ACKEN);
   1603  023C  2A3D               	goto	l1082
   1604                           	
   1605  023D                     l1083:	
@@ -1643,17 +1643,17 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1614                           	
   1615  0241                     l1084:	
   1616                           	line	131
-  1617                           ;GPD_WIN_FUN_CON_MAIN.c: 131: SSPIF = 0;
+  1617                           ;GPD_WIN_FAN_CON_MAIN.c: 131: SSPIF = 0;
   1618  0241  1283               	bcf	status, 5	;RP0=0, select bank0
   1619  0242  1303               	bcf	status, 6	;RP1=0, select bank0
   1620  0243  118C               	bcf	(99/8),(99)&7
   1621                           	line	132
-  1622                           ;GPD_WIN_FUN_CON_MAIN.c: 132: PEN = 1;
+  1622                           ;GPD_WIN_FAN_CON_MAIN.c: 132: PEN = 1;
   1623  0244  1683               	bsf	status, 5	;RP0=1, select bank1
   1624  0245  1303               	bcf	status, 6	;RP1=0, select bank1
   1625  0246  1511               	bsf	(1162/8)^080h,(1162)&7
   1626                           	line	133
-  1627                           ;GPD_WIN_FUN_CON_MAIN.c: 133: while (PEN);
+  1627                           ;GPD_WIN_FAN_CON_MAIN.c: 133: while (PEN);
   1628  0247  2A48               	goto	l1085
   1629                           	
   1630  0248                     l1086:	
@@ -1671,13 +1671,13 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1642                           	line	134
   1643                           	
   1644  024D                     l4417:	
-  1645                           ;GPD_WIN_FUN_CON_MAIN.c: 134: SSPADD = 0x09;
+  1645                           ;GPD_WIN_FAN_CON_MAIN.c: 134: SSPADD = 0x09;
   1646  024D  3009               	movlw	(09h)
   1647  024E  0093               	movwf	(147)^080h	;volatile
   1648                           	line	135
   1649                           	
   1650  024F                     l4419:	
-  1651                           ;GPD_WIN_FUN_CON_MAIN.c: 135: return (read_data[sel]);
+  1651                           ;GPD_WIN_FAN_CON_MAIN.c: 135: return (read_data[sel]);
   1652  024F  1283               	bcf	status, 5	;RP0=0, select bank0
   1653  0250  1303               	bcf	status, 6	;RP1=0, select bank0
   1654  0251  0820               	movf	(i2c_byte_read@sel),w
@@ -1711,7 +1711,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1682                           
   1683 ;; *************** function _i2c_byte_write *****************
   1684 ;; Defined at:
-  1685 ;;		line 91 in file "GPD_WIN_FUN_CON_MAIN.c"
+  1685 ;;		line 91 in file "GPD_WIN_FAN_CON_MAIN.c"
   1686 ;; Parameters:    Size  Location     Type
   1687 ;;  sel             2    0[BANK0 ] int 
   1688 ;;  add             1    2[BANK0 ] unsigned char 
@@ -1743,7 +1743,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1714 ;; This function uses a non-reentrant model
   1715 ;;
   1716                           psect	text387
-  1717                           	file	"GPD_WIN_FUN_CON_MAIN.c"
+  1717                           	file	"GPD_WIN_FAN_CON_MAIN.c"
   1718                           	line	91
   1719                           	global	__size_of_i2c_byte_write
   1720  0043                     	__size_of_i2c_byte_write	equ	__end_of_i2c_byte_write-_i2c_byte_write
@@ -1754,12 +1754,12 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1725                           	line	92
   1726                           	
   1727  0349                     l3953:	
-  1728                           ;GPD_WIN_FUN_CON_MAIN.c: 92: SEN = 1;
+  1728                           ;GPD_WIN_FAN_CON_MAIN.c: 92: SEN = 1;
   1729  0349  1683               	bsf	status, 5	;RP0=1, select bank1
   1730  034A  1303               	bcf	status, 6	;RP1=0, select bank1
   1731  034B  1411               	bsf	(1160/8)^080h,(1160)&7
   1732                           	line	93
-  1733                           ;GPD_WIN_FUN_CON_MAIN.c: 93: while (SEN);
+  1733                           ;GPD_WIN_FAN_CON_MAIN.c: 93: while (SEN);
   1734  034C  2B4D               	goto	l1051
   1735                           	
   1736  034D                     l1052:	
@@ -1777,21 +1777,21 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1748                           	line	94
   1749                           	
   1750  0352                     l3955:	
-  1751                           ;GPD_WIN_FUN_CON_MAIN.c: 94: i2c_Tx(add);
+  1751                           ;GPD_WIN_FAN_CON_MAIN.c: 94: i2c_Tx(add);
   1752  0352  1283               	bcf	status, 5	;RP0=0, select bank0
   1753  0353  1303               	bcf	status, 6	;RP1=0, select bank0
   1754  0354  0822               	movf	(i2c_byte_write@add),w
   1755  0355  120A  118A  23FC   	fcall	_i2c_Tx
               120A  118A         
   1756                           	line	95
-  1757                           ;GPD_WIN_FUN_CON_MAIN.c: 95: i2c_Tx(cmd);
+  1757                           ;GPD_WIN_FAN_CON_MAIN.c: 95: i2c_Tx(cmd);
   1758  035A  1283               	bcf	status, 5	;RP0=0, select bank0
   1759  035B  1303               	bcf	status, 6	;RP1=0, select bank0
   1760  035C  0823               	movf	(i2c_byte_write@cmd),w
   1761  035D  120A  118A  23FC   	fcall	_i2c_Tx
               120A  118A         
   1762                           	line	96
-  1763                           ;GPD_WIN_FUN_CON_MAIN.c: 96: i2c_Tx(date1);
+  1763                           ;GPD_WIN_FAN_CON_MAIN.c: 96: i2c_Tx(date1);
   1764  0362  1283               	bcf	status, 5	;RP0=0, select bank0
   1765  0363  1303               	bcf	status, 6	;RP1=0, select bank0
   1766  0364  0824               	movf	(i2c_byte_write@date1),w
@@ -1800,7 +1800,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1768                           	line	97
   1769                           	
   1770  036A                     l3957:	
-  1771                           ;GPD_WIN_FUN_CON_MAIN.c: 97: if (sel == 1)i2c_Tx(date2);
+  1771                           ;GPD_WIN_FAN_CON_MAIN.c: 97: if (sel == 1)i2c_Tx(date2);
   1772  036A  3001               	movlw	01h
   1773  036B  1283               	bcf	status, 5	;RP0=0, select bank0
   1774  036C  1303               	bcf	status, 6	;RP1=0, select bank0
@@ -1823,19 +1823,19 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1790                           	line	98
   1791                           	
   1792  037A                     l3961:	
-  1793                           ;GPD_WIN_FUN_CON_MAIN.c: 98: SSPIF = 0;
+  1793                           ;GPD_WIN_FAN_CON_MAIN.c: 98: SSPIF = 0;
   1794  037A  1283               	bcf	status, 5	;RP0=0, select bank0
   1795  037B  1303               	bcf	status, 6	;RP1=0, select bank0
   1796  037C  118C               	bcf	(99/8),(99)&7
   1797                           	line	99
   1798                           	
   1799  037D                     l3963:	
-  1800                           ;GPD_WIN_FUN_CON_MAIN.c: 99: PEN = 1;
+  1800                           ;GPD_WIN_FAN_CON_MAIN.c: 99: PEN = 1;
   1801  037D  1683               	bsf	status, 5	;RP0=1, select bank1
   1802  037E  1303               	bcf	status, 6	;RP1=0, select bank1
   1803  037F  1511               	bsf	(1162/8)^080h,(1162)&7
   1804                           	line	100
-  1805                           ;GPD_WIN_FUN_CON_MAIN.c: 100: while (PEN);
+  1805                           ;GPD_WIN_FAN_CON_MAIN.c: 100: while (PEN);
   1806  0380  2B81               	goto	l1055
   1807                           	
   1808  0381                     l1056:	
@@ -1853,7 +1853,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   1820                           	line	101
   1821                           	
   1822  0386                     l3965:	
-  1823                           ;GPD_WIN_FUN_CON_MAIN.c: 101: _delay((unsigned long)((27)*(4000000/4000000.0)));
+  1823                           ;GPD_WIN_FAN_CON_MAIN.c: 101: _delay((unsigned long)((27)*(4000000/4000000.0)));
   1824                           	opt asmopt_off
   1825  0386  3008               movlw	8
   1826  0387  00F5               movwf	(??_i2c_byte_write+0)+0,f
@@ -2389,7 +2389,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   2356                           
   2357 ;; *************** function _i2c_Tx *****************
   2358 ;; Defined at:
-  2359 ;;		line 84 in file "GPD_WIN_FUN_CON_MAIN.c"
+  2359 ;;		line 84 in file "GPD_WIN_FAN_CON_MAIN.c"
   2360 ;; Parameters:    Size  Location     Type
   2361 ;;  date            1    wreg     unsigned char 
   2362 ;; Auto vars:     Size  Location     Type
@@ -2418,7 +2418,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   2385 ;; This function uses a non-reentrant model
   2386 ;;
   2387                           psect	text390
-  2388                           	file	"GPD_WIN_FUN_CON_MAIN.c"
+  2388                           	file	"GPD_WIN_FAN_CON_MAIN.c"
   2389                           	line	84
   2390                           	global	__size_of_i2c_Tx
   2391  0016                     	__size_of_i2c_Tx	equ	__end_of_i2c_Tx-_i2c_Tx
@@ -2431,18 +2431,18 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   2398                           	line	85
   2399                           	
   2400  03FD                     l3685:	
-  2401                           ;GPD_WIN_FUN_CON_MAIN.c: 85: SSPIF = 0;
+  2401                           ;GPD_WIN_FAN_CON_MAIN.c: 85: SSPIF = 0;
   2402  03FD  1283               	bcf	status, 5	;RP0=0, select bank0
   2403  03FE  1303               	bcf	status, 6	;RP1=0, select bank0
   2404  03FF  118C               	bcf	(99/8),(99)&7
   2405                           	line	86
   2406                           	
   2407  0400                     l3687:	
-  2408                           ;GPD_WIN_FUN_CON_MAIN.c: 86: SSPBUF = date;
+  2408                           ;GPD_WIN_FAN_CON_MAIN.c: 86: SSPBUF = date;
   2409  0400  0874               	movf	(i2c_Tx@date),w
   2410  0401  0093               	movwf	(19)	;volatile
   2411                           	line	87
-  2412                           ;GPD_WIN_FUN_CON_MAIN.c: 87: while (BF);
+  2412                           ;GPD_WIN_FAN_CON_MAIN.c: 87: while (BF);
   2413  0402  2C03               	goto	l1042
   2414                           	
   2415  0403                     l1043:	
@@ -2460,7 +2460,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   2427                           	
   2428  040A                     l1044:	
   2429                           	line	88
-  2430                           ;GPD_WIN_FUN_CON_MAIN.c: 88: while (!SSPIF);
+  2430                           ;GPD_WIN_FAN_CON_MAIN.c: 88: while (!SSPIF);
   2431  040A  2C0B               	goto	l1045
   2432                           	
   2433  040B                     l1046:	
@@ -2493,7 +2493,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   2460                           
   2461 ;; *************** function _oscsel *****************
   2462 ;; Defined at:
-  2463 ;;		line 67 in file "GPD_WIN_FUN_CON_MAIN.c"
+  2463 ;;		line 67 in file "GPD_WIN_FAN_CON_MAIN.c"
   2464 ;; Parameters:    Size  Location     Type
   2465 ;;  sel1            2    4[COMMON] int 
   2466 ;; Auto vars:     Size  Location     Type
@@ -2521,7 +2521,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   2488 ;; This function uses a non-reentrant model
   2489 ;;
   2490                           psect	text391
-  2491                           	file	"GPD_WIN_FUN_CON_MAIN.c"
+  2491                           	file	"GPD_WIN_FAN_CON_MAIN.c"
   2492                           	line	67
   2493                           	global	__size_of_oscsel
   2494  0029                     	__size_of_oscsel	equ	__end_of_oscsel-_oscsel
@@ -2532,71 +2532,71 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   2499                           	line	68
   2500                           	
   2501  03B8                     l3667:	
-  2502                           ;GPD_WIN_FUN_CON_MAIN.c: 68: switch (sel1) {
+  2502                           ;GPD_WIN_FAN_CON_MAIN.c: 68: switch (sel1) {
   2503  03B8  2BCD               	goto	l3679
   2504                           	line	69
-  2505                           ;GPD_WIN_FUN_CON_MAIN.c: 69: case 0:
+  2505                           ;GPD_WIN_FAN_CON_MAIN.c: 69: case 0:
   2506                           	
   2507  03B9                     l1034:	
   2508                           	line	70
   2509                           	
   2510  03B9                     l3669:	
-  2511                           ;GPD_WIN_FUN_CON_MAIN.c: 70: OSCCON = 0b01100000;
+  2511                           ;GPD_WIN_FAN_CON_MAIN.c: 70: OSCCON = 0b01100000;
   2512  03B9  3060               	movlw	(060h)
   2513  03BA  1683               	bsf	status, 5	;RP0=1, select bank1
   2514  03BB  1303               	bcf	status, 6	;RP1=0, select bank1
   2515  03BC  008F               	movwf	(143)^080h	;volatile
   2516                           	line	71
-  2517                           ;GPD_WIN_FUN_CON_MAIN.c: 71: break;
+  2517                           ;GPD_WIN_FAN_CON_MAIN.c: 71: break;
   2518  03BD  2BE0               	goto	l1039
   2519                           	line	72
-  2520                           ;GPD_WIN_FUN_CON_MAIN.c: 72: case 1:
+  2520                           ;GPD_WIN_FAN_CON_MAIN.c: 72: case 1:
   2521                           	
   2522  03BE                     l1036:	
   2523                           	line	73
   2524                           	
   2525  03BE                     l3671:	
-  2526                           ;GPD_WIN_FUN_CON_MAIN.c: 73: OSCCON = 0b00000000;
+  2526                           ;GPD_WIN_FAN_CON_MAIN.c: 73: OSCCON = 0b00000000;
   2527  03BE  1683               	bsf	status, 5	;RP0=1, select bank1
   2528  03BF  1303               	bcf	status, 6	;RP1=0, select bank1
   2529  03C0  018F               	clrf	(143)^080h	;volatile
   2530                           	line	74
-  2531                           ;GPD_WIN_FUN_CON_MAIN.c: 74: break;
+  2531                           ;GPD_WIN_FAN_CON_MAIN.c: 74: break;
   2532  03C1  2BE0               	goto	l1039
   2533                           	line	75
-  2534                           ;GPD_WIN_FUN_CON_MAIN.c: 75: case 2:
+  2534                           ;GPD_WIN_FAN_CON_MAIN.c: 75: case 2:
   2535                           	
   2536  03C2                     l1037:	
   2537                           	line	76
   2538                           	
   2539  03C2                     l3673:	
-  2540                           ;GPD_WIN_FUN_CON_MAIN.c: 76: OSCCON = 0b01000000;
+  2540                           ;GPD_WIN_FAN_CON_MAIN.c: 76: OSCCON = 0b01000000;
   2541  03C2  3040               	movlw	(040h)
   2542  03C3  1683               	bsf	status, 5	;RP0=1, select bank1
   2543  03C4  1303               	bcf	status, 6	;RP1=0, select bank1
   2544  03C5  008F               	movwf	(143)^080h	;volatile
   2545                           	line	77
-  2546                           ;GPD_WIN_FUN_CON_MAIN.c: 77: break;
+  2546                           ;GPD_WIN_FAN_CON_MAIN.c: 77: break;
   2547  03C6  2BE0               	goto	l1039
   2548                           	line	78
-  2549                           ;GPD_WIN_FUN_CON_MAIN.c: 78: case 3:
+  2549                           ;GPD_WIN_FAN_CON_MAIN.c: 78: case 3:
   2550                           	
   2551  03C7                     l1038:	
   2552                           	line	79
   2553                           	
   2554  03C7                     l3675:	
-  2555                           ;GPD_WIN_FUN_CON_MAIN.c: 79: OSCCON = 0b00110000;
+  2555                           ;GPD_WIN_FAN_CON_MAIN.c: 79: OSCCON = 0b00110000;
   2556  03C7  3030               	movlw	(030h)
   2557  03C8  1683               	bsf	status, 5	;RP0=1, select bank1
   2558  03C9  1303               	bcf	status, 6	;RP1=0, select bank1
   2559  03CA  008F               	movwf	(143)^080h	;volatile
   2560                           	line	80
-  2561                           ;GPD_WIN_FUN_CON_MAIN.c: 80: break;
+  2561                           ;GPD_WIN_FAN_CON_MAIN.c: 80: break;
   2562  03CB  2BE0               	goto	l1039
   2563                           	line	81
   2564                           	
   2565  03CC                     l3677:	
-  2566                           ;GPD_WIN_FUN_CON_MAIN.c: 81: }
+  2566                           ;GPD_WIN_FAN_CON_MAIN.c: 81: }
   2567  03CC  2BE0               	goto	l1039
   2568                           	line	68
   2569                           	
@@ -2675,7 +2675,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   2641                           
   2642 ;; *************** function _InterTimer *****************
   2643 ;; Defined at:
-  2644 ;;		line 60 in file "GPD_WIN_FUN_CON_MAIN.c"
+  2644 ;;		line 60 in file "GPD_WIN_FAN_CON_MAIN.c"
   2645 ;; Parameters:    Size  Location     Type
   2646 ;;		None
   2647 ;; Auto vars:     Size  Location     Type
@@ -2702,7 +2702,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   2668 ;; This function uses a non-reentrant model
   2669 ;;
   2670                           psect	text392
-  2671                           	file	"GPD_WIN_FUN_CON_MAIN.c"
+  2671                           	file	"GPD_WIN_FAN_CON_MAIN.c"
   2672                           	line	60
   2673                           	global	__size_of_InterTimer
   2674  0013                     	__size_of_InterTimer	equ	__end_of_InterTimer-_InterTimer
@@ -2733,7 +2733,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   2699                           	line	61
   2700                           	
   2701  0412                     i1l2591:	
-  2702                           ;GPD_WIN_FUN_CON_MAIN.c: 61: if (TMR1IF == 1) {
+  2702                           ;GPD_WIN_FAN_CON_MAIN.c: 61: if (TMR1IF == 1) {
   2703  0412  1C0C               	btfss	(96/8),(96)&7
   2704  0413  2C15               	goto	u1_21
   2705  0414  2C16               	goto	u1_20
@@ -2743,13 +2743,13 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
   2709                           	line	62
   2710                           	
   2711  0416                     i1l2593:	
-  2712                           ;GPD_WIN_FUN_CON_MAIN.c: 62: TMR1ON_Flag = 0 ;
+  2712                           ;GPD_WIN_FAN_CON_MAIN.c: 62: TMR1ON_Flag = 0 ;
   2713  0416  01F8               	clrf	(_TMR1ON_Flag)
   2714  0417  01F9               	clrf	(_TMR1ON_Flag+1)
   2715                           	line	63
   2716                           	
   2717  0418                     i1l2595:	
-  2718                           ;GPD_WIN_FUN_CON_MAIN.c: 63: TMR1IF = 0 ;
+  2718                           ;GPD_WIN_FAN_CON_MAIN.c: 63: TMR1IF = 0 ;
   2719  0418  100C               	bcf	(96/8),(96)&7
   2720  0419  2C1A               	goto	i1l1030
   2721                           	line	64
@@ -2787,7 +2787,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
 
 
 HI-TECH Software PICC Macro Assembler V9.82 build 9453 
-Symbol Table                                                                                   Wed Oct 11 01:07:16 2017
+Symbol Table                                                                                   Sat Jan 12 11:04:37 2019
 
                      _BF 04A0                       _RD 0C60                       _WR 0C61  
              i2c_Tx@date 0074                      _GIE 005F                      _RA4 002C  

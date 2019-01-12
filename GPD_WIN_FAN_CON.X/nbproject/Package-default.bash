@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/GPD_WIN_FUN_CON.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=GPD_WIN_FUN_CON.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=gpdwinfuncon.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/GPD_WIN_FAN_CON.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=GPD_WIN_FAN_CON.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=gpdwinfancon.x/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/gpdwinfuncon.x/bin
+makeDirectory ${TMPDIR}/gpdwinfancon.x/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/gpdwinfuncon.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/gpdwinfancon.x.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/gpdwinfuncon.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/gpdwinfancon.x.tar *
 checkReturnCode
 
 # Cleanup

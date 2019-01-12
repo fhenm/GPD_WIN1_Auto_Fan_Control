@@ -5,7 +5,7 @@
   856h - 400Dh
   4010h - 403Fh
   
- dist/default/production\GPD_WIN_FUN_CON.X.production.hex ranges:
+ dist/default/production\GPD_WIN_FAN_CON.X.production.hex ranges:
   0h - 5h
   8h - 855h
   400Eh - 400Fh
@@ -21,7 +21,7 @@
   T = Trailing code
   & = Find & replace opcode
   X = Find & delete opcode
-  1 = dist/default/production\GPD_WIN_FUN_CON.X.production.hex
+  1 = dist/default/production\GPD_WIN_FAN_CON.X.production.hex
 00000000: 111111--11111111111111111111111111111111111111111111111111111111
 00000040: 1111111111111111111111111111111111111111111111111111111111111111
 00000080: 1111111111111111111111111111111111111111111111111111111111111111
